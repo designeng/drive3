@@ -3,7 +3,10 @@ import requestPlugin     from '../../plugins/api/request';
 import performancePlugin from '../../plugins/performance';
 import Handlebars        from 'handlebars';
 
-import { controller } from './controller';
+import blockTemplate     from '../../../public/assets/templates/post.hbs';
+import pageTemplate      from '../../../public/assets/templates/index.hbs';
+
+import { getPage } from './preprocessors';
 
 import { 
     getPostsUrl
@@ -18,41 +21,17 @@ export default {
 
     posts: {
         request: {
-            url: getPostsUrl(),
-            // params: {
-            //     count: 20
-            // },
-            // output: {
-            //     property: 'Posts'
-            // }
+            url: getPostsUrl()
         }
     },
 
-    // newsBlockTemplate: {
-    //     request: {
-    //         url: getNewsBlockTemplateUrl(),
-    //         output: {
-    //             transform: Handlebars.compile
-    //         }
-    //     }
-    // },
-
-    // pageTemplate: {
-    //     request: {
-    //         url: getPageTemplateUrl(),
-    //         output: {
-    //             transform: Handlebars.compile
-    //         }
-    //     }
-    // },
-
     page: {
         create: {
-            module: controller,
+            module: getPage,
             args: [
                 {$ref: 'posts'},
-                // {$ref: 'newsBlockTemplate'},
-                // {$ref: 'pageTemplate'}
+                blockTemplate,
+                pageTemplate
             ]
         }
     }
