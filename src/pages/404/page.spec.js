@@ -4,10 +4,6 @@ import performancePlugin from '../../plugins/performance';
 import Handlebars        from 'handlebars';
 import _                 from 'underscore';
 
-import { 
-    getPageTemplateUrl
-} from '../../api/config';
-
 export default {
     $plugins: [
         wireDebugPlugin,
@@ -15,24 +11,26 @@ export default {
         performancePlugin
     ],
 
-    pageTemplate: {
-        request: {
-            url: getPageTemplateUrl(),
-            output: {
-                transform: Handlebars.compile
-            }
-        }
-    },
+    // pageTemplate: {
+    //     request: {
+    //         url: getPageTemplateUrl(),
+    //         output: {
+    //             transform: Handlebars.compile
+    //         }
+    //     }
+    // },
 
-    page: {
-        create: {
-            module: (page, url) => {
-                return page({ items:  'Страница ' + url + ' не найдена'});
-            },
-            args: [
-                {$ref: 'pageTemplate'},
-                {$ref: 'requestUrl'}
-            ]
-        }
-    }
+    // page: {
+    //     create: {
+    //         module: (page, url) => {
+    //             return page({ items:  'Страница ' + url + ' не найдена'});
+    //         },
+    //         args: [
+    //             {$ref: 'pageTemplate'},
+    //             {$ref: 'requestUrl'}
+    //         ]
+    //     }
+    // }
+
+    page: "ERROR PAGE....."
 }

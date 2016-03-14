@@ -13,13 +13,14 @@ function routeMiddleware(resolver, facet, wire) {
                 let wireHandler = route.wireHandler;
                 let environment = {};
 
-                if(route.url === '/404error') {
-                    const { query } = url.parse(req.url, true);
-                    _.extend(environment, { requestUrl: query.url });
-                }
+                // if(route.url === '/404error') {
+                //     const { query } = url.parse(req.url, true);
+                //     _.extend(environment, { requestUrl: query.url });
+                // }
 
                 wireHandler(environment).then(
                     (context) => {
+                        console.log("RESULT:::::", context);
                         res.status(200).end(context.page)
                     },
                     (error) => res.status(500).end(error)
@@ -35,7 +36,8 @@ function routeNotFoundMiddleware(resolver, facet, wire) {
     const target = facet.target;
 
     target.get("/*", function (req, res) {
-        res.redirect('/404error?url=' + req.url);
+        res.status(404).end("NOT FOUND::: ", req.url);
+        // res.redirect('/404error?url=' + req.url);
     });
 
     resolver.resolve(target);
@@ -64,7 +66,7 @@ export default function routeMiddlewarePlugin(options) {
             },
             cssAssets: {
                 'initialize:after': cssAssets
-            }
+            },
         }
     }
 }

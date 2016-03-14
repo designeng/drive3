@@ -1,24 +1,15 @@
 const config = {
-    protocol: 'https',
-    host: 'dev.drive.ru',
-    baseDir: 'api',
-    version: 'v1'
+    protocol: 'http',
+    host: 'api-test.d3-x.net'
 }
 
 function getBaseUrl() {
-    return config.protocol + '://' + config.host + '/' + config.baseDir + '/' + config.version
+    return config.protocol + '://' + config.host
 }
 
 export default config;
 
-export function getNewsUrl() {
-    return getBaseUrl() + '/items/news';
-}
-
-export function getPageTemplateUrl() {
-    return getBaseUrl() + '/static/pages/carcass';
-}
-
-export function getNewsBlockTemplateUrl() {
-    return getBaseUrl() + '/static/blocks/news_item';
+export function getPostsUrl() {
+    // return getBaseUrl() + '/posts';
+    return 'http://api-test.d3-x.net/posts';
 }

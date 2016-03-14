@@ -4,10 +4,14 @@ import _ from 'underscore';
 function resolve(resolver, options, response) {
     let output = options.output;
 
+    resolver.resolve(response);
+    return;
+
     let property = output.property || 'data'
     if(!_.isString(property)) {
         throw new Error('[requestPlugin:] Property should be a string.');
     }
+
     response = response[property];
 
     if(output.skip) {
@@ -41,7 +45,10 @@ function request(resolver, compDef, wire) {
     .then(response => {
         resolve(resolver, compDef.options, response)
     })
-    .catch(error => resolver.reject(error));
+    .catch(error => {
+        console.log("REQUEST PLUGIN ERROR:::", error);
+        resolver.reject(error)
+    });
 }
 
 export default function requestPlugin(options) {

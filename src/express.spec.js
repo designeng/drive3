@@ -4,8 +4,8 @@ import expressRoutingMiddlewarePlugin from './plugins/express/routing';
 import deferWire            from './decorators/deferWire';
 
 // pages
-import demoPageSpec from './pages/demo/page.spec';
-import notFoundSpec from './pages/404/page.spec';
+import postsPageSpec from './pages/posts/page.spec';
+import notFoundSpec  from './pages/404/page.spec';
 
 export default {
     $plugins: [
@@ -14,8 +14,8 @@ export default {
         expressRoutingMiddlewarePlugin
     ],
 
-    @deferWire({spec: demoPageSpec})
-    demoPage: {},
+    @deferWire({spec: postsPageSpec})
+    postsPage: {},
 
     @deferWire({spec: notFoundSpec})
     notFoundPage: {},
@@ -25,13 +25,13 @@ export default {
         routeMiddleware: {
             routes: [
                 {   
-                    url: '/demo', 
-                    wireHandler: {$ref: 'demoPage'}
+                    url: '/posts', 
+                    wireHandler: {$ref: 'postsPage'}
                 },
-                {   
-                    url: '/404error', 
-                    wireHandler: {$ref: 'notFoundPage'}
-                }
+                // {   
+                //     url: '/404error', 
+                //     wireHandler: {$ref: 'notFoundPage'}
+                // }
             ]
         },
         static: {
@@ -42,7 +42,7 @@ export default {
         },
         routeNotFoundMiddleware: {},
         server: {
-            port            : process.env.PORT || 3000,
+            port            : process.env.PORT || 3001,
             verbose         : true
         }
     }
