@@ -34,11 +34,12 @@ export default {
                 // }
             ]
         },
-        static: {
-            dir: './public'
-        },
         cssAssets: {
             main: './public/assets/global.css'
+        },
+        favicon: true,
+        static: {
+            dir: './public'
         },
         routeNotFoundMiddleware: {},
         server: {

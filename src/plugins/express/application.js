@@ -1,4 +1,5 @@
 import express from 'express';
+import favicon from 'serve-favicon';
 
 // facets
 function startExpressServerFacet(resolver, facet, wire) {
@@ -22,6 +23,12 @@ function staticFacet(resolver, facet, wire) {
     resolver.resolve(target);
 }
 
+function faviconFacet(resolver, facet, wire) {
+    let target = facet.target;
+    target.use(favicon(__dirname + '../../../../public/favicon.ico'));
+    resolver.resolve(target);
+}
+
 // factories
 function expressApplication(resolver, compDef, wire) {
     if (!compDef.options) {
@@ -39,6 +46,9 @@ export default function ExpressAppPlugin(options) {
         facets: {
             static: {
                 initialize: staticFacet
+            },
+            favicon: {
+                initialize: faviconFacet
             },
             server: {
                 ready: startExpressServerFacet

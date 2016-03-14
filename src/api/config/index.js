@@ -10,6 +10,9 @@ function getBaseUrl() {
 export default config;
 
 export function getPostsUrl() {
-    // return getBaseUrl() + '/posts';
-    return 'http://api-test.d3-x.net/posts';
+    return getBaseUrl() + '/posts';
+}
+
+export function getChannelsUrl() {
+    return getBaseUrl() + '/channels';
 }
