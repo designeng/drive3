@@ -22,7 +22,8 @@ export default {
     posts: {
         request: {
             url: getPostsUrl()
-        }
+        },
+        
     },
 
     page: {
