@@ -6,7 +6,7 @@ import Handlebars        from 'handlebars';
 import blockTemplate     from '../../../public/assets/templates/post.hbs';
 import pageTemplate      from '../../../public/assets/templates/index.hbs';
 
-import { getPage } from './preprocessors';
+import { getPage, preprocessPosts } from './preprocessors';
 
 import { 
     getPostsUrl

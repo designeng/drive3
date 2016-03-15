@@ -9,19 +9,30 @@
 
         <div class="post-avatar"><img src="/assets/images/default-avatar-120x120.png"></div>
         <div class="post-author"></div>
-        <div class="post-timestamp" title="March 14th 2016, 4:51:02 pm">
 
-        <span class="js-link" onclick="">{{ CreatedOn }}</span>
-
+        <div class="post-timestamp" title="{{ CreatedOn }}">
+            <span class="js-link" onclick="">{{ CreatedAgo }}</span>
         </div>
 
         <div class="post-title">
-        <span class="js-link" onclick="">{{ Title }}</span>
+            <span class="js-link" onclick="">TITLE::: {{ Title }}</span>
         </div>
 
         <div class="post-content post-content-link js-link" onclick="">{{ Content }}</div>
 
-        <div class="post-images-video">
-            <iframe class="post-video" width="100%" height="100%" src="{{ VideoUrl }}" frameborder="0" allowfullscreen=""></iframe>
-        </div>
+        {{#if @VideoUrl}}
+            <div class="post-images-video">
+                <iframe class="post-video" width="100%" height="100%" src="{{ VideoUrl }}" frameborder="0" allowfullscreen=""></iframe>
+            </div>
+        {{/if}}
+
+        {{#if @Images}}
+            <div class="post-images-container">
+                <div class="post-images post-images-num{{ imagesCount }}">
+                    <div class="post-images-item"></div>
+                </div>
+            </div>
+        {{/if}}
+
+
 </div>
