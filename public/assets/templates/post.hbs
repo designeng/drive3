@@ -20,16 +20,24 @@
 
         <div class="post-content post-content-link js-link" onclick="">{{ Content }}</div>
 
-        {{#if @VideoUrl}}
+        {{#if VideoUrl}}
             <div class="post-images-video">
                 <iframe class="post-video" width="100%" height="100%" src="{{ VideoUrl }}" frameborder="0" allowfullscreen=""></iframe>
             </div>
         {{/if}}
 
-        {{#if @Images}}
+        {{#if Images}}
             <div class="post-images-container">
                 <div class="post-images post-images-num{{ imagesCount }}">
-                    <div class="post-images-item"></div>
+                    {{#each Images}}
+                    <div class="post-images-item">
+                        <span>
+                            <a class="zoompic" href="{{ this.[1].Url }}" style="background-image:url({{ this.[0].Url }})" data-zoominited="">
+                                <img src="{{ this.[2].Url }}">
+                            </a>
+                        </span>
+                    </div>
+                    {{/each}}
                 </div>
             </div>
         {{/if}}
