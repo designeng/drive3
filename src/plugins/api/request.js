@@ -1,29 +1,6 @@
 import axios from 'axios';
 import _ from 'underscore';
 
-function resolve(resolver, options, response) {
-    let output = options.output;
-
-    resolver.resolve(response);
-    return;
-
-    let property = output.property || 'data'
-    if(!_.isString(property)) {
-        throw new Error('[requestPlugin:] Property should be a string.');
-    }
-
-    response = response[property];
-
-    if(output.skip) {
-        response = _.filter(response, (item, index) => {
-            return output.skip.indexOf(index) == -1;
-        })
-    }
-
-    response = output && output.transform ? output.transform(response) : response;
-    resolver.resolve(response);
-}
-
 function request(resolver, compDef, wire) {
     let url = compDef.options.url;
     let params = compDef.options.params;
@@ -43,7 +20,7 @@ function request(resolver, compDef, wire) {
         params
     })
     .then(response => {
-        resolve(resolver, compDef.options, response)
+        resolver.resolve(response)
     })
     .catch(error => {
         console.log("REQUEST PLUGIN ERROR:::", error);

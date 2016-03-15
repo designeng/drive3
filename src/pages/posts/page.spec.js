@@ -6,7 +6,7 @@ import Handlebars        from 'handlebars';
 import blockTemplate     from '../../../public/assets/templates/post.hbs';
 import pageTemplate      from '../../../public/assets/templates/index.hbs';
 
-import { getPage, preprocessPosts } from './preprocessors';
+import { getPage, transformPosts } from './preprocessors';
 
 import { 
     getPostsUrl
@@ -21,16 +21,24 @@ export default {
 
     posts: {
         request: {
-            url: getPostsUrl()
-        },
-        
+            url: getPostsUrl(),
+        }
+    },
+
+    transformPosts: {
+        create: {
+            module: transformPosts,
+            args: [
+                {$ref: 'posts'}
+            ]
+        }
     },
 
     page: {
         create: {
             module: getPage,
             args: [
-                {$ref: 'posts'},
+                {$ref: 'transformPosts'},
                 blockTemplate,
                 pageTemplate
             ]
