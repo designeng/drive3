@@ -5,8 +5,9 @@ moment.locale('ru');
 export function preprocessPosts(items) {
     return _.map(items, (item) => {
         return _.extend({}, item, {
-            CreatedAgo: moment(item.CreatedOn).fromNow(),
-            imagesCount: item.Images.length
+            CreatedAgo  : moment(item.CreatedOn).fromNow(),
+            CreatedOn   : moment(item.CreatedOn).format('MM-DD-YYYY'),
+            imagesCount : item.Images.length
         });
     });
 }
