@@ -17,7 +17,8 @@ export function transformPosts(postsData, channels) {
             CreatedAgo  : moment(item.CreatedOn).fromNow(),
             CreatedOn   : moment(item.CreatedOn).format('MM-DD-YYYY'),
             ImagesCount : item.Images.length,
-            ChannelNames: getChannelNames(item.ChannelIds, channels)
+            ChannelNames: getChannelNames(item.ChannelIds, channels),
+            VideoUrl    : item.VideoUrl ? item.VideoUrl.replace("watch?v=", "v/") : void 0
         });
     });
 }
