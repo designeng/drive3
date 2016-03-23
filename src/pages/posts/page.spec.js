@@ -3,7 +3,7 @@ import requestPlugin     from '../../plugins/api/request';
 import performancePlugin from '../../plugins/performance';
 import Handlebars        from 'handlebars';
 
-import blockTemplate     from '../../templates/post.hbs';
+import blockTemplate     from '../../templates/build/post';
 
 import { getBody, transformPosts } from './preprocessors';
 

@@ -1,7 +1,7 @@
 import wireDebugPlugin   from 'essential-wire/source/debug';
 import requestPlugin     from '../../plugins/api/request';
 
-import pageTemplate      from '../../templates/index.hbs';
+import pageTemplate      from '../../templates/build/page';
 
 import { getEndpoint }   from '../../config/api';
 
