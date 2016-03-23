@@ -13,15 +13,11 @@ export function getChannelNames(ids, channels) {
 export function transformPosts(postsData, channels) {
     const items = postsData.Posts;
     return _.map(items, (item) => {
-        let _channelNames = getChannelNames(item.ChannelIds, channels);
-
-        console.log("_channelNames::::", _channelNames);
-
         return _.extend({}, item, {
             CreatedAgo  : moment(item.CreatedOn).fromNow(),
             CreatedOn   : moment(item.CreatedOn).format('MM-DD-YYYY'),
             imagesCount : item.Images.length,
-            ChannelNames: _channelNames
+            ChannelNames: getChannelNames(item.ChannelIds, channels)
         });
     });
 }
