@@ -25,7 +25,8 @@ function staticFacet(resolver, facet, wire) {
 
 function faviconFacet(resolver, facet, wire) {
     let target = facet.target;
-    target.use(favicon(__dirname + '../../../../public/favicon.ico'));
+    let path = facet.options.path
+    target.use(favicon(path));
     resolver.resolve(target);
 }
 

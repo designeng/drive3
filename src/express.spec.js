@@ -28,16 +28,18 @@ export default {
                     url: '/posts', 
                     wireHandler: {$ref: 'postsPage'}
                 },
-                // {   
-                //     url: '/404error', 
-                //     wireHandler: {$ref: 'notFoundPage'}
-                // }
+                {   
+                    url: '/404error', 
+                    wireHandler: {$ref: 'notFoundPage'}
+                }
             ]
         },
         cssAssets: {
             main: './public/assets/global.css'
         },
-        favicon: true,
+        favicon: {
+            path: './public/favicon.ico'
+        },
         static: {
             dir: './public'
         },

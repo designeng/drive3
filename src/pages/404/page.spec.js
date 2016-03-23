@@ -4,6 +4,8 @@ import performancePlugin from '../../plugins/performance';
 import Handlebars        from 'handlebars';
 import _                 from 'underscore';
 
+import pageTemplate      from '../../../public/assets/templates/index.hbs';
+
 export default {
     $plugins: [
         wireDebugPlugin,
@@ -11,26 +13,15 @@ export default {
         performancePlugin
     ],
 
-    // pageTemplate: {
-    //     request: {
-    //         url: getPageTemplateUrl(),
-    //         output: {
-    //             transform: Handlebars.compile
-    //         }
-    //     }
-    // },
-
-    // page: {
-    //     create: {
-    //         module: (page, url) => {
-    //             return page({ items:  'Страница ' + url + ' не найдена'});
-    //         },
-    //         args: [
-    //             {$ref: 'pageTemplate'},
-    //             {$ref: 'requestUrl'}
-    //         ]
-    //     }
-    // }
-
-    page: "ERROR PAGE....."
+    page: {
+        create: {
+            module: (page, url) => {
+                return page({ items:  'Страница ' + url + ' не найдена'});
+            },
+            args: [
+                pageTemplate,
+                {$ref: 'requestUrl'}
+            ]
+        }
+    }
 }
