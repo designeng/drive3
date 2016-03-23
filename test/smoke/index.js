@@ -20,5 +20,6 @@ const tasks = [bootstrapTask, pageTask];
 
 pipeline(tasks).then(context => {
     expect(context).to.be.ok;
+    console.log(chalk.green(context));
     console.log(chalk.green("Tests passed"));
 }).otherwise(error => console.error(chalk.red("ERROR:::"), chalk.blue(error)));
