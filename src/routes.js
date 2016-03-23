@@ -4,6 +4,10 @@ const routes = [
       {
             url: '/',
             routeSpec: featuredPageSpec
+      },
+      {
+            url: '/main',
+            routeSpec: featuredPageSpec
       }
 ]
 
