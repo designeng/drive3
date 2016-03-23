@@ -16,7 +16,7 @@ export function transformPosts(postsData, channels) {
         return _.extend({}, item, {
             CreatedAgo  : moment(item.CreatedOn).fromNow(),
             CreatedOn   : moment(item.CreatedOn).format('MM-DD-YYYY'),
-            imagesCount : item.Images.length,
+            ImagesCount : item.Images.length,
             ChannelNames: getChannelNames(item.ChannelIds, channels)
         });
     });
