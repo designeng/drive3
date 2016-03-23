@@ -1,8 +1,8 @@
 import wireDebugPlugin   from 'essential-wire/source/debug';
 import requestPlugin     from '../../plugins/api/request';
 
-import pageTemplate      from '../../templates/build/page';
 import channelsMenu      from './channelsMenu';
+import getCarcassFn      from './getCarcassFn';
 
 import { getEndpoint }   from '../../config/api';
 
@@ -27,5 +27,12 @@ export default {
         }
     },
 
-    pageTemplate: pageTemplate,
+    getCarcassFn: {
+        create: {
+            module: getCarcassFn,
+            args: [
+                {$ref: 'channelsMenu'},
+            ]
+        }
+    },
 }

@@ -13,11 +13,13 @@ export function transformPosts(response) {
     });
 }
 
-export function getBody(items, block, page) {
+export function getBody(items, block, getCarcassFn) {
+
+    const pageHtml = getCarcassFn(_.reduce(items, (result, item, index) => {
+        return result += block(item);
+    }, ''));
+
     return {
-        html: page({ content:  _.reduce(items, (result, item, index) => {
-            result = result + block(item);
-            return result;
-        }, '') })
+        html: pageHtml
     }
 }

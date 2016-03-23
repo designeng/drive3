@@ -34,7 +34,7 @@ export default {
             args: [
                 {$ref: 'transformPosts'},
                 blockTemplate,
-                {$ref: 'pageTemplate'},
+                {$ref: 'getCarcassFn'},
             ]
         }
     }
