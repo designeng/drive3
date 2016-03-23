@@ -55,6 +55,18 @@ function routeNotFoundMiddleware(resolver, facet, wire) {
     resolver.resolve(target);
 }
 
+function clientTestMiddleware(resolver, facet, wire) {
+    const target = facet.target;
+    const entryHtml = facet.options.entryHtml;
+
+    target.get("/test", function (req, res) {
+        let result = fs.readFileSync(entryHtml);
+        res.status(200).end(result);
+    });
+
+    resolver.resolve(target);
+}
+
 function cssAssets(resolver, facet, wire) {
     const target = facet.target;
     const main = facet.options.main;
@@ -72,6 +84,9 @@ export default function routeMiddlewarePlugin(options) {
         facets: {
             routeMiddleware: {
                 'initialize:before': routeMiddleware
+            },
+            clientTestMiddleware: {
+                'initialize:before': clientTestMiddleware
             },
             routeNotFoundMiddleware: {
                 'initialize:after': routeNotFoundMiddleware

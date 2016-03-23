@@ -1,20 +1,30 @@
 import wireDebugPlugin      from 'essential-wire/source/debug';
 import expressAppPlugin     from './plugins/express/application';
 import expressRoutingMiddlewarePlugin from './plugins/express/routing';
+import webpackMiddlewarePlugin        from './plugins/express/webpack/middleware';
 
 import routes from './routes';
+
+import webpackConfig from '../webpack.config';
 
 export default {
     $plugins: [
         wireDebugPlugin,
         expressAppPlugin,
-        expressRoutingMiddlewarePlugin
+        expressRoutingMiddlewarePlugin,
+        webpackMiddlewarePlugin
     ],
 
     app: {
         expressApplication: true,
+        webpackMiddleware: {
+            webpackConfig: webpackConfig
+        },
         routeMiddleware: {
             routes: routes
+        },
+        clientTestMiddleware: {
+            entryHtml: './public/index.html'
         },
         cssAssets: {
             main: './public/assets/global.css'

@@ -58,6 +58,8 @@
     "phantomjs": "^1.9.19",
     "phantomjs-polyfill": "0.0.1",
     "rimraf": "^2.5.1",
-    "webpack": "^1.12.13"
+    "webpack": "^1.12.13",
+    "webpack-dev-middleware": "^1.5.1",
+    "webpack-hot-middleware": "^2.10.0"
   }
 }
