@@ -20,6 +20,11 @@ const tasks = [bootstrapTask, pageTask];
 
 pipeline(tasks).then(context => {
     expect(context).to.be.ok;
-    console.log(chalk.green(context));
+
+    for(let key in context.channelsRequest) {
+        console.log(chalk.green(key, context.channelsRequest[key]));
+    }
+
+    console.log(chalk.green("context.channelsMenu", context.channelsMenu));
     console.log(chalk.green("Tests passed"));
 }).otherwise(error => console.error(chalk.red("ERROR:::"), chalk.blue(error)));
