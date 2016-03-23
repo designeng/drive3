@@ -1,6 +1,5 @@
 import wireDebugPlugin    from 'essential-wire/source/debug';
 import requestPlugin      from '../../plugins/api/request';
-import objectEntityPlugin from '../../plugins/entity/object';
 
 import channelsMenu      from './channelsMenu';
 import getCarcassFn      from './getCarcassFn';
@@ -10,8 +9,7 @@ import { getEndpoint }   from '../../config/api';
 export default {
     $plugins: [
         // wireDebugPlugin,
-        requestPlugin,
-        objectEntityPlugin
+        requestPlugin
     ],
 
     channelsRequest: {
@@ -20,12 +18,7 @@ export default {
         }
     },
 
-    channels: {
-        takeValue: {
-            withKey: 'Channels',
-            byObject: {$ref: 'channelsRequest'}
-        }
-    },
+    channels: {$ref: 'channelsRequest.Channels'},
 
     channelsMenu: {
         create: {
