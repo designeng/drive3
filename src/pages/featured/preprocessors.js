@@ -4,7 +4,7 @@ moment.locale('ru');
 
 import post from '../../templates/build/post';
 
-export function getChannelNames(ids, channels) {
+function getChannelNames(ids, channels) {
     return _.map(ids, (Id) => {
         return _.find(channels, { Id })
     })
