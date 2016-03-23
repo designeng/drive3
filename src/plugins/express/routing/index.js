@@ -60,8 +60,20 @@ function clientTestMiddleware(resolver, facet, wire) {
     const entryHtml = facet.options.entryHtml;
 
     target.get("/test", function (req, res) {
-        let result = fs.readFileSync(entryHtml);
-        res.status(200).end(result);
+        res.status(200).end(fs.readFileSync(entryHtml));
+    });
+
+    resolver.resolve(target);
+}
+
+function mockApiMiddleware(resolver, facet, wire) {
+    const target = facet.target;
+    const routes = facet.options.routes;
+
+    routes.forEach(route => {
+        target.get(route.url, function (req, res) {
+            res.status(200).end(fs.readFileSync(route.response));
+        });
     });
 
     resolver.resolve(target);
@@ -87,6 +99,9 @@ export default function routeMiddlewarePlugin(options) {
             },
             clientTestMiddleware: {
                 'initialize:before': clientTestMiddleware
+            },
+            mockApiMiddleware: {
+                'initialize:before': mockApiMiddleware
             },
             routeNotFoundMiddleware: {
                 'initialize:after': routeNotFoundMiddleware

@@ -26,6 +26,12 @@ export default {
         clientTestMiddleware: {
             entryHtml: './public/index.html'
         },
+        mockApiMiddleware: {
+            routes: [
+                {url: '/mock/channels', response: './src/client/mock/channels.json'},
+                {url: '/mock/posts',    response: './src/client/mock/posts.json'}
+            ]
+        },
         cssAssets: {
             main: './public/assets/global.css'
         },

@@ -2,14 +2,20 @@ import $ from 'jquery';
 import wire from 'essential-wire';
 import pipeline from 'when/pipeline';
 
+import bootstrapSpec from '../../pages/bootstrap/bootstrap.spec';
 import routeSpec from '../../pages/featured/page.spec';
 
 const run = (pageSpec) => {
-    var routeTask = function(context) {
-        return context? context.wire(pageSpec) : wire(pageSpec)
+    
+    const bootstrapTask = (context) => {
+        return context ? context.wire(bootstrapSpec) : wire(bootstrapSpec);
     }
 
-    let tasks = [routeTask];
+    const pageTask = (context) => {
+        return context.wire(featuredPageSpec);
+    }
+
+    const tasks = [bootstrapTask, pageTask];
 
     pipeline(tasks).then(
         (context) => {

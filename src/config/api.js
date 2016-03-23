@@ -4,8 +4,11 @@ const config = {
 }
 
 const endpoints = {
+    channels   : "/channels",
     posts      : "/posts",
-    channels   : "/channels"
+
+    mockChannels    : "/mock/channels",
+    mockPosts       : "/mock/posts",
 }
 
 function getBaseUrl() {
