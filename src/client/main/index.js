@@ -6,7 +6,7 @@ import bootstrapSpec from '../../pages/bootstrap/bootstrap.spec';
 import featuredPageSpec from '../../pages/featured/page.spec';
 
 const run = (pageSpec) => {
-    
+
     const bootstrapTask = (context) => {
         return context ? context.wire(bootstrapSpec) : wire(bootstrapSpec);
     }
@@ -20,7 +20,8 @@ const run = (pageSpec) => {
     pipeline(tasks).then(
         (context) => {
             console.log("CONTEXT::::::", context);
-            $('body').html(context.body);
+            $('body').html(context.body.html);
+            // document.write(context.body.html)
         },
         (error) => {
             console.error("ERROR:::::", error);
