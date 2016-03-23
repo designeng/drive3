@@ -1,31 +1,43 @@
 import fs from 'fs';
 import _  from 'underscore';
 import url from 'url';
+import chalk from 'chalk';
+import pipeline from 'when/pipeline';
+import rootWire from 'essential-wire';
+
+import { bootstrapTask, getRouteTask } from '../../../utils/tasks/specTasks';
 
 function routeMiddleware(resolver, facet, wire) {
     const target = facet.target;
 
-    wire(facet.options).then(options => {
-        const routes = options.routes;
+    const routes = facet.options.routes;
 
-        routes.forEach(route => {
-            target.get(route.url, function (req, res) {
-                let wireHandler = route.wireHandler;
-                let environment = {};
+    routes.forEach(route => {
+        target.get(route.url, function (req, res) {
+            let routeSpec = route.routeSpec;
+            let environment = {};
 
-                // if(route.url === '/404error') {
-                //     const { query } = url.parse(req.url, true);
-                //     _.extend(environment, { requestUrl: query.url });
-                // }
+            let tasks = [bootstrapTask, getRouteTask(routeSpec)];
 
-                wireHandler(environment).then(
-                    (context) => {
-                        console.log("RESULT:::::", context);
-                        res.status(200).end(context.page)
-                    },
-                    (error) => res.status(500).end(error)
-                );
-            });
+            // TODO: unshift task with environment spec wiring
+            if(route.url === '/404error') {
+                const requestUrlTask = () => {
+                    const { query } = url.parse(req.url, true);
+                    return rootWire(_.extend(environment, { requestUrl: query.url }));
+                }
+                tasks.unshift(requestUrlTask);
+            }
+
+            pipeline(tasks).then(
+                (context) => {
+                    console.log(chalk.green("context:::::", JSON.stringify(context.body)));
+                    res.status(200).end(context.body.html);
+                },
+                (error) => {
+                    console.log(chalk.red("error:::::", error));
+                    res.status(500).end(error)
+                }
+            );
         });
 
         resolver.resolve(target);
@@ -36,8 +48,8 @@ function routeNotFoundMiddleware(resolver, facet, wire) {
     const target = facet.target;
 
     target.get("/*", function (req, res) {
-        res.status(404).end("NOT FOUND::: ", req.url);
-        // res.redirect('/404error?url=' + req.url);
+        console.log(chalk.red("NOT FOUND:::", req.url));
+        res.redirect('/404error?url=' + req.url);
     });
 
     resolver.resolve(target);
@@ -66,7 +78,7 @@ export default function routeMiddlewarePlugin(options) {
             },
             cssAssets: {
                 'initialize:after': cssAssets
-            },
+            }
         }
     }
 }
