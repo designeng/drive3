@@ -1,5 +1,7 @@
-import wireDebugPlugin      from 'essential-wire/source/debug';
-import requestPlugin        from '../../plugins/api/request';
+import wireDebugPlugin   from 'essential-wire/source/debug';
+import requestPlugin     from '../../plugins/api/request';
+
+import pageTemplate      from '../../templates/index.hbs';
 
 import { getEndpoint }   from '../../config/api';
 
@@ -14,6 +16,8 @@ export default {
             endpoint: getEndpoint('channels'),
         }
     },
+
+    pageTemplate: pageTemplate,
 
     // createChannelsMenu: {
     //     create: {

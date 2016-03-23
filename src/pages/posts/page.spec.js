@@ -3,10 +3,9 @@ import requestPlugin     from '../../plugins/api/request';
 import performancePlugin from '../../plugins/performance';
 import Handlebars        from 'handlebars';
 
-import blockTemplate     from '../../../public/assets/templates/post.hbs';
-import pageTemplate      from '../../../public/assets/templates/index.hbs';
+import blockTemplate     from '../../templates/post.hbs';
 
-import { getPage, transformPosts } from './preprocessors';
+import { getBody, transformPosts } from './preprocessors';
 
 import { getEndpoint } from '../../config/api';
 
@@ -32,9 +31,9 @@ export default {
         }
     },
 
-    page: {
+    body: {
         create: {
-            module: getPage,
+            module: getBody,
             args: [
                 {$ref: 'transformPosts'},
                 blockTemplate,

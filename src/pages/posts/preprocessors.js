@@ -13,7 +13,7 @@ export function transformPosts(response) {
     });
 }
 
-export function getPage(items, block, page) {
+export function getBody(items, block, page) {
     return page({ content:  _.reduce(items, (result, item, index) => {
         result = result + block(item);
         return result;
