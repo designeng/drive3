@@ -2,12 +2,14 @@ import wireDebugPlugin   from 'essential-wire/source/debug';
 import requestPlugin     from '../../plugins/api/request';
 
 import pageTemplate      from '../../templates/build/page';
+import channelsMenuTemplate from '../../templates/build/channelsMenu';
+import channelsMenu      from './channelsMenu';
 
 import { getEndpoint }   from '../../config/api';
 
 export default {
     $plugins: [
-        wireDebugPlugin,
+        // wireDebugPlugin,
         requestPlugin,
     ],
 
@@ -17,14 +19,15 @@ export default {
         }
     },
 
-    pageTemplate: pageTemplate,
+    channelsMenu: {
+        create: {
+            module: channelsMenu,
+            args: [
+                {$ref: 'channelsRequest'},
+                {$ref: 'channelsMenuTemplate'},
+            ]
+        }
+    },
 
-    // createChannelsMenu: {
-    //     create: {
-    //         module: '.....,
-    //         args: [
-    //             {$ref: 'channelsRequest'},
-    //         ]
-    //     }
-    // }
+    pageTemplate: pageTemplate,
 }

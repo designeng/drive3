@@ -5,18 +5,20 @@ import { expect }   from 'chai';
 import cheerio      from 'cheerio';
 import chalk        from 'chalk';
 
-import demoPageSpec from '../../src/pages/demo/page.spec';
+import bootstrapSpec    from '../../src/pages/bootstrap/bootstrap.spec';
+import featuredPageSpec from '../../src/pages/featured/page.spec';
 
-const smokeTask = () => {
-    return wire(demoPageSpec);
+const bootstrapTask = (context) => {
+    return context ? context.wire(bootstrapSpec) : wire(bootstrapSpec);
 }
 
-pipeline([smokeTask]).then(context => {
-    let $ = cheerio.load(context.page);
-    let collection = $('.nncard');
-    expect(collection.length).to.equal(8);
- 
-    let caption = $('#56e2742cec05c4250e000882').find('h4').text();
-    let str = 'Новая Impreza';
-    expect(caption.slice(0, str.length)).to.equal(str);
+const pageTask = (context) => {
+    return context.wire(featuredPageSpec);
+}
+
+const tasks = [bootstrapTask, pageTask];
+
+pipeline(tasks).then(context => {
+    expect(context).to.be.ok;
+    console.log(chalk.green("Tests passed"));
 }).otherwise(error => console.error(chalk.red("ERROR:::"), chalk.blue(error)));
