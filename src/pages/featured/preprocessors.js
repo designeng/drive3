@@ -2,6 +2,8 @@ import _ from 'underscore';
 import moment from 'moment';
 moment.locale('ru');
 
+import blockTemplate from '../../templates/build/post';
+
 export function transformPosts(response) {
     const items = response.Posts;
     return _.map(items, (item) => {
@@ -13,10 +15,10 @@ export function transformPosts(response) {
     });
 }
 
-export function getBody(items, block, getCarcassFn) {
+export function getBody(items, getCarcassFn) {
 
     const pageHtml = getCarcassFn(_.reduce(items, (result, item, index) => {
-        return result += block(item);
+        return result += blockTemplate(item);
     }, ''));
 
     return {
