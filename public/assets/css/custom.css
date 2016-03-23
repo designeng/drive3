@@ -1,5 +1,20 @@
 .content {
-    padding-left: 300px;
-    padding-top: 71px;
-    padding-right: 20px;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.post {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.post-delimiter {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.post-content {
+    text-align: justify;
 }
