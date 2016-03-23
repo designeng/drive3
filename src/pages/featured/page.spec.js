@@ -13,7 +13,7 @@ export default {
 
     posts: {
         request: {
-            endpoint: getEndpoint('posts'),
+            endpoint: getEndpoint('mockPosts'),
         }
     },
 

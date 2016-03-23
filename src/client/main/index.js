@@ -3,7 +3,7 @@ import wire from 'essential-wire';
 import pipeline from 'when/pipeline';
 
 import bootstrapSpec from '../../pages/bootstrap/bootstrap.spec';
-import routeSpec from '../../pages/featured/page.spec';
+import featuredPageSpec from '../../pages/featured/page.spec';
 
 const run = (pageSpec) => {
     
@@ -12,7 +12,7 @@ const run = (pageSpec) => {
     }
 
     const pageTask = (context) => {
-        return context.wire(featuredPageSpec);
+        return context.wire(pageSpec);
     }
 
     const tasks = [bootstrapTask, pageTask];
@@ -28,7 +28,7 @@ const run = (pageSpec) => {
     );
 }
 
-run(routeSpec);
+run(featuredPageSpec);
 
 if (module.hot) {
     module.hot.accept('../../pages/featured/page.spec.js', () => {

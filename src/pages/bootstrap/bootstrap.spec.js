@@ -14,7 +14,7 @@ export default {
 
     channelsRequest: {
         request: {
-            endpoint: getEndpoint('channels'),
+            endpoint: getEndpoint('mockChannels'),
         }
     },
 
