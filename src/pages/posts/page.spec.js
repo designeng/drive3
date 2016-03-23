@@ -8,9 +8,7 @@ import pageTemplate      from '../../../public/assets/templates/index.hbs';
 
 import { getPage, transformPosts } from './preprocessors';
 
-import { 
-    getPostsUrl
-} from '../../api/config';
+import { getEndpoint } from '../../config/api';
 
 export default {
     $plugins: [
@@ -21,7 +19,7 @@ export default {
 
     posts: {
         request: {
-            url: getPostsUrl(),
+            url: getEndpoint('posts'),
         }
     },
 
