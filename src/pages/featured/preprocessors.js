@@ -3,7 +3,7 @@ import moment from 'moment';
 moment.locale('ru');
 
 export function transformPosts(response) {
-    const items = response.data.Posts;
+    const items = response.Posts;
     return _.map(items, (item) => {
         return _.extend({}, item, {
             CreatedAgo  : moment(item.CreatedOn).fromNow(),
