@@ -1,5 +1,6 @@
-import wireDebugPlugin   from 'essential-wire/source/debug';
-import requestPlugin     from '../../plugins/api/request';
+import wireDebugPlugin    from 'essential-wire/source/debug';
+import requestPlugin      from '../../plugins/api/request';
+import objectEntityPlugin from '../../plugins/entity/object';
 
 import channelsMenu      from './channelsMenu';
 import getCarcassFn      from './getCarcassFn';
@@ -10,11 +11,19 @@ export default {
     $plugins: [
         // wireDebugPlugin,
         requestPlugin,
+        objectEntityPlugin
     ],
 
     channelsRequest: {
         request: {
             endpoint: getEndpoint('mockChannels'),
+        }
+    },
+
+    channels: {
+        takeValue: {
+            withKey: 'Channels',
+            byObject: {$ref: 'channelsRequest'}
         }
     },
 

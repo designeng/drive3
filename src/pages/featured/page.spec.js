@@ -21,7 +21,8 @@ export default {
         create: {
             module: transformPosts,
             args: [
-                {$ref: 'posts'}
+                {$ref: 'posts'},
+                {$ref: 'channels'}
             ]
         }
     },
