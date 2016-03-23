@@ -3,7 +3,7 @@ import _ from 'underscore';
 
 function normalizeEndpoint(endpoint) {
     return _.isString(endpoint) ? endpoint : (_.isArray(endpoint) ? 
-        endpoint.join('') : new Error('[providePlugin:] Endpoint should be a string or array of strings.'))
+        endpoint.join('') : new Error('[requestPlugin:] Endpoint should be a string or array of strings.'))
 }
 
 function request(resolver, compDef, wire) {
@@ -18,7 +18,7 @@ function request(resolver, compDef, wire) {
         params
     }) => {
         if (!endpoint) {
-            throw new Error('[providePlugin:] Please set endpoint to request factory.')
+            throw new Error('[requestPlugin:] Please set endpoint to request factory.')
         }
         let method = compDef.options.method;
         const allowedMethods = ['get', 'delete', 'head', 'post', 'put', 'patch'];
@@ -26,7 +26,7 @@ function request(resolver, compDef, wire) {
         if(!method) {
             method = 'get'
         } else if(allowedMethods.indexOf(method) == -1) {
-            throw new Error('[providePlugin:] Unknown method!');
+            throw new Error('[requestPlugin:] Unknown method!');
         }
 
         axios[method](normalizeEndpoint(endpoint), {
@@ -40,7 +40,7 @@ function request(resolver, compDef, wire) {
     });
 }
 
-export default function providePlugin(options) {
+export default function requestPlugin(options) {
     return {
         factories: {
             request
