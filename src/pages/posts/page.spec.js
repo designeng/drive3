@@ -37,7 +37,7 @@ export default {
             args: [
                 {$ref: 'transformPosts'},
                 blockTemplate,
-                pageTemplate
+                {$ref: 'pageTemplate'},
             ]
         }
     }
