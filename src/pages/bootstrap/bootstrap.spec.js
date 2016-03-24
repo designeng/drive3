@@ -29,15 +29,6 @@ export default {
         }
     },
 
-    menuController: {
-        create: {
-            module: menuController,
-            args: [
-                {$ref: 'channelsMenu'},
-            ]
-        }
-    },
-
     getCarcassFn: {
         create: {
             module: getCarcassFn,
