@@ -23,11 +23,18 @@ export function transformPosts(postsData, channels) {
     });
 }
 
-export function getBody(items, getCarcassFn) {
-
-    const pageHtml = getCarcassFn(_.reduce(items, (result, item, index) => {
+export function getPostsBlockHtml(postsData) {
+    return _.reduce(postsData, (result, item, index) => {
         return result += post(item);
-    }, ''));
+    }, '')
+}
+
+// TODO: it's not a <body> tag - it's all page - rename
+export function getBodyHtml(postsBlockContent, getCarcassFn) {
+
+    const pageHtml = getCarcassFn({
+        content: postsBlockContent
+    });
 
     return {
         html: pageHtml

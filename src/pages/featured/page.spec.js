@@ -1,7 +1,7 @@
 import wireDebugPlugin   from 'essential-wire/source/debug';
 import requestPlugin     from '../../plugins/api/request';
 
-import { getBody, transformPosts } from './preprocessors';
+import { getPostsBlockHtml, getBodyHtml, transformPosts } from './preprocessors';
 
 import { getEndpoint } from '../../config/api';
 
@@ -17,7 +17,7 @@ export default {
         }
     },
 
-    transformPosts: {
+    transformedPosts: {
         create: {
             module: transformPosts,
             args: [
@@ -27,11 +27,20 @@ export default {
         }
     },
 
+    postsBlockContent: {
+        create: {
+            module: getPostsBlockHtml,
+            args: [
+                {$ref: 'transformedPosts'},
+            ]
+        }
+    },
+
     body: {
         create: {
-            module: getBody,
+            module: getBodyHtml,
             args: [
-                {$ref: 'transformPosts'},
+                {$ref: 'postsBlockContent'},
                 {$ref: 'getCarcassFn'},
             ]
         }
