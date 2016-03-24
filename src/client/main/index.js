@@ -20,7 +20,6 @@ const run = (pageSpec) => {
     pipeline(tasks).then(
         (context) => {
             console.log("CONTEXT::::::", context);
-            // $('body').html(context.body.html);
 
             $('.channels-menu-wrapper').html(context.channelsMenu);
             $('.content').html(context.postsBlockContent);
