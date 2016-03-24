@@ -13,9 +13,14 @@ function routeMiddleware(resolver, facet, wire) {
     const routes = facet.options.routes;
 
     routes.forEach(route => {
-        target.get(route.url, function (req, res) {
+
+        target.get(route.url, function (req, res, next) {
             let routeSpec = route.routeSpec;
             let environment = {};
+
+            if(req.params.channel) {
+                _.extend(environment, { requestChannel: req.params.channel })
+            }
 
             let tasks = [bootstrapTask, getRouteTask(routeSpec)];
 

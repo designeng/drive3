@@ -1,7 +1,7 @@
 <ul class="channels-menu">
     {{#each Channels}}
         <li class="channels-menu-item">
-            <a class="channels-menu-item__link" href="#/{{this.Id}}">{{this.Caption}}</a>
+            <a class="channels-menu-item__link" href="/channels/{{ this.ChannelUrl }}">{{ this.Caption }}</a>
         </li>
     {{/each}}
 </ul>

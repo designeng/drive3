@@ -26,9 +26,11 @@ const run = (pageSpec) => {
             $('.content').html(context.postsBlock);
 
             let channelsMenu = $('.channels-menu');
+            let channelsMenuToggler = $('.channels-menu-toggler');
 
-            $('.channels-menu-toggler').on('click', () => {
+            channelsMenuToggler.on('click', () => {
                 channelsMenu.toggleClass('opened');
+                channelsMenuToggler.toggleClass('toggler-opened');
             })
 
         },

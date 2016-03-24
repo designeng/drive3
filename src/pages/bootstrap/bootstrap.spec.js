@@ -5,6 +5,7 @@ import logo from '../../templates/build/logo';
 
 import channelsMenu      from './channelsMenu';
 import getCarcassFn      from './getCarcassFn';
+import transformChannels from './transformChannels';
 
 import { getEndpoint }   from '../../config/api';
 
@@ -28,6 +29,15 @@ export default {
             endpoint: getEndpoint('mockChannels'),
         }
     },
+
+    // channelsData: {
+    //     create: {
+    //         module: transformChannels,
+    //         args: [
+    //             {$ref: 'channelsRequest'}
+    //         ]
+    //     }
+    // },
 
     channels: {$ref: 'channelsRequest.Channels'},
 
