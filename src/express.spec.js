@@ -29,6 +29,7 @@ export default {
         mockApiMiddleware: {
             routes: [
                 {url: '/mock/channels', response: './src/client/mock/channels.json'},
+                {url: '/mock/channelsShortList', response: './src/client/mock/channelsShortList.json'},
                 {url: '/mock/posts',    response: './src/client/mock/posts.json'}
             ]
         },

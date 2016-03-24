@@ -12,9 +12,10 @@ export default {
         requestPlugin,
     ],
 
+    // TODO: revert to 'channels' endpoint later
     channelsRequest: {
         request: {
-            endpoint: getEndpoint('mockChannels'),
+            endpoint: getEndpoint('mockChannelsShortList'),
         }
     },
 

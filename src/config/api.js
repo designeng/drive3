@@ -18,8 +18,9 @@ function getMockBaseUrl() {
 
 export function getEndpoint(item) {
     const mock = {
-        mockChannels    : "/mock/channels",
-        mockPosts       : "/mock/posts",
+        mockChannels            : "/mock/channels",
+        mockChannelsShortList   : "/mock/channelsShortList",
+        mockPosts               : "/mock/posts",
     }
     if(mock[item]) {
         return getMockBaseUrl() + mock[item];
