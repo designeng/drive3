@@ -100,3 +100,7 @@ body {
 .channels-menu li a {
     color: #fff;
 }
+
+.channel-reference-delimiter {
+    padding: 0 10px 0 10px;
+}
