@@ -29,9 +29,7 @@ function request(resolver, compDef, wire) {
             throw new Error('[requestPlugin:] Unknown method!');
         }
 
-        console.log("endpoint:::::", endpoint);
         endpoint = normalizeEndpoint(endpoint);
-        console.log("endpoint:::::", endpoint);
 
         axios[method](endpoint, {
             params
