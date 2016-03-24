@@ -11,10 +11,21 @@ export default {
         requestPlugin,
     ],
 
+    // mockPosts for development, use 'posts'
+    postsEndpoint: {
+        create: {
+            module: (channelId) => {
+                return channelId ? [getEndpoint('postsByChannels'), channelId] : getEndpoint('mockPosts');
+            },
+            args: [
+                {$ref: 'channelId'}
+            ]
+        }
+    },
+
     posts: {
         request: {
-            // endpoint: getEndpoint('mockPosts'),
-            endpoint: {$ref: 'channelId'} ? [getEndpoint('postsByChannels'), {$ref: 'channelId'}] : getEndpoint('mockPosts')
+            endpoint: {$ref: 'postsEndpoint'}
         }
     },
 

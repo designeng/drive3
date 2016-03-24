@@ -35,6 +35,11 @@ export default {
                 {url: '/mock/posts',    response: './src/client/mock/posts.json'}
             ]
         },
+        redirectMiddleware: {
+            routes: [
+                {url: '/channels', redirectTo: '/'}
+            ]
+        },
         cssAssets: {
             main: './public/assets/global.css'
         },

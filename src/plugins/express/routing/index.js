@@ -16,16 +16,18 @@ function routeMiddleware(resolver, facet, wire) {
 
         target.get(route.url, function (req, res, next) {
             let routeSpec = route.routeSpec;
-            let environment = { channelId: '' };
 
             let tasks = [bootstrapTask, getRouteTask(routeSpec)];
 
+            let environment = { channelId: 0 };
             if(req.params && req.params.channelId) {
-                const channelIdTask = () => {
-                    return rootWire(_.extend(environment, { channelId: req.params.channelId }));
-                }
-                tasks.unshift(channelIdTask);
+                environment = _.extend(environment, { channelId: req.params.channelId });
             }
+
+            const channelIdTask = () => {
+                return rootWire(environment);
+            }
+            tasks.unshift(channelIdTask);
 
             // TODO: unshift task with environment spec wiring
             if(route.url === '/404error') {
@@ -38,11 +40,14 @@ function routeMiddleware(resolver, facet, wire) {
 
             pipeline(tasks).then(
                 (context) => {
-                    console.log(chalk.green("context:::::", JSON.stringify(context.body)));
+                    // console.log(chalk.green("context:::::", JSON.stringify(context.body)));
                     res.status(200).end(context.body.html);
                 },
                 (error) => {
                     console.log(chalk.red("error:::::", error));
+                    for(var key in error) {
+                        console.log(chalk.red("error:::", key, " ::: ", error[key]));
+                    }
                     res.status(500).end(error)
                 }
             );
@@ -89,6 +94,19 @@ function mockApiMiddleware(resolver, facet, wire) {
     resolver.resolve(target);
 }
 
+function redirectMiddleware(resolver, facet, wire) {
+    const target = facet.target;
+    const routes = facet.options.routes;
+
+    routes.forEach(route => {
+        target.get(route.url, function (req, res) {
+            res.redirect(route.redirectTo);
+        });
+    });
+
+    resolver.resolve(target);
+}
+
 function cssAssets(resolver, facet, wire) {
     const target = facet.target;
     const main = facet.options.main;
@@ -112,6 +130,9 @@ export default function routeMiddlewarePlugin(options) {
             },
             mockApiMiddleware: {
                 'initialize:before': mockApiMiddleware
+            },
+            redirectMiddleware: {
+                'initialize:before': redirectMiddleware
             },
             routeNotFoundMiddleware: {
                 'initialize:after': routeNotFoundMiddleware
