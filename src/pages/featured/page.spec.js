@@ -40,7 +40,7 @@ export default {
         create: {
             module: getBodyHtml,
             args: [
-                {$ref: 'transformedPosts'},
+                {$ref: 'postsBlock'},
                 {$ref: 'getCarcassFn'},
             ]
         }
