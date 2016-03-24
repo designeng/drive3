@@ -57,10 +57,12 @@ function routeNotFoundMiddleware(resolver, facet, wire) {
 
 function clientTestMiddleware(resolver, facet, wire) {
     const target = facet.target;
-    const entryHtml = facet.options.entryHtml;
+    const routes = facet.options.routes;
 
-    target.get("/test", function (req, res) {
-        res.status(200).end(fs.readFileSync(entryHtml));
+    routes.forEach(route => {
+        target.get(route.url, function (req, res) {
+            res.status(200).end(fs.readFileSync(route.response));
+        });
     });
 
     resolver.resolve(target);

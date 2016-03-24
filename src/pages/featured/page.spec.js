@@ -27,7 +27,7 @@ export default {
         }
     },
 
-    postsBlockContent: {
+    postsBlock: {
         create: {
             module: getPostsBlockHtml,
             args: [
@@ -40,7 +40,7 @@ export default {
         create: {
             module: getBodyHtml,
             args: [
-                {$ref: 'postsBlockContent'},
+                {$ref: 'postsBlock'},
                 {$ref: 'getCarcassFn'},
             ]
         }

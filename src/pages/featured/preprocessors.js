@@ -30,10 +30,10 @@ export function getPostsBlockHtml(postsData) {
 }
 
 // TODO: it's not a <body> tag - it's all page - rename
-export function getBodyHtml(postsBlockContent, getCarcassFn) {
+export function getBodyHtml(postsBlock, getCarcassFn) {
 
     const pageHtml = getCarcassFn({
-        content: postsBlockContent
+        content: postsBlock
     });
 
     return {

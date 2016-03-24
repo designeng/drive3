@@ -23,7 +23,7 @@ const run = (pageSpec) => {
 
             $('.logo').html(context.logoBlock);
             $('.channels-menu-wrapper').html(context.channelsMenu);
-            $('.content').html(context.postsBlockContent);
+            $('.content').html(context.postsBlock);
 
         },
         (error) => {

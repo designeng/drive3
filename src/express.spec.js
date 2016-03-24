@@ -24,7 +24,9 @@ export default {
             routes: routes
         },
         clientTestMiddleware: {
-            entryHtml: './public/index.html'
+            routes: [
+                {url: '/test', response: './public/index.html'},
+            ]
         },
         mockApiMiddleware: {
             routes: [
