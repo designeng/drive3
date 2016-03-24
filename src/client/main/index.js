@@ -25,6 +25,12 @@ const run = (pageSpec) => {
             $('.channels-menu-wrapper').html(context.channelsMenu);
             $('.content').html(context.postsBlock);
 
+            let channelsMenu = $('.channels-menu');
+
+            $('.channels-menu-toggler').on('click', () => {
+                channelsMenu.toggleClass('opened');
+            })
+
         },
         (error) => {
             console.error("ERROR:::::", error);

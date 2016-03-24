@@ -22,7 +22,7 @@ export default {
     // TODO: revert to 'channels' endpoint later
     channelsRequest: {
         request: {
-            endpoint: getEndpoint('mockChannelsShortList'),
+            endpoint: getEndpoint('mockChannels'),
         }
     },
 

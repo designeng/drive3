@@ -21,11 +21,15 @@ body {
     height: 100px;
 }
 
-.menu-toggler {
-    position: absolute;
-    margin: 0 auto;
+.channels-menu-toggler {
+    margin-top: 20px;
+    margin-left: 350px;
     cursor: pointer;
     color: #fff;
+}
+
+.top-menu-wrapper {
+    position: absolute;
 }
 
 .content {
@@ -56,16 +60,31 @@ body {
 }
 
 .channels-menu {
-    background-color: green;
+    background-color: red;
     width: 60%;
     margin: 0 auto;
     /*background : url('assets/images/menu-mobile.jpg');*/
+
+    overflow: hidden;
+    height: 0;
+    -webkit-transition: height 200ms ease-in;
+    -moz-transition: height 200ms ease-in;
+    -o-transition: height 200ms ease-in;
+    transition: height 200ms ease-in;
+}
+
+.opened {
+    height: 350px;
 }
 
 .channels-menu li {
     list-style-type: none;
     text-align: center;
 }
+
+/*.nav3 ul > li:hover .channels-menu li {
+  height: 36px;
+}*/
 
 .channels-menu li a {
     color: #fff;
