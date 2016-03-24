@@ -1,10 +1,8 @@
 import wireDebugPlugin    from 'essential-wire/source/debug';
 import requestPlugin      from '../../plugins/api/request';
-import domElementPlugin   from '../../plugins/dom/domElement';
 
 import channelsMenu      from './channelsMenu';
 import getCarcassFn      from './getCarcassFn';
-import menuController    from './menuController';
 
 import { getEndpoint }   from '../../config/api';
 
@@ -12,7 +10,6 @@ export default {
     $plugins: [
         // wireDebugPlugin,
         requestPlugin,
-        domElementPlugin
     ],
 
     channelsRequest: {
