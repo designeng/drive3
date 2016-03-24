@@ -32,12 +32,12 @@ export function postsBlockHtml(postsData) {
 }
 
 // TODO: it's not a <body> tag - it's all page - rename
-export function getBodyHtml(postsBlock, getCarcassFn) {
+export function getBodyHtml(posts, getCarcassFn) {
 
-    console.log(chalk.blue(postsBlock));
+    console.log(chalk.blue(posts));
 
     const pageHtml = getCarcassFn({
-        content: postsBlock
+        content: postsBlockHtml(posts)
     });
 
     console.log(chalk.red(pageHtml));

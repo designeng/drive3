@@ -10,7 +10,7 @@ const routes = [
         routeSpec: featuredPageSpec
     },
     {
-        url: '/channels/:channel',
+        url: '/channels/:channelId',
         routeSpec: featuredPageSpec
     },
 

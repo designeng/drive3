@@ -30,15 +30,6 @@ export default {
         }
     },
 
-    // channelsData: {
-    //     create: {
-    //         module: transformChannels,
-    //         args: [
-    //             {$ref: 'channelsRequest'}
-    //         ]
-    //     }
-    // },
-
     channels: {$ref: 'channelsRequest.Channels'},
 
     channelsMenu: {
@@ -54,8 +45,8 @@ export default {
         create: {
             module: getCarcassFn,
             args: [
-                {$ref: 'channelName'},
                 {$ref: 'logoBlock'},
+                {$ref: 'channelName'},
                 {$ref: 'channelsMenu'},
             ]
         }

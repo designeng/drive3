@@ -18,8 +18,8 @@ function routeMiddleware(resolver, facet, wire) {
             let routeSpec = route.routeSpec;
             let environment = {};
 
-            if(req.params.channel) {
-                _.extend(environment, { requestChannel: req.params.channel })
+            if(req.params && req.params.channelId) {
+                _.extend(environment, { channelId: req.params.channelId })
             }
 
             let tasks = [bootstrapTask, getRouteTask(routeSpec)];
