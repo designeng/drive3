@@ -27,10 +27,22 @@
         var channelsMenu = $('.channels-menu');
         var channelsMenuToggler = $('.channels-menu-toggler');
 
-        channelsMenuToggler.on('click', function(){
+        function closeMenu() {
             channelsMenu.toggleClass('opened');
             channelsMenuToggler.toggleClass('toggler-opened');
+        }
+
+        channelsMenuToggler.on('click', function(){
+            closeMenu();
         });
+
+        // $(document).mouseup(function(e){
+        //     var container = channelsMenu;
+
+        //     if (!container.is(e.target) && container.has(e.target).length === 0){
+        //         closeMenu();
+        //     }
+        // });
     </script>
 </body>
 </html>

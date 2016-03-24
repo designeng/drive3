@@ -85,12 +85,13 @@ body {
 }
 
 .opened {
-    height: 350px;
+    height: 385px;
 }
 
 .channels-menu li {
     list-style-type: none;
     text-align: center;
+    margin: 20px 0 20px 0;
 }
 
 /*.nav3 ul > li:hover .channels-menu li {
@@ -99,6 +100,7 @@ body {
 
 .channels-menu li a {
     color: #fff;
+    text-decoration: none;
 }
 
 .channel-reference-delimiter {
