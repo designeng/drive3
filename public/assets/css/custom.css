@@ -103,4 +103,10 @@ body {
 
 .channel-reference-delimiter {
     padding: 0 10px 0 10px;
+    color: #ccc;
+}
+
+a.channel-reference {
+    font-size: 12px;
+    color: #ccc;
 }

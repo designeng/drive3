@@ -14,7 +14,7 @@ function getChannelReferences(ids, channels) {
     let length = refs.length;
     return _.reduce(refs, (result, item, index) => {
         let suffix = index < length - 1 ? dot : ''
-        return result += '<span><a class="channel" href="/channels/' + item.Id + '">' + item.Caption + '</a></span>' + suffix;
+        return result += '<span><a class="channel-reference" href="/channels/' + item.Id + '">' + item.Caption + '</a></span>' + suffix;
     }, '');
 }
 
