@@ -1,5 +1,3 @@
-import _ from 'underscore';
-
 import wireDebugPlugin    from 'essential-wire/source/debug';
 import requestPlugin      from '../../plugins/api/request';
 
@@ -31,7 +29,7 @@ export default {
 
     channels: {$ref: 'channelsRequest.Channels'},
 
-    defaultChannelName: "Featured",
+    defaultChannelName: 'Featured',
 
     channelName: {
         create: {
