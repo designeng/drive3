@@ -1,4 +1,6 @@
 import _ from 'underscore';
+import chalk from 'chalk';
+
 import moment from 'moment';
 moment.locale('ru');
 
@@ -23,7 +25,7 @@ export function transformPosts(postsData, channels) {
     });
 }
 
-export function getPostsBlockHtml(postsData) {
+export function postsBlockHtml(postsData) {
     return _.reduce(postsData, (result, item, index) => {
         return result += post(item);
     }, '')
@@ -32,9 +34,13 @@ export function getPostsBlockHtml(postsData) {
 // TODO: it's not a <body> tag - it's all page - rename
 export function getBodyHtml(postsBlock, getCarcassFn) {
 
+    console.log(chalk.blue(postsBlock));
+
     const pageHtml = getCarcassFn({
         content: postsBlock
     });
+
+    console.log(chalk.red(pageHtml));
 
     return {
         html: pageHtml

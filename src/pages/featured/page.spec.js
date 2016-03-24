@@ -1,7 +1,7 @@
 import wireDebugPlugin   from 'essential-wire/source/debug';
 import requestPlugin     from '../../plugins/api/request';
 
-import { getPostsBlockHtml, getBodyHtml, transformPosts } from './preprocessors';
+import { postsBlockHtml, getBodyHtml, transformPosts } from './preprocessors';
 
 import { getEndpoint } from '../../config/api';
 
@@ -29,7 +29,7 @@ export default {
 
     postsBlock: {
         create: {
-            module: getPostsBlockHtml,
+            module: postsBlockHtml,
             args: [
                 {$ref: 'transformedPosts'},
             ]

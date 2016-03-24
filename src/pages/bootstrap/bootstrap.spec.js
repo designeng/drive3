@@ -19,6 +19,9 @@ export default {
         create: logo
     },
 
+    // defaul channel name
+    channelName: "Featured",
+
     // TODO: revert to 'channels' endpoint later
     channelsRequest: {
         request: {
@@ -41,6 +44,7 @@ export default {
         create: {
             module: getCarcassFn,
             args: [
+                {$ref: 'channelName'},
                 {$ref: 'logoBlock'},
                 {$ref: 'channelsMenu'},
             ]

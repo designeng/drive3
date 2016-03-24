@@ -55,6 +55,7 @@ body {
 
 .channels-menu-wrapper {
     position: fixed;
+    top: 49px;
     z-index: 99;
     width: 100%;
 }
@@ -65,7 +66,8 @@ body {
     margin: 0 auto;
     /*background : url('assets/images/menu-mobile.jpg');*/
 
-    overflow: hidden;
+    /*overflow: hidden;*/
+    overflow: scroll;
     height: 0;
     -webkit-transition: height 200ms ease-in;
     -moz-transition: height 200ms ease-in;
