@@ -21,6 +21,7 @@ const run = (pageSpec) => {
         (context) => {
             console.log("CONTEXT::::::", context);
 
+            $('.logo').html(context.logoBlock);
             $('.channels-menu-wrapper').html(context.channelsMenu);
             $('.content').html(context.postsBlockContent);
 
