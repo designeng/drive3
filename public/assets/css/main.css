@@ -92,7 +92,7 @@ button:disabled {opacity: 0.5;}
 
 .version {z-index: 2; position: absolute; top: 0; right: 15px; color: #666; font: 12px/50px sans-serif;}
 
-.header {position: relative; max-width: 960px; margin: 0 auto; padding: 0 0.8rem;
+.header {position: relative; margin: 0 auto; padding: 0 0.8rem;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;

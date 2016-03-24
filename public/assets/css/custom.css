@@ -1,3 +1,26 @@
+body {
+    margin: 0 auto;
+}
+
+.header {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100px;
+    background-color: red;
+}
+
+.logo {
+    position: absolute;
+    height: 100px;
+}
+
+.menu-starter {
+    position: absolute;
+    margin: 0 auto;
+    color: #fff;
+}
+
 .content {
     width: 60%;
     margin: 0 auto;
@@ -17,4 +40,24 @@
 
 .post-content {
     text-align: justify;
+}
+
+.channels-menu-wrapper {
+    position: fixed;
+    z-index: 99;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.channels-menu {
+    background-color: green;
+    /*background : url('/assets/images/menu-mobile.jpg');*/
+}
+
+.channels-menu li {
+    text-align: center;
+}
+
+.channels-menu li a {
+    color: #fff;
 }

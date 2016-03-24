@@ -10,7 +10,7 @@
     "start": "NODE_ENV=server COMPILATION_MODE=server node ./runner",
     "smoke": "NODE_ENV=smoke node ./runner",
     "refresh-wire": "rimraf -rf node_modules/essential-wire && npm install",
-    "build-tpl": "gulp build",
+    "build-tpl": "gulp build && npm start",
     "test": "node ./runner && npm run karma-main",
     "karma-main": "karma start test/config/main/karma.conf.js"
   },
