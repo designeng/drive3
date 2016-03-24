@@ -16,13 +16,16 @@ function routeMiddleware(resolver, facet, wire) {
 
         target.get(route.url, function (req, res, next) {
             let routeSpec = route.routeSpec;
-            let environment = {};
-
-            if(req.params && req.params.channelId) {
-                _.extend(environment, { channelId: req.params.channelId })
-            }
+            let environment = { channelId: '' };
 
             let tasks = [bootstrapTask, getRouteTask(routeSpec)];
+
+            if(req.params && req.params.channelId) {
+                const channelIdTask = () => {
+                    return rootWire(_.extend(environment, { channelId: req.params.channelId }));
+                }
+                tasks.unshift(channelIdTask);
+            }
 
             // TODO: unshift task with environment spec wiring
             if(route.url === '/404error') {

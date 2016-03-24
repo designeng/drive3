@@ -13,7 +13,8 @@ export default {
 
     posts: {
         request: {
-            endpoint: getEndpoint('mockPosts'),
+            // endpoint: getEndpoint('mockPosts'),
+            endpoint: {$ref: 'channelId'} ? [getEndpoint('postsByChannels'), {$ref: 'channelId'}] : getEndpoint('mockPosts')
         }
     },
 

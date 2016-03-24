@@ -4,8 +4,9 @@ const config = {
 }
 
 const endpoints = {
-    channels   : "/channels",
-    posts      : "/posts",
+    channels        : "/channels",
+    posts           : "/posts",
+    postsByChannels : "/posts/channels"
 }
 
 function getBaseUrl() {
@@ -16,12 +17,13 @@ function getMockBaseUrl() {
     return 'http://localhost:3001';
 }
 
-export function getEndpoint(item) {
+export function getEndpoint(item, params) {
     const mock = {
         mockChannels            : "/mock/channels",
         mockChannelsShortList   : "/mock/channelsShortList",
         mockPosts               : "/mock/posts",
     }
+
     if(mock[item]) {
         return getMockBaseUrl() + mock[item];
     }
@@ -29,6 +31,7 @@ export function getEndpoint(item) {
     if(!endpoints[item]) {
         throw new Error('No such endpoint: ' + item);
     }
+
     return getBaseUrl() + endpoints[item];
 }
 

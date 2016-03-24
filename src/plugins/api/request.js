@@ -3,7 +3,7 @@ import _ from 'underscore';
 
 function normalizeEndpoint(endpoint) {
     return _.isString(endpoint) ? endpoint : (_.isArray(endpoint) ? 
-        endpoint.join('') : new Error('[requestPlugin:] Endpoint should be a string or array of strings.'))
+        endpoint.join('/') : new Error('[requestPlugin:] Endpoint should be a string or array of strings.'))
 }
 
 function request(resolver, compDef, wire) {
