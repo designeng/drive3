@@ -16,9 +16,21 @@
     <link rel="stylesheet" href="/assets/css/syntax.css">
     <link rel="stylesheet" href="/assets/css/fonts.css">
     <link rel="stylesheet" href="/assets/css/custom.css">
+
+    <script src="/js/jquery.min.js"></script>
 </head>
 
 <body>
     {{{ body }}}
+
+    <script type="text/javascript">
+        var channelsMenu = $('.channels-menu');
+        var channelsMenuToggler = $('.channels-menu-toggler');
+
+        channelsMenuToggler.on('click', function(){
+            channelsMenu.toggleClass('opened');
+            channelsMenuToggler.toggleClass('toggler-opened');
+        });
+    </script>
 </body>
 </html>

@@ -5,9 +5,9 @@ export default function getCarcassFn(logoBlock, channelName, channelsMenu) {
     return (content) => {
         const bodyContent = body({
             logo: logoBlock,
-            channelName,
             channelsMenu: channelsMenu,
-            content
+            channelName,
+            content,
         })
         return carcass({
             body: bodyContent
