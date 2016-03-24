@@ -29,15 +29,6 @@ export default {
         }
     },
 
-    channelsMenuToggler: {
-        domElement: {
-            selector: '#menu-toggler',
-            events: {
-                click: {$ref: 'menuController.toggleMenu'}
-            }
-        }
-    },
-
     menuController: {
         create: {
             module: menuController,
