@@ -1,3 +1,5 @@
+import _ from 'underscore';
+
 import wireDebugPlugin    from 'essential-wire/source/debug';
 import requestPlugin      from '../../plugins/api/request';
 
@@ -5,7 +7,7 @@ import logo from '../../templates/build/logo';
 
 import channelsMenu      from './channelsMenu';
 import getCarcassFn      from './getCarcassFn';
-import transformChannels from './transformChannels';
+import getChannelName    from './getChannelName';
 
 import { getEndpoint }   from '../../config/api';
 
@@ -20,9 +22,6 @@ export default {
         create: logo
     },
 
-    // defaul channel name
-    channelName: "Featured",
-
     // TODO: revert to 'channels' endpoint later
     channelsRequest: {
         request: {
@@ -31,6 +30,19 @@ export default {
     },
 
     channels: {$ref: 'channelsRequest.Channels'},
+
+    defaultChannelName: "Featured",
+
+    channelName: {
+        create: {
+            module: getChannelName,
+            args: [
+                {$ref: 'channelId'},
+                {$ref: 'channels'},
+                {$ref: 'defaultChannelName'},
+            ]
+        }
+    },
 
     channelsMenu: {
         create: {

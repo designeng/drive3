@@ -15,8 +15,10 @@ function request(resolver, compDef, wire) {
     wire(compDef.options).then(({
         endpoint,
         what,
-        params
+        params,
+        // errorCallback = () => {return console.log}
     }) => {
+
         if (!endpoint) {
             throw new Error('[requestPlugin:] Please set endpoint to request factory.')
         }
@@ -38,7 +40,10 @@ function request(resolver, compDef, wire) {
             let result = what ? response.data[what] : response.data;
             resolver.resolve(result);
         })
-        .catch(error => resolver.reject(error));
+        .catch(error => resolver.reject(
+            // errorCallback(error)
+            error
+        ));
     });
 }
 
