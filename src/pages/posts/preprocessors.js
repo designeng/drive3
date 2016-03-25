@@ -24,9 +24,8 @@ function getFileName(path) {
 
 function prepareImages(images) {
     return _.map(images, (itemsArray) => {
-        _.each(itemsArray, (item) => {
-            _.extend(item, {Id: getFileName(item.Url)})
-        })
+        let item = itemsArray[0];
+        _.extend(item, {Id: getFileName(item.Url)})
         return itemsArray;
     })
 }
