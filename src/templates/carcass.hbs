@@ -44,13 +44,6 @@
                 window.location = '/';
             });
 
-            $('body').on('click', function(e){
-                var target = $(e.target);
-                if(target.data('id') === 'zoom') {
-                    console.log("CLICKED ", target);
-                }
-            });
-
             var zooms = $('a[data-id=zoom]');
             var zoomsLength = zooms.length;
             for (var i = zoomsLength - 1; i >= 0; i--) {
@@ -61,6 +54,8 @@
                         enabled: true,
                         duration: 400,
                         easing: 'ease-in-out',
+                        // TODO: find how to fix it. 
+                        // Fisrt time element is clicked it's starting not from openerElement shape.
                         opener: function(openerElement) {
                             return openerElement;
                         }
