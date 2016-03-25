@@ -1,4 +1,4 @@
-import featuredPageSpec from './pages/featured/page.spec';
+import featuredPageSpec from './pages/posts/page.spec';
 
 const routes = [
     {

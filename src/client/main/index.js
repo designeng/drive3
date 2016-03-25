@@ -3,7 +3,7 @@ import wire from 'essential-wire';
 import pipeline from 'when/pipeline';
 
 import bootstrapSpec from '../../pages/bootstrap/bootstrap.spec';
-import featuredPageSpec from '../../pages/featured/page.spec';
+import featuredPageSpec from '../../pages/posts/page.spec';
 
 const run = (pageSpec) => {
 
@@ -43,8 +43,8 @@ const run = (pageSpec) => {
 run(featuredPageSpec);
 
 if (module.hot) {
-    module.hot.accept('../../pages/featured/page.spec.js', () => {
-        var _routeSpec = require('../../pages/featured/page.spec.js');
+    module.hot.accept('../../pages/posts/page.spec.js', () => {
+        var _routeSpec = require('../../pages/posts/page.spec.js');
         run(_routeSpec.default);
     })
 }
