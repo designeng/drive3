@@ -31,13 +31,8 @@ ul.top-menu-wrapper li {
     display: inline; 
 }
 
-.channels-menu-channel-name {
-    color: #fff;
-}
-
 .channels-menu-toggler {
     margin-top: 20px;
-    margin-left: 350px;
     cursor: pointer;
     color: #fff;
     -webkit-transform:rotate(0deg);
@@ -124,11 +119,27 @@ a.channel-reference {
     width: 80%;
 }
 
+
+.channels-menu-channel-name-wrapper {
+    
+}
+
+.channels-menu-channel-name {
+    color: #fff;
+}
+
+.get-free-app-wrapper {
+    padding-right: 120px;
+}
+
 .get-free-app {
     max-width: 100px; 
     height: 40px; 
     margin: 0 0 10px; 
-    background: #e8e8e8; 
+    border: 1px #fff;
     border-radius: 25px; 
     overflow: hidden;
+    color: #fff;
+    margin-left: 50px;
+    text-decoration: none;
 }
