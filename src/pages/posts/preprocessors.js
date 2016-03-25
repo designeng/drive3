@@ -5,6 +5,7 @@ import moment from 'moment';
 moment.locale('ru');
 
 import post from '../../templates/build/post';
+import voting from './voting';
 
 function getChannelReferences(ids, channels) {
     let dot = '<span class="channel-reference-delimiter">&middot;</span>';
@@ -39,7 +40,8 @@ export function transformPosts(postsData, channels) {
             ImagesCount             : item.Images.length,
             ChannelReferences       : getChannelReferences(item.ChannelIds, channels),
             VideoUrl                : item.VideoUrl ? item.VideoUrl.replace("watch?v=", "v/") : void 0,
-            Images                  : prepareImages(item.Images)
+            Images                  : prepareImages(item.Images),
+            Voting                  : voting(item.Voting)
         });
     });
 }

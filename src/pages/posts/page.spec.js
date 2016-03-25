@@ -11,7 +11,7 @@ export default {
         requestPlugin,
     ],
 
-    // mockPosts for development, use 'posts'
+    // mockPosts for development, use 'posts' / 'mockPosts'
     postsEndpoint: {
         create: {
             module: (channelId, postId) => {
@@ -20,7 +20,7 @@ export default {
                 } else if(channelId) {
                     return [getEndpoint('postsByChannels'), channelId];
                 } else {
-                    return getEndpoint('mockPosts');
+                    return getEndpoint('posts');
                 }
             },
             args: [
