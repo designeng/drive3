@@ -5,6 +5,7 @@ import logo from '../../templates/build/logo';
 
 import channelsMenu      from './channelsMenu';
 import getCarcassFn      from './getCarcassFn';
+import getChannels       from './getChannels';
 import getChannelName    from './getChannelName';
 
 import { getEndpoint }   from '../../config/api';
@@ -27,9 +28,17 @@ export default {
         }
     },
 
-    channels: {$ref: 'channelsRequest.Channels'},
-
     defaultChannelName: 'Featured',
+
+    channels: {
+        create: {
+            module: getChannels,
+            args: [
+                {$ref: 'channelsRequest.Channels'},
+                {$ref: 'defaultChannelName'}
+            ]
+        }
+    },
 
     channelName: {
         create: {
@@ -37,7 +46,7 @@ export default {
             args: [
                 {$ref: 'channelId'},
                 {$ref: 'channels'},
-                {$ref: 'defaultChannelName'},
+                {$ref: 'defaultChannelName'}
             ]
         }
     },
@@ -46,7 +55,7 @@ export default {
         create: {
             module: channelsMenu,
             args: [
-                {$ref: 'channelsRequest'},
+                {$ref: 'channels'},
             ]
         }
     },

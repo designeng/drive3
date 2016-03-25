@@ -20,6 +20,13 @@ export default {
         webpackMiddleware: {
             webpackConfig: webpackConfig
         },
+        redirectMiddleware: {
+            routes: [
+                {url: '/channels/0', redirectTo: '/'},
+                {url: '/channels', redirectTo: '/'},
+                {url: '/posts', redirectTo: '/'}
+            ]
+        },
         routeMiddleware: {
             routes: routes
         },
@@ -33,12 +40,6 @@ export default {
                 {url: '/mock/channels', response: './src/client/mock/channels.json'},
                 {url: '/mock/channelsShortList', response: './src/client/mock/channelsShortList.json'},
                 {url: '/mock/posts',    response: './src/client/mock/posts.json'}
-            ]
-        },
-        redirectMiddleware: {
-            routes: [
-                {url: '/channels', redirectTo: '/'},
-                {url: '/posts', redirectTo: '/'}
             ]
         },
         cssAssets: {
