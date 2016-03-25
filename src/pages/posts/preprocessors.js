@@ -18,6 +18,19 @@ function getChannelReferences(ids, channels) {
     }, '');
 }
 
+function getFileName(path) {
+    return path.match(/[-_\w]+[.][\w]+$/i)[0].split('.')[0];
+}
+
+function prepareImages(images) {
+    return _.map(images, (itemsArray) => {
+        _.each(itemsArray, (item) => {
+            _.extend(item, {Id: getFileName(item.Url)})
+        })
+        return itemsArray;
+    })
+}
+
 export function transformPosts(postsData, channels) {
     const items = postsData.Posts;
     return _.map(items, (item) => {
@@ -26,7 +39,8 @@ export function transformPosts(postsData, channels) {
             CreatedOn               : moment(item.CreatedOn).format('MM-DD-YYYY'),
             ImagesCount             : item.Images.length,
             ChannelReferences       : getChannelReferences(item.ChannelIds, channels),
-            VideoUrl                : item.VideoUrl ? item.VideoUrl.replace("watch?v=", "v/") : void 0
+            VideoUrl                : item.VideoUrl ? item.VideoUrl.replace("watch?v=", "v/") : void 0,
+            Images                  : prepareImages(item.Images)
         });
     });
 }
