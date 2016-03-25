@@ -21,7 +21,21 @@ body {
     height: 100px;
 }
 
+.top-menu-wrapper {
+    position: absolute;
+}
+
+.channels-menu-channel-name {
+    position: absolute;
+    top: 10px;
+    left: 200px;
+    color: #fff;
+}
+
 .channels-menu-toggler {
+/*    position: absolute;
+    top: 10px;
+    left: 350px;*/
     margin-top: 20px;
     margin-left: 350px;
     cursor: pointer;
@@ -35,10 +49,6 @@ body {
     -webkit-transform: rotate(-180deg);
     -ms-transform: rotate(-180deg);
     transform: rotate(-180deg)
-}
-
-.top-menu-wrapper {
-    position: absolute;
 }
 
 .content {
