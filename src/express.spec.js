@@ -33,6 +33,7 @@ export default {
         clientTestMiddleware: {
             routes: [
                 {url: '/test', response: './public/index.html'},
+                {url: '/css-test', response: './public/index-test.html'},
             ]
         },
         mockApiMiddleware: {
