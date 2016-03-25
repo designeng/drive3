@@ -123,3 +123,12 @@ a.channel-reference {
 .post-page-width-correction {
     width: 80%;
 }
+
+.get-free-app {
+    max-width: 100px; 
+    height: 40px; 
+    margin: 0 0 10px; 
+    background: #e8e8e8; 
+    border-radius: 25px; 
+    overflow: hidden;
+}

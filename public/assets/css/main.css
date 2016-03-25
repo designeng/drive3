@@ -188,7 +188,7 @@ button:disabled {opacity: 0.5;}
 
 .post-voting {}
 .post-voting-header {margin: 0 0 10px;}
-.post-voting-option {max-width: 500px; height: 40px; margin: 0 0 10px; background: #e8e8e8; border-radius: 3px; overflow: hidden;}
+.post-voting-option {max-width: 500px; height: 40px; margin: 0 0 10px; background: #e8e8e8; border-radius: 25px; overflow: hidden;}
 .post-voting-bar {height: 40px; background: #ccc;}
 .post-voting-body {margin: -40px 0 0; height: 40px; font-size: 15px; line-height: 40px;}
 .post-voting-num {float: left; width: 1em; padding: 0 0.5em; text-align: right;}
