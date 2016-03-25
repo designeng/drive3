@@ -125,3 +125,7 @@ a.channel-reference {
     font-size: 12px;
     color: #ccc;
 }
+
+.post-page-width-correction {
+    width: 80%;
+}

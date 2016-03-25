@@ -67,6 +67,7 @@ export default {
                 {$ref: 'logoBlock'},
                 {$ref: 'channelName'},
                 {$ref: 'channelsMenu'},
+                {$ref: 'postId'}
             ]
         }
     },
