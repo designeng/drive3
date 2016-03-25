@@ -1,4 +1,7 @@
-import featuredPageSpec from './pages/featured/page.spec'
+import featuredPageSpec from './pages/featured/page.spec';
+
+// TODO: handle '/posts/:postId' with featuredPageSpec
+// import postPageSpec     from './pages/post/page.spec';
 
 const routes = [
     {
@@ -11,6 +14,10 @@ const routes = [
     },
     {
         url: '/channels/:channelId',
+        routeSpec: featuredPageSpec
+    },
+    {
+        url: '/posts/:postId',
         routeSpec: featuredPageSpec
     },
 

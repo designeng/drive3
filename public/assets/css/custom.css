@@ -54,6 +54,7 @@ body {
 .content {
     width: 60%;
     margin: 0 auto;
+    padding-top: 49px;
 }
 
 .post {

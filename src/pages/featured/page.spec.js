@@ -14,11 +14,18 @@ export default {
     // mockPosts for development, use 'posts'
     postsEndpoint: {
         create: {
-            module: (channelId) => {
-                return channelId ? [getEndpoint('postsByChannels'), channelId] : getEndpoint('mockPosts');
+            module: (channelId, postId) => {
+                if(postId) {
+                    return [getEndpoint('postById'), postId];
+                } else if(channelId) {
+                    return [getEndpoint('postsByChannels'), channelId];
+                } else {
+                    return getEndpoint('mockPosts');
+                }
             },
             args: [
-                {$ref: 'channelId'}
+                {$ref: 'channelId'},
+                {$ref: 'postId'}
             ]
         }
     },

@@ -6,7 +6,8 @@ const config = {
 const endpoints = {
     channels        : "/channels",
     posts           : "/posts",
-    postsByChannels : "/posts/channels"
+    postsByChannels : "/posts/channels",
+    postById        : "/posts/byIds"
 }
 
 function getBaseUrl() {

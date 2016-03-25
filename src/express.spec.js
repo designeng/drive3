@@ -37,7 +37,8 @@ export default {
         },
         redirectMiddleware: {
             routes: [
-                {url: '/channels', redirectTo: '/'}
+                {url: '/channels', redirectTo: '/'},
+                {url: '/posts', redirectTo: '/'}
             ]
         },
         cssAssets: {
