@@ -25,6 +25,7 @@ body {
 ul.top-menu-wrapper {
     float: right;
     display: inline-block;
+    margin-top: 26px;
 }
 
 ul.top-menu-wrapper li { 
@@ -32,7 +33,7 @@ ul.top-menu-wrapper li {
 }
 
 .channels-menu-toggler {
-    margin-top: 20px;
+    margin-right: 74px;
     cursor: pointer;
     color: #fff;
     -webkit-transform:rotate(0deg);
@@ -129,17 +130,16 @@ a.channel-reference {
 }
 
 .get-free-app-wrapper {
-    padding-right: 120px;
+    margin-right: 120px;
+    border-radius: 25px;
+    border: 1px solid #fff;
 }
 
-.get-free-app {
+a.get-free-app {
     max-width: 100px; 
     height: 40px; 
-    margin: 0 0 10px; 
-    border: 1px #fff;
-    border-radius: 25px; 
+    margin: 10px 20px;
     overflow: hidden;
     color: #fff;
-    margin-left: 50px;
     text-decoration: none;
 }
