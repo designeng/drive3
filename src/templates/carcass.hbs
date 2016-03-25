@@ -25,23 +25,50 @@
     {{{ body }}}
 
     <script type="text/javascript">
-        var logo = $('.logo');
-        var content = $('.content');
-        var channelsMenu = $('.channels-menu');
-        var channelsMenuToggler = $('.channels-menu-toggler');
+        (function() {
+            var logo = $('.logo');
+            var content = $('.content');
+            var channelsMenu = $('.channels-menu');
+            var channelsMenuToggler = $('.channels-menu-toggler');
 
-        function closeMenu() {
-            channelsMenu.toggleClass('opened');
-            channelsMenuToggler.toggleClass('toggler-opened');
-        }
+            function closeMenu() {
+                channelsMenu.toggleClass('opened');
+                channelsMenuToggler.toggleClass('toggler-opened');
+            }
 
-        channelsMenuToggler.on('click', function(){
-            closeMenu();
-        });
+            channelsMenuToggler.on('click', function(){
+                closeMenu();
+            });
 
-        logo.on('click', function(){
-            window.location = '/';
-        });
+            logo.on('click', function(){
+                window.location = '/';
+            });
+
+            $('body').on('click', function(e){
+                var target = $(e.target);
+                if(target.data('id') === 'zoom') {
+                    console.log("CLICKED ", target);
+                }
+            });
+
+            var zooms = $('a[data-id=zoom]');
+            var zoomsLength = zooms.length;
+            for (var i = zoomsLength - 1; i >= 0; i--) {
+                $(zooms[i]).magnificPopup({
+                    type:'image',
+                    midClick: true,
+                    zoom: {
+                        enabled: true,
+                        duration: 400,
+                        easing: 'ease-in-out',
+                        opener: function(openerElement) {
+                            return openerElement;
+                        }
+                    }
+                });
+            };
+        })()
+        
 
         // $(document).mouseup(function(e){
         //     var container = channelsMenu;

@@ -59,6 +59,7 @@ ul.top-menu-wrapper li {
 }
 
 .post-delimiter {
+    margin: 10px 0;
     border: 0;
     height: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -114,6 +115,7 @@ ul.top-menu-wrapper li {
 a.channel-reference {
     font-size: 12px;
     color: #ccc;
+    text-decoration: none;
 }
 
 .post-page-width-correction {
@@ -132,6 +134,11 @@ a.channel-reference {
 .get-free-app-wrapper {
     border-radius: 25px;
     border: 1px solid #fff;
+}
+
+a.post-title-link {
+    color: #000;
+    text-decoration: none;
 }
 
 a.get-free-app {

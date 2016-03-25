@@ -21,16 +21,10 @@
                 {{#each Images}}
                 <div class="post-images-item">
                     <span>
-                        <a href="{{ this.[2].Url }}" id="{{ this.[0].Id }}-link" style="background-image:url({{ this.[1].Url }})">
+                        <a data-id='zoom' href="{{ this.[2].Url }}" id="{{ this.[0].Id }}-link" style="background-image:url({{ this.[1].Url }})">
                             <img src="{{ this.[1].Url }}">
                         </a>
                     </span>
-                    <script>
-                        $('#{{ this.[0].Id }}-link').magnificPopup({
-                            type:'image',
-                            midClick: true
-                        });
-                    </script>
                 </div>
                 {{/each}}
             </div>
