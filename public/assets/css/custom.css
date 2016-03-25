@@ -35,9 +35,6 @@ ul.top-menu-wrapper li {
 }
 
 .channels-menu-toggler {
-/*    position: absolute;
-    top: 10px;
-    left: 350px;*/
     margin-top: 20px;
     margin-left: 350px;
     cursor: pointer;
@@ -106,10 +103,6 @@ ul.top-menu-wrapper li {
     text-align: center;
     margin: 20px 0 20px 0;
 }
-
-/*.nav3 ul > li:hover .channels-menu li {
-  height: 36px;
-}*/
 
 .channels-menu li a {
     color: #fff;
