@@ -29,7 +29,7 @@ export default {
         },
         proxyMiddleware: {
             routes: [
-                {url: '/api/posts', origin: 'http://api-test.d3-x.net/posts'},
+                {url: '/api/posts', originUrl: 'http://api-test.d3-x.net/posts'},
             ]
         },
         routeMiddleware: {

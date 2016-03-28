@@ -20,7 +20,7 @@ function routeMiddleware(resolver, facet, wire) {
 
             let tasks = [bootstrapTask, getRouteTask(routeSpec)];
 
-            let environment = { channelId: 0, postId: 0 };
+            let environment = { channelId: 0, postId: 0, fromPostId: 0 };
 
             if(req.params && req.params.channelId) {
                 environment = _.extend(environment, { channelId: req.params.channelId });
@@ -118,16 +118,15 @@ function proxyMiddleware(resolver, facet, wire) {
 
     routes.forEach(route => {
         target.get(route.url, function (req, res) {
-            let query = url.parse(req.url, true).query;
-            axios.get(route.origin, query)
-            .then(response => {
-                console.log(route.url, JSON.stringify(query));
-                res.writeHead(200, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify(response));
-            })
-            .catch(error => {
-                console.error("ERROR::::", error);
-            });
+            let params = url.parse(req.url, true).query;
+            axios.get(route.originUrl, { params })
+                .then(response => {
+                    res.writeHead(200, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify(response.data));
+                })
+                .catch(error => {
+                    console.error("ERROR::::", error);
+                });
         });
     });
 

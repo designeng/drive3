@@ -38,19 +38,3 @@
         });
     };
 })();
-
-// (function() {
-//     function requestData (start, lastPostId) {
-//         $.get('/api/posts?limit=3&fromPostId=' + lastPostId).done(function (data) {
-//                 data = JSON.parse(data);
-//                 myScroll.updateCache(start, data);
-//             }
-//         )
-//     }
-
-//     $(window).scroll(function() {
-//         if ($(window).scrollTop() + $(window).height() >= $(document).height()){
-//             requestData()
-//         }
-//     });
-// })();
