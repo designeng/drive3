@@ -81,7 +81,7 @@
 (function() {
     var myScroll;
 
-    function loaded () {
+    function loaded() {
         myScroll = new IScroll('#posts-wrapper', {
             mouseWheel: true,
             infiniteElements: '#scroller .row',
@@ -91,20 +91,24 @@
         });
     }
 
-    function requestData (start, count) {
-        ajax('dataset.php?start=' + +start + '&count=' + +count, {
-            callback: function (data) {
-                data = JSON.parse(data);
-                myScroll.updateCache(start, data);
-            }
-        });
-    }
-
     function updateContent (el, data) {
         el.innerHTML = data;
     }
 
+    function requestData (start, count) {
+        $.get('http://api-test.d3-x.net/posts?limit=3&fromPostId=FTrMOXGMgioKNgGl8-pUZA').done(function (data) {
+                data = JSON.parse(data);
+                myScroll.updateCache(start, data);
+            }
+        )
+    }
+
     document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+    $(function() {
+        loaded();
+    });
+
 })();
 </script>
 </body>
