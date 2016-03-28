@@ -188,18 +188,18 @@ button:disabled {opacity: 0.5;}
 
 .post-voting {}
 .post-voting-header {margin: 0 0 10px;}
-.post-voting-option {max-width: 500px; height: 40px; margin: 0 0 10px; background: #e8e8e8; border-radius: 25px; overflow: hidden;}
-.post-voting-bar {height: 40px; background: #ccc;}
+.post-voting-option {max-width: 500px; height: 40px; margin: 0 0 10px; background: #fff; border: 1px solid #ccc; border-radius: 25px; overflow: hidden;}
+.post-voting-bar {height: 40px; background: #E8E8E8;}
 .post-voting-body {margin: -40px 0 0; height: 40px; font-size: 15px; line-height: 40px;}
 .post-voting-num {float: left; width: 1em; padding: 0 0.5em; text-align: right;}
 .post-voting-num:after {content: '.';}
 .post-voting-caption {display: block; margin: 0 9.5em 0 2em; padding: 0 0.5em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 .post-voting-percent {float: right; width: 8.5em; padding: 0 0.5em; font-size: 13px; text-align: right; color: #999;}
 
-.post-voting-option-max {font-weight: bold;}
+.post-voting-option-max {font-color: #AEAEAE; font-weight: normal;}
 .post-voting-option-max .post-voting-percent {font-weight: normal;}
-.post-voting-option-correct {background: #dff0d8;}
-.post-voting-option-correct .post-voting-bar {background: #b4deb4;}
+.post-voting-option-correct {background: #fff;}
+.post-voting-option-correct .post-voting-bar {background: #E8F0E8;}
 
 .postlist-channels {margin: 0 0 30px; text-align: right;}
 .postlist-channels .form-select {margin-right: 0;}
