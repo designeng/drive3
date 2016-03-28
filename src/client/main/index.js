@@ -2,37 +2,18 @@ import $ from 'jquery';
 import wire from 'essential-wire';
 import pipeline from 'when/pipeline';
 
-import bootstrapSpec from '../../pages/bootstrap/bootstrap.spec';
-import featuredPageSpec from '../../pages/posts/page.spec';
+import clientSpec from './client.spec';
 
 const run = (pageSpec) => {
-
-    const bootstrapTask = (context) => {
-        return context ? context.wire(bootstrapSpec) : wire(bootstrapSpec);
-    }
-
     const pageTask = (context) => {
-        return context.wire(pageSpec);
+        return context? context.wire(pageSpec) : wire(pageSpec);
     }
 
-    const tasks = [bootstrapTask, pageTask];
+    const tasks = [pageTask];
 
     pipeline(tasks).then(
         (context) => {
-            console.log("CONTEXT::::::", context);
-
-            $('.logo').html(context.logoBlock);
-            $('.channels-menu-wrapper').html(context.channelsMenu);
-            $('.content').html(context.postsBlock);
-
-            let channelsMenu = $('.channels-menu');
-            let channelsMenuToggler = $('.channels-menu-toggler');
-
-            channelsMenuToggler.on('click', () => {
-                channelsMenu.toggleClass('opened');
-                channelsMenuToggler.toggleClass('toggler-opened');
-            })
-
+            // console.log("context::::::", context);
         },
         (error) => {
             console.error("ERROR:::::", error);
@@ -40,11 +21,4 @@ const run = (pageSpec) => {
     );
 }
 
-run(featuredPageSpec);
-
-if (module.hot) {
-    module.hot.accept('../../pages/posts/page.spec.js', () => {
-        var _routeSpec = require('../../pages/posts/page.spec.js');
-        run(_routeSpec.default);
-    })
-}
+run(clientSpec);

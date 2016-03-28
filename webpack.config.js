@@ -6,8 +6,11 @@ var webpack = require('webpack');
 module.exports = {
     context: __dirname + '/src',
     entry: {
+        // dev: [
+        //     'webpack-hot-middleware/client?reload=true',
+        //     './client/main/index.js'
+        // ],
         main: [
-            'webpack-hot-middleware/client?reload=true',
             './client/main/index.js'
         ]
     },

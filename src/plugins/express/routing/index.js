@@ -121,6 +121,7 @@ function proxyMiddleware(resolver, facet, wire) {
             let query = url.parse(req.url, true).query;
             axios.get(route.origin, query)
             .then(response => {
+                console.log(route.url, JSON.stringify(query));
                 res.writeHead(200, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify(response));
             })
