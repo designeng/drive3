@@ -1,15 +1,6 @@
 import $ from 'jquery';
 import axios from 'axios';
 
-// function loadFacet(resolver, facet, wire) {
-//     const target = facet.target;
-//     wire(facet.options).then(({
-//         opt
-//     }) => {
-//         resolver.resolve(target);
-//     })
-// }
-
 function requestData (start, lastPostId) {
     axios.get('/api/posts?limit=3&fromPostId=' + lastPostId).then(function (response) {
         console.log("RESPONSE::::", response);
