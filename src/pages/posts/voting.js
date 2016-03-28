@@ -36,7 +36,8 @@ export default function voting (voting) {
             '<div class="post-voting-bar" style="width: ' + countsPercent[i] + '%;"></div>' +
             '<div class="post-voting-body">' +
             '<span class="post-voting-num">' + (i + 1) + '</span>' +
-            '<span class="post-voting-percent">' + countsPercent[i] + '% (' + counts[i] + ')</span>' +
+            // '<span class="post-voting-percent">' + countsPercent[i] + '% (' + counts[i] + ')</span>' +
+            '<span class="post-voting-percent">' + countsPercent[i] + '%</span>' +
             '<span class="post-voting-caption">' + option['Option'] + '</span>' +
             '</div></div>');
     }
