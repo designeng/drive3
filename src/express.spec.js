@@ -27,6 +27,11 @@ export default {
                 {url: '/posts', redirectTo: '/'}
             ]
         },
+        proxyMiddleware: {
+            routes: [
+                {url: '/api/posts', origin: 'http://api-test.d3-x.net/posts'},
+            ]
+        },
         routeMiddleware: {
             routes: routes
         },

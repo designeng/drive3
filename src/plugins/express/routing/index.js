@@ -1,6 +1,7 @@
 import fs from 'fs';
 import _  from 'underscore';
 import url from 'url';
+import axios from 'axios';
 import chalk from 'chalk';
 import pipeline from 'when/pipeline';
 import rootWire from 'essential-wire';
@@ -111,6 +112,27 @@ function redirectMiddleware(resolver, facet, wire) {
     resolver.resolve(target);
 }
 
+function proxyMiddleware(resolver, facet, wire) {
+    const target = facet.target;
+    const routes = facet.options.routes;
+
+    routes.forEach(route => {
+        target.get(route.url, function (req, res) {
+            let query = url.parse(req.url, true).query;
+            axios.get(route.origin, query)
+            .then(response => {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify(response));
+            })
+            .catch(error => {
+                console.error("ERROR::::", error);
+            });
+        });
+    });
+
+    resolver.resolve(target);
+}
+
 function cssAssets(resolver, facet, wire) {
     const target = facet.target;
     const main = facet.options.main;
@@ -137,6 +159,9 @@ export default function routeMiddlewarePlugin(options) {
             },
             redirectMiddleware: {
                 'initialize:before': redirectMiddleware
+            },
+            proxyMiddleware: {
+                'initialize:before': proxyMiddleware
             },
             routeNotFoundMiddleware: {
                 'initialize:after': routeNotFoundMiddleware
