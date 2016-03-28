@@ -95,8 +95,8 @@
         el.innerHTML = data;
     }
 
-    function requestData (start, count) {
-        $.get('http://api-test.d3-x.net/posts?limit=3&fromPostId=FTrMOXGMgioKNgGl8-pUZA').done(function (data) {
+    function requestData (start, lastPostId) {
+        $.get('/api/posts?limit=3&fromPostId=' + lastPostId).done(function (data) {
                 data = JSON.parse(data);
                 myScroll.updateCache(start, data);
             }
