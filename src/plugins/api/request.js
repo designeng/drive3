@@ -1,9 +1,26 @@
 import axios from 'axios';
 import _ from 'underscore';
 
+
+// endpoint.join('/') : 
+function getEndpointRepresentedByArray(array) {
+    return _.reduce(array, (result, item) => {
+        if(_.isString(item)) {
+            return result.length > 0 ? result + '/' + item : result + item;
+        } else if(_.isObject(item)) {
+            let query = '';
+            for(let key in item) {
+                query += key + '=' + item[key] + '&'
+            }
+            return result += '?' + query;
+        }
+    }, '');
+}
+
 function normalizeEndpoint(endpoint) {
     return _.isString(endpoint) ? endpoint : (_.isArray(endpoint) ? 
-        endpoint.join('/') : new Error('[requestPlugin:] Endpoint should be a string or array of strings.'))
+        getEndpointRepresentedByArray(endpoint)
+        : new Error('[requestPlugin:] Endpoint should be a string or array.'))
 }
 
 function request(resolver, compDef, wire) {

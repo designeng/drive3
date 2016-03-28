@@ -20,7 +20,7 @@ export default {
                 } else if(channelId) {
                     return [getEndpoint('postsByChannels'), channelId];
                 } else {
-                    return getEndpoint('posts');
+                    return [getEndpoint('posts'), {limit: 3}];
                 }
             },
             args: [

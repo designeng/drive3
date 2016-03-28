@@ -19,6 +19,7 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="http://dimsemenov-static.s3.amazonaws.com/dist/jquery.magnific-popup.min.js"></script>
+    <script src="http://lab.cubiq.org/iscroll5/build/iscroll-infinite.js"></script>
 </head>
 
 <body>
@@ -75,5 +76,36 @@
         //     }
         // });
     </script>
+
+<script type="text/javascript">
+(function() {
+    var myScroll;
+
+    function loaded () {
+        myScroll = new IScroll('#posts-wrapper', {
+            mouseWheel: true,
+            infiniteElements: '#scroller .row',
+            dataset: requestData,
+            dataFiller: updateContent,
+            cacheSize: 1000
+        });
+    }
+
+    function requestData (start, count) {
+        ajax('dataset.php?start=' + +start + '&count=' + +count, {
+            callback: function (data) {
+                data = JSON.parse(data);
+                myScroll.updateCache(start, data);
+            }
+        });
+    }
+
+    function updateContent (el, data) {
+        el.innerHTML = data;
+    }
+
+    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+})();
+</script>
 </body>
 </html>
