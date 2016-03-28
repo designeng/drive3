@@ -7,7 +7,11 @@ const endpoints = {
     channels        : "/channels",
     posts           : "/posts",
     postsByChannels : "/posts/channels",
-    postById        : "/posts/byIds"
+    postById        : "/posts/byIds",
+}
+
+const localEndpoints = {
+    posts           : "/api/posts"
 }
 
 function getBaseUrl() {
@@ -18,7 +22,8 @@ function getMockBaseUrl() {
     return 'http://localhost:3001';
 }
 
-export function getEndpoint(item, params) {
+// TODO: extra params arg?
+export function getEndpoint(item, params, mode) {
     const mock = {
         mockChannels            : "/mock/channels",
         mockChannelsShortList   : "/mock/channelsShortList",
@@ -27,6 +32,10 @@ export function getEndpoint(item, params) {
 
     if(mock[item]) {
         return getMockBaseUrl() + mock[item];
+    }
+
+    if(mode === 'local') {
+        return localEndpoints[item];
     }
 
     if(!endpoints[item]) {

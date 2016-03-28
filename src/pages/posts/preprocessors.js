@@ -51,17 +51,3 @@ export function postsBlockHtml(postsData) {
         return result += post(item);
     }, '')
 }
-
-// TODO: it's not a <body> tag - it's all page - rename
-export function getBodyHtml(postsBlock, getCarcassFn, posts) {
-    let lastPostId = _.last(posts).Id;
-    let sharedData = { lastPostId };
-    
-    const pageHtml = getCarcassFn(postsBlock, sharedData);
-
-    // console.log(chalk.red(pageHtml));
-
-    return {
-        html: pageHtml
-    }
-}

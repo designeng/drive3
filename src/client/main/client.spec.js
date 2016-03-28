@@ -1,21 +1,41 @@
+import $ from 'jquery';
+
 // scrollLoadingPlugin
 import wireDebugPlugin      from 'essential-wire/source/debug';
-import scrollLoadingPlugin  from '../../plugins/dom/loading/scroll';
+import scrollListenerPlugin  from '../../plugins/dom/scroll';
 
-const lastPostId = window.__sharedData__.lastPostId;
+import controller from './controller';
+import postsSpec from '../../pages/posts/page.spec';
+
+let lastPostId = window.__sharedData__.lastPostId;
+const channels = window.__sharedData__.channels;
 
 export default {
     $plugins: [
         wireDebugPlugin,
-        scrollLoadingPlugin
+        scrollListenerPlugin
     ],
 
+    scrollListener: {
+        createScrollListener: {
+            invoke: {$ref: 'additionalPosts'},
+            withArgs: [{fromPostId: lastPostId, channelId: 0, postId: 0, channels}],
+            onResult: {$ref: 'controller.appendPosts'}
+        }
+    },
+
     additionalPosts: {
-        dinamicLoading: {
-            params: {
-                limit: 3,
-                fromPostId: lastPostId
-            }
+        wire: {
+            spec: postsSpec,
+            defer: true
+        }
+    },
+
+    controller: {
+        create: {
+            module: controller
         }
     }
+
+
 }

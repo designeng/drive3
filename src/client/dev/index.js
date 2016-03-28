@@ -3,7 +3,7 @@ import wire from 'essential-wire';
 import pipeline from 'when/pipeline';
 
 import bootstrapSpec from '../../pages/bootstrap/bootstrap.spec';
-import featuredPageSpec from '../../pages/posts/page.spec';
+import postsPageSpec from '../../pages/posts/page.spec';
 
 const run = (pageSpec) => {
 
@@ -40,7 +40,7 @@ const run = (pageSpec) => {
     );
 }
 
-run(featuredPageSpec);
+run(postsPageSpec);
 
 if (module.hot) {
     module.hot.accept('../../pages/posts/page.spec.js', () => {

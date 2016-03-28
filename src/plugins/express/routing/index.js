@@ -8,6 +8,18 @@ import rootWire from 'essential-wire';
 
 import { bootstrapTask, getRouteTask } from '../../../utils/tasks/specTasks';
 
+// TODO: to separate spec?
+function getBodyHtml(postsBlock, getCarcassFn, posts, channels) {
+    let lastPostId = _.last(posts).Id;
+    let sharedData = { lastPostId, channels };
+    
+    const pageHtml = getCarcassFn(postsBlock, sharedData);
+
+    return {
+        html: pageHtml
+    }
+}
+
 function routeMiddleware(resolver, facet, wire) {
     const target = facet.target;
 
@@ -45,8 +57,23 @@ function routeMiddleware(resolver, facet, wire) {
 
             pipeline(tasks).then(
                 (context) => {
-                    // console.log(chalk.green("context:::::", JSON.stringify(context.body)));
-                    res.status(200).end(context.body.html);
+                    // TODO: to separate spec?
+                    context.wire({
+                        body: {
+                            create: {
+                                module: getBodyHtml,
+                                args: [
+                                    {$ref: 'postsBlock'},
+                                    {$ref: 'getCarcassFn'},
+                                    {$ref: 'transformedPosts'},
+                                    {$ref: 'channels'}
+                                ]
+                            }
+                        }
+                    }).then(context => {
+                        // console.log(chalk.green("context:::::", JSON.stringify(context.body)));
+                        res.status(200).end(context.body.html);
+                    });
                 },
                 (error) => {
                     console.log(chalk.red("error:::::", error));

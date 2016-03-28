@@ -1,13 +1,13 @@
 import wireDebugPlugin   from 'essential-wire/source/debug';
 import requestPlugin     from '../../plugins/api/request';
 
-import { postsBlockHtml, getBodyHtml, transformPosts } from './preprocessors';
+import { postsBlockHtml, transformPosts } from './preprocessors';
 
 import { getEndpoint } from '../../config/api';
 
 export default {
     $plugins: [
-        // wireDebugPlugin,
+        wireDebugPlugin,
         requestPlugin,
     ],
 
@@ -20,7 +20,7 @@ export default {
                 } else if(channelId) {
                     return [getEndpoint('postsByChannels'), channelId];
                 } else if(fromPostId) {
-                    return [getEndpoint('posts'), {limit: 3, fromPostId}];
+                    return [getEndpoint('posts', null, 'local'), {limit: 3, fromPostId} ];
                 } else {
                     return [getEndpoint('posts'), {limit: 3}];
                 }
@@ -54,17 +54,6 @@ export default {
             module: postsBlockHtml,
             args: [
                 {$ref: 'transformedPosts'},
-            ]
-        }
-    },
-
-    body: {
-        create: {
-            module: getBodyHtml,
-            args: [
-                {$ref: 'postsBlock'},
-                {$ref: 'getCarcassFn'},
-                {$ref: 'transformedPosts'}
             ]
         }
     }

@@ -1,21 +1,21 @@
-import featuredPageSpec from './pages/posts/page.spec';
+import postsPageSpec from './pages/posts/page.spec';
 
 const routes = [
     {
         url: '/',
-        routeSpec: featuredPageSpec
+        routeSpec: postsPageSpec
     },
     {
         url: '/main',
-        routeSpec: featuredPageSpec
+        routeSpec: postsPageSpec
     },
     {
         url: '/channels/:channelId',
-        routeSpec: featuredPageSpec
+        routeSpec: postsPageSpec
     },
     {
         url: '/posts/:postId',
-        routeSpec: featuredPageSpec
+        routeSpec: postsPageSpec
     },
 
 ]
