@@ -61,6 +61,7 @@ export default {
             args: [
                 {$ref: 'postsBlock'},
                 {$ref: 'getCarcassFn'},
+                {$ref: 'transformedPosts'}
             ]
         }
     }

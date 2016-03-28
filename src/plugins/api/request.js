@@ -1,8 +1,6 @@
 import axios from 'axios';
 import _ from 'underscore';
 
-
-// endpoint.join('/') : 
 function getEndpointRepresentedByArray(array) {
     return _.reduce(array, (result, item) => {
         if(_.isString(item)) {
