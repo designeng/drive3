@@ -5,17 +5,7 @@ import bootstrapSpec    from './blocks/bootstrap/spec';
 import postsSpec        from './blocks/posts/spec';
 import bodySpec         from './blocks/body/spec';
 
-const createTask = (task) => {
-    return (context) => {
-        return context ? context.wire(task) : rootWire(task);
-    }
-}
-
-const createTasks = (tasks) => {
-    return _.map(tasks, (task) => {
-        return createTask(task);
-    })
-}
+import { createTasks }  from './utils/tasks';
 
 const availableRoutes = [
     '/',

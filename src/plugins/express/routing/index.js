@@ -4,7 +4,8 @@ import url from 'url';
 import axios from 'axios';
 import chalk from 'chalk';
 import pipeline from 'when/pipeline';
-import rootWire from 'essential-wire';
+
+import { createTask }  from '../../../utils/tasks';
 
 function routeMiddleware(resolver, facet, wire) {
     const target = facet.target;
@@ -22,7 +23,9 @@ function routeMiddleware(resolver, facet, wire) {
                 mode: 'server'
             };
 
-            chalk.blue("req.params>>>>>>> ", req.params)
+            // for(let key in req.params){
+            //     console.log(chalk.blue("req.params>>>>>>> ", key, req.params[key]));
+            // }
 
             if(req.params && req.params.channelId) {
                 environment = _.extend(environment, { channelId: req.params.channelId });
@@ -31,10 +34,7 @@ function routeMiddleware(resolver, facet, wire) {
                 environment = _.extend(environment, { postId: req.params.postId });
             }
 
-            const queryTask = (context) => {
-                return context ? context.wire(environment) : rootWire(environment);
-            }
-            tasks.unshift(queryTask);
+            tasks.unshift(createTask(environment));
 
             pipeline(tasks).then(
                 (context) => {
