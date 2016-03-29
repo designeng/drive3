@@ -20,6 +20,26 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="http://dimsemenov-static.s3.amazonaws.com/dist/jquery.magnific-popup.min.js"></script>
     <script src="//twemoji.maxcdn.com/twemoji.min.js"></script>
+    <script>
+    var createMagnificPopup = function(selector) {
+        $(selector).magnificPopup({
+            type:'image',
+            midClick: true,
+            closeOnContentClick: true,
+            showCloseBtn: false,
+            zoom: {
+                enabled: true,
+                duration: 400,
+                easing: 'ease-in-out',
+                // TODO: find how to fix it. 
+                // Fisrt time element is clicked it's starting not from openerElement shape.
+                opener: function(openerElement) {
+                    return openerElement;
+                }
+            }
+        });
+    }
+    </script>
 </head>
 
 <body>

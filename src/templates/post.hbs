@@ -33,22 +33,7 @@
                     </span>
                     {{#if ../HasClicableImages}}
                         <script>
-                            $('#{{ this.[0].Id }}-link').magnificPopup({
-                                type:'image',
-                                midClick: true,
-                                closeOnContentClick: true,
-                                showCloseBtn: false,
-                                zoom: {
-                                    enabled: true,
-                                    duration: 400,
-                                    easing: 'ease-in-out',
-                                    // TODO: find how to fix it. 
-                                    // Fisrt time element is clicked it's starting not from openerElement shape.
-                                    opener: function(openerElement) {
-                                        return openerElement;
-                                    }
-                                }
-                            });
+                            createMagnificPopup('#{{ this.[0].Id }}-link');
                         </script>
                     {{/if}}
                 </div>
