@@ -14,7 +14,8 @@ function routeMiddleware(resolver, facet, wire) {
     routes.forEach(route => {
 
         target.get(route.url, function (req, res, next) {
-            let tasks = route.tasks;
+            let tasks   = route.tasks,
+                params  = req.params;
 
             let environment = {
                 channelId: 0,
@@ -27,11 +28,15 @@ function routeMiddleware(resolver, facet, wire) {
             //     console.log(chalk.blue("req.params>>>>>>> ", key, req.params[key]));
             // }
 
-            if(req.params && req.params.channelId) {
-                environment = _.extend(environment, { channelId: req.params.channelId });
-            }
-            if(req.params && req.params.postId) {
-                environment = _.extend(environment, { postId: req.params.postId });
+            console.log(chalk.blue("params.channelId>>>>>>> ", params.channelId));
+
+            if(params) {
+                if(params.channelId) {
+                    environment = _.extend(environment, { channelId: params.channelId });
+                }
+                if(params.postId) {
+                    environment = _.extend(environment, { postId: params.postId });
+                }
             }
 
             tasks.unshift(createTask(environment));
