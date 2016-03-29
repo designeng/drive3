@@ -1,6 +1,7 @@
 {{! now used /pages/posts/voting function from http://d3-x.net/ }}
 <div class="post-voting">
     <div class="post-voting-header">{{ Header }}</div>
+    {{#each Options}}
     <div class="post-voting-option post-voting-option-max">
         <div class="post-voting-bar" style="width: 37.5%;"></div>
         <div class="post-voting-body">
@@ -9,28 +10,5 @@
             <span class="post-voting-caption">Porsche</span>
         </div>
     </div>
-    <div class="post-voting-option">
-        <div class="post-voting-bar" style="width: 12.5%;"></div>
-        <div class="post-voting-body">
-            <span class="post-voting-num">2</span>
-            <span class="post-voting-percent">12.5% (5)</span>
-            <span class="post-voting-caption">Lexus</span>
-        </div>
-    </div>
-    <div class="post-voting-option">
-        <div class="post-voting-bar" style="width: 20%;"></div>
-        <div class="post-voting-body">
-            <span class="post-voting-num">3</span>
-            <span class="post-voting-percent">20% (8)</span>
-            <span class="post-voting-caption">Skoda</span>
-        </div>
-    </div>
-    <div class="post-voting-option post-voting-option-correct">
-        <div class="post-voting-bar" style="width: 30%;"></div>
-        <div class="post-voting-body">
-            <span class="post-voting-num">4</span>
-            <span class="post-voting-percent">30% (12)</span>
-            <span class="post-voting-caption">Kia</span>
-        </div>
-    </div>
+    {{/each}}
 </div>

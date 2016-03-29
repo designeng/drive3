@@ -10,7 +10,6 @@ import getChannelName    from './getChannelName';
 
 import { getEndpoint }   from '../../config/api';
 
-
 export default {
     $plugins: [
         // wireDebugPlugin,
