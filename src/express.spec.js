@@ -30,6 +30,7 @@ export default {
         proxyMiddleware: {
             routes: [
                 {url: '/api/posts', originUrl: 'http://api-test.d3-x.net/posts'},
+                {url: '/api/posts/channels/:channelIds', originUrl: 'http://api-test.d3-x.net/posts/channels'},
             ]
         },
         routeMiddleware: {

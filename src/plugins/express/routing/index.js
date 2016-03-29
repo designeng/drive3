@@ -145,8 +145,16 @@ function proxyMiddleware(resolver, facet, wire) {
 
     routes.forEach(route => {
         target.get(route.url, function (req, res) {
-            let params = url.parse(req.url, true).query;
-            axios.get(route.originUrl, { params })
+            let query = url.parse(req.url, true).query;
+            let originUrl = route.originUrl;
+            originUrl.slice(-1) != '/' ? originUrl += '/' : void 0;
+            let restParams = req.params;
+            if(restParams) {
+                for(let key in restParams) {
+                    originUrl += restParams[key] + '/'
+                }
+            }
+            axios.get(originUrl, { params: query })
                 .then(response => {
                     res.writeHead(200, { 'Content-Type': 'application/json' });
                     res.end(JSON.stringify(response.data));
