@@ -22,6 +22,8 @@ function routeMiddleware(resolver, facet, wire) {
                 mode: 'server'
             };
 
+            chalk.blue("req.params>>>>>>> ", req.params)
+
             if(req.params && req.params.channelId) {
                 environment = _.extend(environment, { channelId: req.params.channelId });
             }
@@ -36,7 +38,7 @@ function routeMiddleware(resolver, facet, wire) {
 
             pipeline(tasks).then(
                 (context) => {
-                    // console.log(chalk.green("context:::::", JSON.stringify(context.body)));
+                    console.log(chalk.green("context:::::", context.channelId, context.channelName));
                     res.status(200).end(context.body.html);
                 },
                 (error) => {
@@ -44,7 +46,7 @@ function routeMiddleware(resolver, facet, wire) {
                     for(var key in error) {
                         console.log(chalk.red("error:::", key, " ::: ", error[key]));
                     }
-                    res.status(500).end(error)
+                    res.status(500).end(error);
                 }
             );
         });

@@ -18,9 +18,9 @@ const createTasks = (tasks) => {
 }
 
 const availableRoutes = [
-    '/', 
-    '/main', 
-    '/channels/:channelId', 
+    '/',
+    '/main',
+    '/channels/:channelId',
     '/posts/:postId'
 ];
 
