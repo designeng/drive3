@@ -8,7 +8,6 @@ import rootWire from 'essential-wire';
 
 function routeMiddleware(resolver, facet, wire) {
     const target = facet.target;
-
     const routes = facet.options.routes;
 
     routes.forEach(route => {
@@ -16,11 +15,11 @@ function routeMiddleware(resolver, facet, wire) {
         target.get(route.url, function (req, res, next) {
             let tasks = route.tasks;
 
-            let environment = { 
-                channelId: 0, 
-                postId: 0, 
-                fromPostId: 0, 
-                mode: 'server' 
+            let environment = {
+                channelId: 0,
+                postId: 0,
+                fromPostId: 0,
+                mode: 'server'
             };
 
             if(req.params && req.params.channelId) {
@@ -30,19 +29,10 @@ function routeMiddleware(resolver, facet, wire) {
                 environment = _.extend(environment, { postId: req.params.postId });
             }
 
-            const queryTask = () => {
-                return rootWire(environment);
+            const queryTask = (context) => {
+                return context ? context.wire(environment) : rootWire(environment);
             }
             tasks.unshift(queryTask);
-
-            // TODO: unshift task with environment spec wiring
-            if(route.url === '/404error') {
-                const requestUrlTask = () => {
-                    const { query } = url.parse(req.url, true);
-                    return rootWire(_.extend(environment, { requestUrl: query.url }));
-                }
-                tasks.unshift(requestUrlTask);
-            }
 
             pipeline(tasks).then(
                 (context) => {
