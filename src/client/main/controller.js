@@ -13,7 +13,8 @@ controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEn
             });
             loadAdditionalPosts.call(null, invocationEnvironment).then(context => {
                 this.postsContainer.append(context.postsBlock);
-                window.__sharedData__.lastPostId = _.last(context.transformedPosts).Id;
+                let lastPost, posts = context.transformedPosts;
+                window.__sharedData__.lastPostId = posts && (lastPost = _.last(posts)) ? lastPost.Id : 0;
             })
         }
     });
