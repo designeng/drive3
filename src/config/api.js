@@ -11,7 +11,8 @@ const endpoints = {
 }
 
 const localEndpoints = {
-    posts           : "/api/posts"
+    posts           : "/api/posts",
+    postsByChannels : "/api/posts/channels"
 }
 
 function getBaseUrl() {
