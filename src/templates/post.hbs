@@ -7,7 +7,7 @@
         <a class="post-title-link" href="/posts/{{ Id }}">{{ Title }}</a>
     </div>
 
-    <div class="post-content post-content-link js-link" onclick="">{{ Content }}</div>
+    <div class="post-content post-content-link js-link" id="{{ Id }}-post">{{ Content }}</div>
 
     {{#if VideoUrl}}
         <div class="post-images-video">
@@ -58,5 +58,10 @@
     {{/if}}
 
     {{{ Voting }}}
+
+    <script>
+        twemoji.parse(document.getElementById('{{ Id }}-post'));
+    </script>
+
     <hr class="post-delimiter" />
 </li>
