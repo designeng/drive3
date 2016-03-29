@@ -6,7 +6,7 @@ import chalk from 'chalk';
 import pipeline from 'when/pipeline';
 import rootWire from 'essential-wire';
 
-import { bootstrapTask, getRouteTask } from '../../../utils/tasks/specTasks';
+import { bootstrapTask, getRouteTasks } from '../../../utils/tasks/specTasks';
 
 // TODO: to separate spec?
 function getBodyHtml(postsBlock, getCarcassFn, posts, channels, channelId, postId) {
@@ -28,9 +28,9 @@ function routeMiddleware(resolver, facet, wire) {
     routes.forEach(route => {
 
         target.get(route.url, function (req, res, next) {
-            let routeSpec = route.routeSpec;
+            let routeTasks = route.routeTasks;
 
-            let tasks = [bootstrapTask, getRouteTask(routeSpec)];
+            let tasks = [bootstrapTask, getRouteTasks(routeTasks)];
 
             let environment = { 
                 channelId: 0, 

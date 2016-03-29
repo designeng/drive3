@@ -5,8 +5,8 @@ export const bootstrapTask = (context) => {
     return context ? context.wire(bootstrapSpec) : rootWire(bootstrapSpec)
 }
 
-export const getRouteTask = (routeSpec) => {
+export const getRouteTasks = (getRouteTasks) => {
     return (context) => {
-        return context.wire(routeSpec)
+        return context.wire(routeTasks)
     }
 }
