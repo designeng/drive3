@@ -32,7 +32,12 @@ function routeMiddleware(resolver, facet, wire) {
 
             let tasks = [bootstrapTask, getRouteTask(routeSpec)];
 
-            let environment = { channelId: 0, postId: 0, fromPostId: 0 };
+            let environment = { 
+                channelId: 0, 
+                postId: 0, 
+                fromPostId: 0, 
+                mode: 'server' 
+            };
 
             if(req.params && req.params.channelId) {
                 environment = _.extend(environment, { channelId: req.params.channelId });

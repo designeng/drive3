@@ -4,6 +4,7 @@ import controller from './controller';
 import postsSpec from '../../pages/posts/page.spec';
 
 const channels = window.__sharedData__.channels;
+const channelId = window.__sharedData__.channelId;
 
 export default {
     $plugins: [
@@ -11,9 +12,10 @@ export default {
     ],
 
     invocationEnvironment: {
-        channelId: 0, 
+        channelId: channelId, 
         postId: 0, 
-        channels: channels
+        channels: channels,
+        mode: 'client'
     },
 
     loadAdditionalPosts: {
