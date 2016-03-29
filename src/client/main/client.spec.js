@@ -16,7 +16,7 @@ export default {
         channels: channels
     },
 
-    additionalPosts: {
+    loadAdditionalPosts: {
         wire: {
             spec: postsSpec,
             defer: true
@@ -29,7 +29,7 @@ export default {
         },
         ready: {
             listenToScroll: [
-                {$ref: 'additionalPosts'},
+                {$ref: 'loadAdditionalPosts'},
                 {$ref: 'invocationEnvironment'}
             ]
         }
