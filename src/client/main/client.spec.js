@@ -34,7 +34,8 @@ export default {
         ready: {
             listenToScroll: [
                 {$ref: 'loadAdditionalPosts'},
-                {$ref: 'invocationEnvironment'}
+                {$ref: 'invocationEnvironment'},
+                postId
             ]
         }
     }
