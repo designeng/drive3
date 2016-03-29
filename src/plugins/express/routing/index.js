@@ -9,9 +9,9 @@ import rootWire from 'essential-wire';
 import { bootstrapTask, getRouteTask } from '../../../utils/tasks/specTasks';
 
 // TODO: to separate spec?
-function getBodyHtml(postsBlock, getCarcassFn, posts, channels) {
+function getBodyHtml(postsBlock, getCarcassFn, posts, channels, channelId) {
     let lastPostId = _.last(posts).Id;
-    let sharedData = { lastPostId, channels };
+    let sharedData = { lastPostId, channels, channelId };
     
     const pageHtml = getCarcassFn(postsBlock, sharedData);
 
@@ -66,7 +66,8 @@ function routeMiddleware(resolver, facet, wire) {
                                     {$ref: 'postsBlock'},
                                     {$ref: 'getCarcassFn'},
                                     {$ref: 'transformedPosts'},
-                                    {$ref: 'channels'}
+                                    {$ref: 'channels'},
+                                    {$ref: 'channelId'}
                                 ]
                             }
                         }
