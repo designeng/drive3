@@ -1,7 +1,7 @@
 import wireDebugPlugin      from 'essential-wire/source/debug';
 
 import controller from './controller';
-import postsSpec from '../../pages/posts/page.spec';
+import postsSpec from '../../blocks/posts/spec';
 
 // TODO: es6
 const channels  = window.__sharedData__.channels;
