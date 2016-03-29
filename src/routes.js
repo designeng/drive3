@@ -9,7 +9,6 @@ import { createTasks }  from './utils/tasks';
 
 const availableRoutes = [
     '/',
-    '/main',
     '/channels/:channelId',
     '/posts/:postId'
 ];
