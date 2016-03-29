@@ -1,6 +1,4 @@
 (function() {
-    var logo = $('.logo');
-    var content = $('.content');
     var channelsMenu = $('.channels-menu');
     var channelsMenuToggler = $('.channels-menu-toggler');
 
@@ -11,9 +9,5 @@
 
     channelsMenuToggler.on('click', function(){
         closeMenu();
-    });
-
-    logo.on('click', function(){
-        window.location = '/';
     });
 })();
