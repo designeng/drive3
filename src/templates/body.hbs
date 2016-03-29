@@ -9,10 +9,6 @@
     </div>
 </section>
 
-<script type="text/javascript" id='sharedData'>
-    window.__sharedData__ = {{{ sharedData }}};
-</script>
-
 <section class="channels-menu-wrapper">{{{ channelsMenu }}}</section>
 <section class="content {{ contentCorrectionClasses }}" id="posts-wrapper">
     <div id="scrolling-content-wrapper">
@@ -22,3 +18,11 @@
         <div class='content-preloader'><img src='/assets/images/loader.gif' class='loader'/></div>
     </div>
 </section>
+
+<script type="text/javascript" id='sharedData'>
+    window.__sharedData__ = {{{ sharedData }}};
+    // TODO: use handlebars above
+    if(window.__sharedData__.postId) {
+        $('.content-preloader').hide();
+    }
+</script>
