@@ -118,8 +118,9 @@ a.channel-reference {
     text-decoration: none;
 }
 
+/* TODO: phone screen width? */
 .post-page-width-correction {
-    width: 600px;
+    width: 800px;
 }
 
 
