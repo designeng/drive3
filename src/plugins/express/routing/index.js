@@ -6,20 +6,6 @@ import chalk from 'chalk';
 import pipeline from 'when/pipeline';
 import rootWire from 'essential-wire';
 
-import { bootstrapTask, getRouteTasks } from '../../../utils/tasks/specTasks';
-
-// TODO: to separate spec?
-function getBodyHtml(postsBlock, getCarcassFn, posts, channels, channelId, postId) {
-    let lastPostId = _.last(posts).Id;
-    let sharedData = { lastPostId, channels, channelId, postId };
-    
-    const pageHtml = getCarcassFn(postsBlock, sharedData);
-
-    return {
-        html: pageHtml
-    }
-}
-
 function routeMiddleware(resolver, facet, wire) {
     const target = facet.target;
 
@@ -28,9 +14,7 @@ function routeMiddleware(resolver, facet, wire) {
     routes.forEach(route => {
 
         target.get(route.url, function (req, res, next) {
-            let routeTasks = route.routeTasks;
-
-            let tasks = [bootstrapTask, getRouteTasks(routeTasks)];
+            let tasks = route.tasks;
 
             let environment = { 
                 channelId: 0, 
@@ -62,25 +46,8 @@ function routeMiddleware(resolver, facet, wire) {
 
             pipeline(tasks).then(
                 (context) => {
-                    // TODO: to separate spec?
-                    context.wire({
-                        body: {
-                            create: {
-                                module: getBodyHtml,
-                                args: [
-                                    {$ref: 'postsBlock'},
-                                    {$ref: 'getCarcassFn'},
-                                    {$ref: 'transformedPosts'},
-                                    {$ref: 'channels'},
-                                    {$ref: 'channelId'},
-                                    {$ref: 'postId'}
-                                ]
-                            }
-                        }
-                    }).then(context => {
-                        // console.log(chalk.green("context:::::", JSON.stringify(context.body)));
-                        res.status(200).end(context.body.html);
-                    });
+                    // console.log(chalk.green("context:::::", JSON.stringify(context.body)));
+                    res.status(200).end(context.body.html);
                 },
                 (error) => {
                     console.log(chalk.red("error:::::", error));

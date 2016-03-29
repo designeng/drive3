@@ -1,5 +1,21 @@
 import _ from 'underscore';
-import postsPageSpec from './blocks/posts/page.spec';
+import rootWire from 'essential-wire';
+
+import bootstrapSpec    from './blocks/bootstrap/spec';
+import postsSpec        from './blocks/posts/spec';
+import bodySpec         from './blocks/body/spec';
+
+const createTask = (task) => {
+    return (context) => {
+        return context ? context.wire(task) : rootWire(task);
+    }
+}
+
+const createTasks = (tasks) => {
+    return _.map(tasks, (task) => {
+        return createTask(task);
+    })
+}
 
 const availableRoutes = [
     '/', 
@@ -11,7 +27,7 @@ const availableRoutes = [
 const routes = _.map(availableRoutes, (url) => {
     return {
         url,
-        routeTasks: postsPageSpec
+        tasks: createTasks([bootstrapSpec, postsSpec, bodySpec])
     }
 });
 
