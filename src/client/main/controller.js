@@ -1,12 +1,12 @@
 import $ from 'jquery';
 import _ from 'underscore';
 
-function controller() {
+export default function controller() {
     _.bindAll(this, ['onReady']);
     this.postsContainer = $('#scroller').find('ul');
 }
 
-controller.prototype.onReady = function(additionalPosts, invocationEnvironment) {
+controller.prototype.listenToScroll = function(additionalPosts, invocationEnvironment) {
     $(window).scroll(() => {
         if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
             _.extend(invocationEnvironment, {
@@ -19,5 +19,3 @@ controller.prototype.onReady = function(additionalPosts, invocationEnvironment) 
         }
     });
 }
-
-export default controller;

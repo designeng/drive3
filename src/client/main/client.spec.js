@@ -28,7 +28,7 @@ export default {
             module: controller
         },
         ready: {
-            onReady: [
+            listenToScroll: [
                 {$ref: 'additionalPosts'},
                 {$ref: 'invocationEnvironment'}
             ]
