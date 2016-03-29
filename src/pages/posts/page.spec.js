@@ -25,7 +25,6 @@ export default {
                     }
                 } else {
                     // client mode
-                    console.info(">>>>>>>>>", channelId, postId, fromPostId, mode);
                     if(postId) {
                         return [getEndpoint('postById'), postId];
                     } else if(channelId) {
