@@ -149,3 +149,7 @@ a.get-free-app {
     color: #fff;
     text-decoration: none;
 }
+
+.loader {
+    margin: 0 auto;
+}

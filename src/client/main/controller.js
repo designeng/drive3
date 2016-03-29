@@ -2,7 +2,7 @@ import $ from 'jquery';
 import _ from 'underscore';
 
 export default function controller() {
-    this.postsContainer = $('#scroller').find('ul');
+    this.postsContainer = $('#scrolling-content-wrapper').find('ul');
 }
 
 controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEnvironment) {

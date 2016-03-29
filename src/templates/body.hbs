@@ -10,14 +10,15 @@
 </section>
 
 <script type="text/javascript" id='sharedData'>
-window.__sharedData__ = {{{ sharedData }}};
+    window.__sharedData__ = {{{ sharedData }}};
 </script>
 
 <section class="channels-menu-wrapper">{{{ channelsMenu }}}</section>
 <section class="content {{ contentCorrectionClasses }}" id="posts-wrapper">
-    <div id="scroller">
+    <div id="scrolling-content-wrapper">
         <ul>
             {{{ content }}}
         </ul>
+        <div class='content-preloader'><img src='/assets/images/loader.gif' class='loader'/></div>
     </div>
 </section>

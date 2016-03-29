@@ -23,15 +23,15 @@ export default {
         }
     },
 
-    controller: {
-        create: {
-            module: controller
-        },
-        ready: {
-            listenToScroll: [
-                {$ref: 'loadAdditionalPosts'},
-                {$ref: 'invocationEnvironment'}
-            ]
-        }
-    }
+    // controller: {
+    //     create: {
+    //         module: controller
+    //     },
+    //     ready: {
+    //         listenToScroll: [
+    //             {$ref: 'loadAdditionalPosts'},
+    //             {$ref: 'invocationEnvironment'}
+    //         ]
+    //     }
+    // }
 }
