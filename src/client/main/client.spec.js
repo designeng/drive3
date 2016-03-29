@@ -4,9 +4,7 @@ import controller from './controller';
 import postsSpec from '../../blocks/posts/spec';
 
 // TODO: es6
-const channels  = window.__sharedData__.channels;
-const channelId = window.__sharedData__.channelId;
-const postId    = window.__sharedData__.postId;
+const {channels, channelId, postId} = window.__sharedData__;
 
 export default {
     $plugins: [
