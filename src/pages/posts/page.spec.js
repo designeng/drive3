@@ -20,7 +20,7 @@ export default {
                 } else if(channelId) {
                     return [getEndpoint('postsByChannels'), channelId];
                 } else if(fromPostId) {
-                    return [getEndpoint('posts', null, 'local'), {limit: 3, fromPostId} ];
+                    return [getEndpoint('posts', null, 'local'), {limit: 3, fromPostId}];
                 } else {
                     return [getEndpoint('posts'), {limit: 3}];
                 }
