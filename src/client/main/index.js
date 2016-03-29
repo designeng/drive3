@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import wire from 'essential-wire';
 import pipeline from 'when/pipeline';
 
