@@ -54,7 +54,8 @@ export default {
             module: transformPosts,
             args: [
                 {$ref: 'posts'},
-                {$ref: 'channels'}
+                {$ref: 'channels'},
+                {$ref: 'postId'}
             ]
         }
     },

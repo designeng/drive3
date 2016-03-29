@@ -31,7 +31,7 @@ function prepareImages(images) {
     })
 }
 
-export function transformPosts(postsData, channels) {
+export function transformPosts(postsData, channels, postId) {
     const items = postsData.Posts;
     return _.map(items, (item) => {
         return _.extend({}, item, {
@@ -41,7 +41,8 @@ export function transformPosts(postsData, channels) {
             ChannelReferences       : getChannelReferences(item.ChannelIds, channels),
             VideoUrl                : item.VideoUrl ? item.VideoUrl.replace("watch?v=", "v/") : void 0,
             Images                  : prepareImages(item.Images),
-            Voting                  : voting(item.Voting)
+            Voting                  : voting(item.Voting),
+            HasClicableImages       : postId ? false : true
         });
     });
 }

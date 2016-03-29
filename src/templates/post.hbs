@@ -22,28 +22,35 @@
                 <div class="post-images-item">
                     <img src="{{ this.[2].Url }}" style='display:none'/>
                     <span>
-                        <a data-id='zoom' href="{{ this.[2].Url }}" id="{{ this.[0].Id }}-link" style="background-image:url({{ this.[1].Url }})">
+                        <a data-id='zoom' 
+                        {{#if ../HasClicableImages}}
+                            href="{{ this.[2].Url }}" 
+                        {{/if}}
+                        id="{{ this.[0].Id }}-link" 
+                        style="background-image:url({{ this.[1].Url }})">
                             <img src="{{ this.[1].Url }}">
                         </a>
                     </span>
-                    <script>
-                        $('#{{ this.[0].Id }}-link').magnificPopup({
-                            type:'image',
-                            midClick: true,
-                            closeOnContentClick: true,
-                            showCloseBtn: false,
-                            zoom: {
-                                enabled: true,
-                                duration: 400,
-                                easing: 'ease-in-out',
-                                // TODO: find how to fix it. 
-                                // Fisrt time element is clicked it's starting not from openerElement shape.
-                                opener: function(openerElement) {
-                                    return openerElement;
+                    {{#if ../HasClicableImages}}
+                        <script>
+                            $('#{{ this.[0].Id }}-link').magnificPopup({
+                                type:'image',
+                                midClick: true,
+                                closeOnContentClick: true,
+                                showCloseBtn: false,
+                                zoom: {
+                                    enabled: true,
+                                    duration: 400,
+                                    easing: 'ease-in-out',
+                                    // TODO: find how to fix it. 
+                                    // Fisrt time element is clicked it's starting not from openerElement shape.
+                                    opener: function(openerElement) {
+                                        return openerElement;
+                                    }
                                 }
-                            }
-                        });
-                    </script>
+                            });
+                        </script>
+                    {{/if}}
                 </div>
                 {{/each}}
             </div>
