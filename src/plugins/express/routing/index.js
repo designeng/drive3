@@ -29,10 +29,10 @@ function routeMiddleware(resolver, facet, wire) {
 
             if(params) {
                 if(params.channelId) {
-                    environment = _.extend(environment, { channelId: params.channelId });
+                    environment.channel.id = params.channelId;
                 }
                 if(params.postId) {
-                    environment = _.extend(environment, { postId: params.postId });
+                    environment.postId = params.postId;
                 }
             }
 
