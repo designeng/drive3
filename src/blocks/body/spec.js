@@ -14,7 +14,7 @@ export default {
                 {$ref: 'getCarcassFn'},
                 {$ref: 'transformedPosts'},
                 {$ref: 'channels'},
-                {$ref: 'channelId'},
+                {$ref: 'channel'},
                 {$ref: 'postId'}
             ]
         }

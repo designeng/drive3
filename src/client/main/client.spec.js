@@ -4,7 +4,7 @@ import controller from './controller';
 import postsSpec from '../../blocks/posts/spec';
 
 // TODO: es6
-const {channels, channelId, postId} = window.__sharedData__;
+const {channels, channel, postId} = window.__sharedData__;
 
 export default {
     $plugins: [
@@ -12,7 +12,7 @@ export default {
     ],
 
     invocationEnvironment: {
-        channelId: channelId, 
+        channel: channel, 
         postId: postId, 
         channels: channels,
         mode: 'client'

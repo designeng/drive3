@@ -1,7 +1,7 @@
-export default function getChannels(channels, defaultChannelName) {
+export default function getChannels(channels, channel) {
     channels.unshift({
         Id: 0,
-        Caption: defaultChannelName
+        Caption: channel.name
     })
     return channels;
 }
