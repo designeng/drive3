@@ -5,7 +5,7 @@ import axios from 'axios';
 import chalk from 'chalk';
 import pipeline from 'when/pipeline';
 
-import { createTask }  from '../../../utils/tasks';
+import { createTasks, createTask }  from '../../../utils/tasks';
 
 function routeMiddleware(resolver, facet, wire) {
     const target = facet.target;
@@ -14,7 +14,7 @@ function routeMiddleware(resolver, facet, wire) {
     routes.forEach(route => {
 
         target.get(route.url, function (req, res, next) {
-            let tasks   = route.tasks,
+            let tasks   = createTasks(route.specs),
                 params  = req.params;
 
             let environment = {
@@ -23,12 +23,6 @@ function routeMiddleware(resolver, facet, wire) {
                 fromPostId: 0,
                 mode: 'server'
             };
-
-            // for(let key in req.params){
-            //     console.log(chalk.blue("req.params>>>>>>> ", key, req.params[key]));
-            // }
-
-            console.log(chalk.blue("params.channelId>>>>>>> ", params.channelId));
 
             if(params) {
                 if(params.channelId) {
@@ -43,7 +37,7 @@ function routeMiddleware(resolver, facet, wire) {
 
             pipeline(tasks).then(
                 (context) => {
-                    console.log(chalk.green("context:::::", context.channelId, context.channelName));
+                    // console.log(chalk.green("context:::::", context.channelId, context.channelName));
                     res.status(200).end(context.body.html);
                 },
                 (error) => {

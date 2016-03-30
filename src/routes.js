@@ -5,8 +5,6 @@ import bootstrapSpec    from './blocks/bootstrap/spec';
 import postsSpec        from './blocks/posts/spec';
 import bodySpec         from './blocks/body/spec';
 
-import { createTasks }  from './utils/tasks';
-
 const availableRoutes = [
     '/',
     '/channels/:channelId',
@@ -16,7 +14,7 @@ const availableRoutes = [
 const routes = _.map(availableRoutes, (url) => {
     return {
         url,
-        tasks: createTasks([bootstrapSpec, postsSpec, bodySpec])
+        specs: [bootstrapSpec, postsSpec, bodySpec]
     }
 });
 
