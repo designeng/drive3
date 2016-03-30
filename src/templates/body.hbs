@@ -1,15 +1,18 @@
-<section class="header">
-    <div class="top-panel {{ contentCorrectionClasses }}">
-        <div class="logo"><a href="/">{{{ logo }}}</a></div>
-        <ul class="top-menu-wrapper">
-            <li class="channels-menu-channel-name-wrapper"><span class="channels-menu-channel-name">{{{ channelName }}}</span></li>
-            <li class="channels-menu-toggler" id="channels-menu-toggler">^</li>
-            <li class="get-free-app-wrapper"><a class="get-free-app" href="http://www.getdrivenow.com/?ref=header">Get Free App</a></li>
-        </ul>
-    </div>
+<section class="top-panel-wrapper">
+        <div class="top-panel {{ contentCorrectionClasses }}">
+            <div class="logo"><a href="/">{{{ logo }}}</a></div>
+            <ul class="top-menu-wrapper">
+                <li class="channels-menu-channel-name-wrapper"><span class="channels-menu-channel-name">{{{ channelName }}}</span></li>
+                <li class="channels-menu-toggler" id="channels-menu-toggler">^</li>
+                <li class="get-free-app-wrapper"><a class="get-free-app" href="http://www.getdrivenow.com/?ref=header">Get Free App</a></li>
+            </ul>
+        </div>
 </section>
 
-<section class="channels-menu-wrapper">{{{ channelsMenu }}}</section>
+<section class="header">
+    <div class="channels-menu-wrapper">{{{ channelsMenu }}}</div>
+</section>
+
 <section class="content {{ contentCorrectionClasses }}" id="posts-wrapper">
     <div id="scrolling-content-wrapper">
         <ul>
@@ -18,6 +21,7 @@
         <div class='content-preloader'><img src='/assets/images/loader.gif' class='loader'/></div>
     </div>
 </section>
+
 
 <script type="text/javascript" id='sharedData'>
     window.__sharedData__ = {{{ sharedData }}};
