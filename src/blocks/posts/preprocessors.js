@@ -1,9 +1,6 @@
 import _ from 'underscore';
 import chalk from 'chalk';
 
-import moment from 'moment';
-moment.locale('ru');
-
 import post from '../../templates/build/post';
 import voting from './voting';
 
@@ -35,8 +32,6 @@ export function transformPosts(postsData, channels, postId) {
     const items = postsData.Posts;
     return _.map(items, (item) => {
         return _.extend({}, item, {
-            CreatedAgo              : moment(item.CreatedOn).fromNow(),
-            CreatedOn               : moment(item.CreatedOn).format('MM-DD-YYYY'),
             ImagesCount             : item.Images.length,
             ChannelReferences       : getChannelReferences(item.ChannelIds, channels),
             VideoUrl                : item.VideoUrl ? item.VideoUrl.replace("watch?v=", "v/") : void 0,
