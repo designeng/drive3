@@ -22,6 +22,8 @@ body {
 .top-panel {
     width: 600px;
     margin: 0 auto;
+    height: 86px;
+    background-color: #cd002e;
 }
 
 .logo {

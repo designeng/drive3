@@ -1,6 +1,6 @@
 .channels-menu-wrapper {
     position: fixed;
-    top: -200px;
+    top: -385px;
     left:0;
     right:0;
     margin-left:auto;
@@ -20,7 +20,7 @@
 }
 
 .opened {
-    -webkit-transform: translate(0, 385px);
+    -webkit-transform: translate(0, 471px);
 }
 
 .channels-menu li {
