@@ -1,0 +1,35 @@
+.channels-menu-wrapper {
+    position: fixed;
+    top: -385px;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.channels-menu {
+    margin: 0 auto;
+    background-color: #cd002e;
+    width: 600px;
+    overflow: scroll;
+    height: 385px;
+    -webkit-transition: 300ms ease-in-out;
+/*    -moz-transition: 300ms ease-in-out;
+    -o-transition: 300ms ease-in-out;
+    transition: 300ms ease-in-out;*/
+}
+
+.opened {
+    -webkit-transform: translate(0, 471px);
+}
+
+.channels-menu li {
+    list-style-type: none;
+    text-align: center;
+    margin: 20px 0 20px 0;
+}
+
+.channels-menu li a {
+    color: #fff;
+    text-decoration: none;
+}

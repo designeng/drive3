@@ -10,9 +10,20 @@ body {
     background-color: #cd002e;
 }
 
+.top-panel-wrapper {
+    position: fixed;
+    z-index: 300;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 .top-panel {
     width: 600px;
     margin: 0 auto;
+    height: 86px;
+    background-color: #cd002e;
 }
 
 .logo {
@@ -68,43 +79,6 @@ ul.top-menu-wrapper li {
 
 .post-content {
     text-align: justify;
-}
-
-.channels-menu-wrapper {
-    position: fixed;
-    top: 86px;
-    z-index: 99;
-    width: 100%;
-}
-
-.channels-menu {
-    background-color: #cd002e;
-    width: 600px;
-    margin: 0 auto;
-    /*background : url('assets/images/menu-mobile.jpg');*/
-
-    /*overflow: hidden;*/
-    overflow: scroll;
-    height: 0;
-    -webkit-transition: height 300ms ease-in;
-    -moz-transition: height 300ms ease-in;
-    -o-transition: height 300ms ease-in;
-    transition: height 300ms ease-in;
-}
-
-.opened {
-    height: 385px;
-}
-
-.channels-menu li {
-    list-style-type: none;
-    text-align: center;
-    margin: 20px 0 20px 0;
-}
-
-.channels-menu li a {
-    color: #fff;
-    text-decoration: none;
 }
 
 .channel-reference-delimiter {
