@@ -14,7 +14,10 @@ controller.prototype.loadFromLocalChannel = function(channel, postId) {
     if(!postId) {
         let channelKey = getChannelKey(channel.id);
         let channelValue = sessionStorage.getItem(channelKey);
-        if(channelValue) this.postsContainer.append(channelValue);
+        if(channelValue) {
+            channelValue = JSON.parse(channelValue);
+            this.postsContainer.append(channelValue.posts);
+        }
     }
 }
 
@@ -51,7 +54,7 @@ controller.prototype.storeToLocalChannel = function(channel, loadedBlock, ids) {
     if(channelValue) {
         // @strings
         channelValue.posts += loadedBlock;
-        channelValue.ids = channelValue.ids.concat(',', ids);
+        channelValue.ids = _.union(channelValue.ids, ids);
     } else {
         channelValue = {
             posts: loadedBlock,
