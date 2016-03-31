@@ -1,4 +1,4 @@
-<div class="post-voting">
+<div class="post-voting" id="{{ Id }}-voting">
     <div class="post-voting-header">{{ Header }} {{ OveralVotes }}</div>
     {{#each Options}}
     <div class="post-voting-option  
@@ -8,6 +8,7 @@
         {{#if Correct}}
             post-voting-option-correct
         {{/if}}
+            post-voting-option-closed
     ">
         <div class="post-voting-bar" style="width: {{ votingPercent  }}%;"></div>
         <div class="post-voting-body">
@@ -16,5 +17,10 @@
             <span class="post-voting-caption">{{ votingCaption }}</span>
         </div>
     </div>
+    <span class='post-voting-caption-teaser'>{{ votingCaption }}</span>
+    <div class="clearfix" />
     {{/each}}
+    <script>
+        showVotingResultsOnClick("{{ Id }}-voting");
+    </script
 </div>

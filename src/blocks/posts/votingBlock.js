@@ -35,6 +35,7 @@ export default function votingBlock (voting) {
     });
 
     return votingTemplate({
+        Id: voting['Id'],
         Header: voting['Header'],
         OveralVotes: '(' + overal + ' vote' + (overal > 1 ? 's' : '') + ')',
         Options: options

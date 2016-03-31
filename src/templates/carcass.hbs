@@ -46,6 +46,29 @@
     var twemojiParse = function(id) {
         twemoji.parse(document.getElementById(id));
     }
+
+    // TODO: it's only a row prototype.
+    var showVotingResultsOnClick = function(id) {
+        var blockRootElement = $('#' + id);
+
+        var votingBarElements = blockRootElement.find('.post-voting-bar');
+        var percents = [];
+        for (var i = votingBarElements.length - 1; i >= 0; i--) {
+            percents.push(votingBarElements[i].style.width);
+            votingBarElements[i].style.width = "0";
+        };
+
+        blockRootElement.one('click', function() {
+            var votingOptionElements = blockRootElement.find('.post-voting-option');
+            var votingCaptionTeaserElements = blockRootElement.find('.post-voting-caption-teaser');
+
+            for (var i = votingOptionElements.length - 1; i >= 0; i--) {
+                $(votingOptionElements[i]).removeClass('post-voting-option-closed');
+                $(votingCaptionTeaserElements[i]).hide();
+                votingBarElements[i].style.width = percents[i];
+            };
+        });
+    }
     </script>
 </head>
 

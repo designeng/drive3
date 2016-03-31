@@ -1,6 +1,9 @@
 .post-voting {}
 .post-voting-header {margin: 0 0 10px;}
-.post-voting-option {height: 40px; margin: 0 0 10px; background: #fff; border: 1px solid #ccc; border-radius: 25px; overflow: hidden;}
+.post-voting-option {height: 40px; margin: 0 0 10px; background: #fff; border: 1px solid #ccc; border-radius: 25px; overflow: hidden; 
+    float: left;
+    width: 100%;
+}
 .post-voting-bar {height: 40px; background: #E8E8E8;}
 .post-voting-body {margin: -40px 0 0; height: 40px; font-size: 15px; line-height: 40px;}
 .post-voting-num {float: left; width: 1em; padding: 0 0.5em; text-align: right;}
@@ -16,3 +19,11 @@
 .post-voting-option-closed {
     width: 40px;
 }
+.post-voting-percent-closed {
+    display: hidden;
+}
+.post-voting-caption-teaser {
+    float: right;
+}
+.clearfix {
+    clear: both;
