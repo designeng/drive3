@@ -23,7 +23,7 @@ controller.prototype.loadFromLocalChannel = function(channel, postId) {
 
 controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEnvironment, postId) {
     if(!postId) {
-        this.lastPostId = window.__sharedData__.lastPostId;
+        this.lastPostId = this.getLastStoredChannelPostId(invocationEnvironment.channel) || window.__sharedData__.lastPostId;
         $(window).scroll(() => {
             if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
                 _.extend(invocationEnvironment, {
@@ -31,10 +31,6 @@ controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEn
                 });
                 loadAdditionalPosts.call(null, invocationEnvironment).then(context => {
                     this.postsContainer.append(context.postsBlock);
-
-                    // TODO: lastPostId shoud be synchronized with stored in sessionStorage postsIds
-                    // let lastPost, posts = context.transformedPosts;
-                    // this.lastPostId = posts && (this.lastPostId = _.last(posts)) ? this.lastPostId.Id : 0;
 
                     const { channel, postsBlock, postsIds } = context;
                     this.storeToLocalChannel(channel, postsBlock, postsIds);
@@ -62,4 +58,15 @@ controller.prototype.storeToLocalChannel = function(channel, loadedBlock, ids) {
 
     sessionStorage.setItem(channelKey, JSON.stringify(channelValue));
     this.lastPostId = _.last(ids);
+}
+
+// lastPostId shoud be synchronized with stored in sessionStorage postsIds!
+controller.prototype.getLastStoredChannelPostId = function(channel) {
+    let channelKey = getChannelKey(channel.id);
+    let channelValue = JSON.parse(sessionStorage.getItem(channelKey));
+    if(channelValue) {
+        return _.last(channelValue.ids);
+    } else {
+        return null;
+    }
 }
