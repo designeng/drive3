@@ -33,13 +33,11 @@ controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEn
                     this.postsContainer.append(context.postsBlock);
 
                     // TODO: lastPostId shoud be synchronized with stored in sessionStorage postsIds
-                    let lastPost, posts = context.transformedPosts;
-                    this.lastPostId = posts && (this.lastPostId = _.last(posts)) ? this.lastPostId.Id : 0;
+                    // let lastPost, posts = context.transformedPosts;
+                    // this.lastPostId = posts && (this.lastPostId = _.last(posts)) ? this.lastPostId.Id : 0;
 
                     const { channel, postsBlock, postsIds } = context;
-                    if(!postId) {
-                        this.storeToLocalChannel(channel, postsBlock, postsIds);
-                    } 
+                    this.storeToLocalChannel(channel, postsBlock, postsIds);
                 })
             }
         })
@@ -63,4 +61,5 @@ controller.prototype.storeToLocalChannel = function(channel, loadedBlock, ids) {
     }
 
     sessionStorage.setItem(channelKey, JSON.stringify(channelValue));
+    this.lastPostId = _.last(ids);
 }
