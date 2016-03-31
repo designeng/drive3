@@ -40,6 +40,7 @@ export default {
             routes: [
                 {url: '/test', response: './public/index.html'},
                 {url: '/css-test', response: './public/index-test.html'},
+                {url: '/header', response: './public/index-header.html'},
             ]
         },
         mockApiMiddleware: {
