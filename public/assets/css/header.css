@@ -57,6 +57,20 @@ a.menu-trigger-link{
     cursor: pointer;
 }
 
+.toggler-sign:after {
+    content:"^";
+    -webkit-transform:rotate(0deg);
+    -ms-transform:rotate(0deg);
+    transform:rotate(0deg)
+}
+
+.toggler-sign-opened:after{
+    content:"^";
+    -webkit-transform:rotate(180deg);
+    -ms-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
+
 .get-free-app-wrapper{
     width: 100%;
     border-radius: 25px;
