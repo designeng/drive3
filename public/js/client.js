@@ -2,12 +2,13 @@
     var channelsMenu = $('.channels-menu');
     var channelsMenuToggler = $('.channels-menu-toggler');
 
-    function closeMenu() {
+    function toggleMenu() {
         channelsMenu.toggleClass('opened');
         channelsMenuToggler.toggleClass('toggler-opened');
     }
 
-    channelsMenuToggler.on('click', function(){
-        closeMenu();
+    channelsMenuToggler.on('click', function(e){
+        toggleMenu();
+        e.preventDefault();
     });
 })();

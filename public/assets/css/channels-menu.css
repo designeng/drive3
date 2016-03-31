@@ -14,9 +14,9 @@
     overflow: scroll;
     height: 385px;
     -webkit-transition: 300ms ease-in-out;
-/*    -moz-transition: 300ms ease-in-out;
+    -moz-transition: 300ms ease-in-out;
     -o-transition: 300ms ease-in-out;
-    transition: 300ms ease-in-out;*/
+    transition: 300ms ease-in-out;
 }
 
 .opened {
