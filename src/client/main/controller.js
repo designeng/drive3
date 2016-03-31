@@ -23,6 +23,7 @@ controller.prototype.loadFromLocalChannel = function(channel, postId) {
 
 controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEnvironment, postId) {
     if(!postId) {
+        // TODO: deprecate window.__sharedData__.lastPostId -> use _.last(window.__sharedData__.postsIds)
         this.lastPostId = this.getLastStoredChannelPostId(invocationEnvironment.channel) || window.__sharedData__.lastPostId;
         $(window).scroll(() => {
             if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
