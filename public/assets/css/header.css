@@ -85,6 +85,10 @@ a.menu-trigger-link{
     text-decoration: none;
 }
 
+.get-free-app:hover{
+    text-decoration: none;
+}
+
 
 /* TODO: not in header css? */
 /* TODO: phone screen width? */
