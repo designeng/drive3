@@ -43,6 +43,12 @@ export function transformPosts(postsData, channels, postId) {
     });
 }
 
+export function getItemsIds(items) {
+    return _.map(items, (item) => {
+        return item.Id;
+    });
+}
+
 export function postsBlockHtml(postsData) {
     return _.reduce(postsData, (result, item, index) => {
         return result += post(item);

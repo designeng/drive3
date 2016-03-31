@@ -30,6 +30,10 @@ export default {
             module: controller
         },
         ready: {
+            loadFromLocalChannel: [
+                {$ref: 'invocationEnvironment.channel'},
+                {$ref: 'invocationEnvironment.postId'}
+            ],
             listenToScroll: [
                 {$ref: 'loadAdditionalPosts'},
                 {$ref: 'invocationEnvironment'},
