@@ -9,7 +9,7 @@ import webpackConfig from '../webpack.config';
 
 export default {
     $plugins: [
-        wireDebugPlugin,
+        // wireDebugPlugin,
         expressAppPlugin,
         expressRoutingMiddlewarePlugin,
         webpackMiddlewarePlugin

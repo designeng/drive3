@@ -8,7 +8,7 @@ const {channels, channel, postId} = window.__sharedData__;
 
 export default {
     $plugins: [
-        wireDebugPlugin
+        // wireDebugPlugin
     ],
 
     invocationEnvironment: {

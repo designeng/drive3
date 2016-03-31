@@ -3,7 +3,7 @@ import getBodyHtml      from './getBodyHtml';
 
 export default {
     $plugins: [
-        wireDebugPlugin,
+        // wireDebugPlugin,
     ],
 
     body: {
