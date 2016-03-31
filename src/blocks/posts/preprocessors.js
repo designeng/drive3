@@ -2,7 +2,8 @@ import _ from 'underscore';
 import chalk from 'chalk';
 
 import post from '../../templates/build/post';
-import voting from './voting';
+
+import votingBlock from './votingBlock';
 
 function getChannelReferences(ids, channels) {
     let dot = '<span class="channel-reference-delimiter">&middot;</span>';
@@ -36,7 +37,7 @@ export function transformPosts(postsData, channels, postId) {
             ChannelReferences       : getChannelReferences(item.ChannelIds, channels),
             VideoUrl                : item.VideoUrl ? item.VideoUrl.replace("watch?v=", "v/") : void 0,
             Images                  : prepareImages(item.Images),
-            Voting                  : voting(item.Voting),
+            Voting                  : votingBlock(item.Voting),
             HasClicableImages       : postId ? false : true
         });
     });

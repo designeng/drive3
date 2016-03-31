@@ -1,13 +1,19 @@
-{{! now used /pages/posts/voting function from http://d3-x.net/ }}
 <div class="post-voting">
-    <div class="post-voting-header">{{ Header }}</div>
+    <div class="post-voting-header">{{ Header }} {{ OveralVotes }}</div>
     {{#each Options}}
-    <div class="post-voting-option post-voting-option-max">
-        <div class="post-voting-bar" style="width: 37.5%;"></div>
+    <div class="post-voting-option  
+        {{#if isOptionMax}}
+            post-voting-option-max 
+        {{/if}}
+        {{#if Correct}}
+            post-voting-option-correct
+        {{/if}}
+    ">
+        <div class="post-voting-bar" style="width: {{ votingPercent  }}%;"></div>
         <div class="post-voting-body">
-            <span class="post-voting-num">1</span>
-            <span class="post-voting-percent">37.5% (15)</span>
-            <span class="post-voting-caption">Porsche</span>
+            <span class="post-voting-num">{{ votingNum }}</span>
+            <span class="post-voting-percent">{{ votingPercent  }}% (15)</span>
+            <span class="post-voting-caption">{{ votingCaption }}</span>
         </div>
     </div>
     {{/each}}

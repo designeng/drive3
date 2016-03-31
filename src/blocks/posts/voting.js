@@ -30,7 +30,7 @@ export default function voting (voting) {
     }
 
     for (var i = 0, option; option = options[i]; i++) {
-        html.push('<div class="post-voting-option' +
+        html.push('<div class="post-voting-option post-voting-option-closed' +
             (max == countsPercent[i] ? ' post-voting-option-max' : '') +
             (option['Correct'] ? ' post-voting-option-correct' : '') + '">' +
             '<div class="post-voting-bar" style="width: ' + countsPercent[i] + '%;"></div>' +
