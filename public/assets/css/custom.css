@@ -83,15 +83,6 @@ a.post-title-link {
     text-decoration: none;
 }
 
-a.get-free-app {
-    max-width: 100px; 
-    height: 40px; 
-    margin: 10px 20px;
-    overflow: hidden;
-    color: #fff;
-    text-decoration: none;
-}
-
 .loader {
     padding-bottom: 20px;
 }
