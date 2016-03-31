@@ -13,6 +13,18 @@
     channelsMenuToggler.on('click', function(e){
         toggleMenu();
         e.preventDefault();
+        e.stopPropagation();
+    });
+
+    channelsMenu.on('click', function(e){
+        toggleMenu();
+        e.stopPropagation();
+    });
+
+    $('body').on('click', function(e){
+        if(channelsMenu.hasClass('opened')) {
+            toggleMenu();
+        }
     });
 
     logo.on('click', function(e){
