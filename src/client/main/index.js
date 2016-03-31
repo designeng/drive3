@@ -12,7 +12,6 @@ const run = (pageSpec) => {
 
     pipeline(tasks).then(
         (context) => {
-            // console.log("context::::::", context);
         },
         (error) => {
             console.error("ERROR:::::", error);
