@@ -2,22 +2,11 @@
     <div class="channels-menu-wrapper">{{{ channelsMenu }}}</div>
 </section>
 
-<!-- <section class="top-panel-wrapper">
-        <div class="top-panel {{ contentCorrectionClasses }}">
-            <div class="logo"><a href="/">{{{ logo }}}</a></div>
-            <ul class="top-menu-wrapper">
-                <li class="channels-menu-channel-name-wrapper"><span class="channels-menu-channel-name">{{{ channel.name }}}</span></li>
-                <li class="channels-menu-toggler" id="channels-menu-toggler">^</li>
-                <li class="get-free-app-wrapper"><a class="get-free-app" href="http://www.getdrivenow.com/?ref=header">Get Free App</a></li>
-            </ul>
-        </div>
-</section> -->
-
 <header class='header'>
-    <ul class='center'>
+    <ul class='top-panel {{ contentCorrectionClasses }}'>
         <li class='top-menu-item top-menu-item-left'><div class="logo-wrapper">{{{ logo }}}</div></li>
         <li class='top-menu-item top-menu-item-center'>
-            <div class='menu-trigger'><a href="/" class="menu-trigger-link">Featured ^</a></div>
+            <div class='menu-trigger'><a href="/" class="menu-trigger-link">{{{ channel.name }}} ^</a></div>
         </li>
         <li class='top-menu-item top-menu-item-right'>
             <div class="get-free-app-wrapper"><a class="get-free-app" href="http://www.getdrivenow.com/?ref=header">Get Free App</a></div></li>

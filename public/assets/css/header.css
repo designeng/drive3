@@ -6,7 +6,7 @@
     background-color: #cd002e;
 }
 
-.center{
+.top-panel{
     margin: 0 auto;
     background-color: #cd002e;
     width: 600px;
@@ -69,4 +69,11 @@ a.menu-trigger-link{
     margin: 0 auto;
     color: #fff;
     text-decoration: none;
+}
+
+
+/* TODO: not in header css? */
+/* TODO: phone screen width? */
+.post-page-width-correction {
+    width: 800px;
 }
