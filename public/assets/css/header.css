@@ -99,6 +99,25 @@ a.menu-trigger-link{
     text-decoration: none;
 }
 
+.app-button{
+    float: right;
+    padding-top: 2px;
+}
+
+.get-free-app-button {
+    display: inline-block;
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 18px;
+    line-height: 2pc;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    background: transparent;
+    color: #fff;
+}
+
+
 
 /* TODO: not in header css? */
 /* TODO: phone screen width? */
