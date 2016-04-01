@@ -3,6 +3,7 @@
 .post-voting-option {height: 40px; margin: 0 0 10px; background: #fff; border: 1px solid #ccc; border-radius: 25px; overflow: hidden; 
     float: left;
     width: 100%;
+    transition: width .5s ease-in-out;
 }
 .post-voting-bar {height: 40px; background: #E8E8E8;}
 .post-voting-body {margin: -40px 0 0; height: 40px; font-size: 15px; line-height: 40px;}
