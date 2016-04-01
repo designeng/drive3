@@ -57,26 +57,26 @@ a.menu-trigger-link{
     cursor: pointer;
 }
 
-.toggler-sign:after {
-    content:"^";
+.toggler-sign{
     display: inline-block;
+    width: 14px;
     transition: transform .25s ease-out 0s;
-    -webkit-transform: scale(1.5,1.0) rotate(0deg);
-    -moz-transform: scale(1.5,1.0) rotate(0deg);
-    -o-transform: scale(1.5,1.0) rotate(0deg);
-    -ms-transform: scale(1.5,1.0) rotate(0deg);
-    transform: scale(1.5,1.0) rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
 }
 
-.toggler-sign-opened:after{
-    content:"^";
+.toggler-sign-opened{
     display: inline-block;
+    width: 14px;
     transition: transform .25s ease-out 0s;
-    -webkit-transform: scale(1.5,1.0) rotate(180deg);
-    -moz-transform: scale(1.5,1.0) rotate(180deg);
-    -o-transform: scale(1.5,1.0) rotate(180deg);
-    -ms-transform: scale(1.5,1.0) rotate(180deg);
-    transform: scale(1.5,1.0) rotate(180deg);
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
 }
 
 .get-free-app-wrapper{
