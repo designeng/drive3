@@ -67,7 +67,7 @@ a:hover {text-decoration: underline;}
 }
 .l-footer {}
 
-hr {display: block; clear: both; height: 0; border: 0; border-top: 1px solid #ccc;}
+hr {display: block; clear: both; height: 0; border: 0; border-top: 1px solid #999;}
 
 .docbusy,
 .docbusy * {cursor: progress !important;}
@@ -120,7 +120,7 @@ button:disabled {opacity: 0.5;}
 .post-avatar {float: left; margin: 0 0 10px; width: 40px; height: 40px;}
 .post-avatar img {width: 40px; height: 40px; border-radius: 3px;}
 .post-author {margin: -2px 0 5px 50px; color: #808080; font: 14px/1.2 sans-serif;}
-.post-timestamp {margin: 0 0 10px 50px; color: #ccc; font: 12px/1.2 sans-serif;}
+.post-timestamp {margin: 0 0 10px 50px; color: #999; font: 12px/1.2 sans-serif;}
 .post-timestamp span {cursor: pointer;}
 .post-timestamp span:hover {text-decoration: underline;}
 .post-title {clear: left; margin: 0 0 10px; font: 18px/1.4 sans-serif;}
@@ -172,7 +172,7 @@ button:disabled {opacity: 0.5;}
 .post-comments-item-avatar {float: left; margin: 0 0 10px; width: 40px; height: 40px;}
 .post-comments-item-avatar img {width: 40px; height: 40px; border-radius: 3px;}
 .post-comments-item-author {display: inline; margin: 0 15px 0 0; color: #808080; font: 14px/1.2 sans-serif;}
-.post-comments-item-timestamp {display: inline; color: #ccc; font: 12px/1.2 sans-serif;}
+.post-comments-item-timestamp {display: inline; color: #999; font: 12px/1.2 sans-serif;}
 .post-comments-item-timestamp span {cursor: pointer;}
 .post-comments-item-timestamp span:hover {text-decoration: underline;}
 .post-comments-item-content {margin: 3px 0 0; color: #666; font: 15px/1.4 sans-serif;}
@@ -252,7 +252,7 @@ button:disabled {opacity: 0.5;}
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.pics-intro {display: none; z-index: 2; position: absolute; top: 0; left: 0; bottom: 15px; right: 15px; background: #fff; cursor: default !important; color: #ccc; border: 2px dashed #ccc;
+.pics-intro {display: none; z-index: 2; position: absolute; top: 0; left: 0; bottom: 15px; right: 15px; background: #fff; cursor: default !important; color: #999; border: 2px dashed #999;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -278,7 +278,7 @@ button:disabled {opacity: 0.5;}
 .pic-item-error {cursor: default;}
 .pic-item-error .pic-item-progress {width: 100%; display: block;}
 
-.btn-item-button {display: inline-block; width: 240px; height: 135px; padding: 0; margin: 0 15px 15px 0; outline: 0; color: #ccc; border: 2px dashed #ccc; background: transparent; border-radius: 3px; font: 64px/1 sans-serif;
+.btn-item-button {display: inline-block; width: 240px; height: 135px; padding: 0; margin: 0 15px 15px 0; outline: 0; color: #999; border: 2px dashed #999; background: transparent; border-radius: 3px; font: 64px/1 sans-serif;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;

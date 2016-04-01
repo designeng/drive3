@@ -1,6 +1,6 @@
 .post-voting {}
 .post-voting-header {margin: 0 0 10px;}
-.post-voting-option {height: 40px; margin: 0 0 10px; background: #fff; border: 1px solid #ccc; border-radius: 25px; overflow: hidden; 
+.post-voting-option {height: 40px; margin: 0 0 10px; background: #fff; border: 1px solid #999; border-radius: 25px; overflow: hidden; 
     float: left;
     width: 100%;
     transition: width .5s ease-in-out;
