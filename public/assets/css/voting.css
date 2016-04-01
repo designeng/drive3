@@ -6,9 +6,15 @@
 }
 .post-voting-bar {height: 40px; background: #E8E8E8;}
 .post-voting-body {margin: -40px 0 0; height: 40px; font-size: 15px; line-height: 40px;}
-.post-voting-num {float: left; width: 1em; padding: 0 0.5em; text-align: right;}
+.post-voting-num {float: left; width: 1em; padding: 0 1.1em; text-align: right;
+    font-size: 13px;
+    color: #999;
+ }
 .post-voting-num:after {content: '.';}
-.post-voting-caption {display: block; margin: 0 9.5em 0 2em; padding: 0 0.5em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.post-voting-caption {display: block; margin: 0 9.5em 0 2em; padding: 0 0.5em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    font-size: 13px;
+    color: #999;
+}
 .post-voting-percent {float: right; width: 8.5em; padding: 0 0.5em; font-size: 13px; text-align: right; color: #999;}
 
 .post-voting-option-max {font-color: #AEAEAE; font-weight: normal;}
