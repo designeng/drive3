@@ -28,7 +28,7 @@ ul.top-menu-wrapper li {
 .content {
     width: 600px;
     margin: 0 auto;
-    padding-top: 86px;
+    padding-top: 72px;
 }
 
 .post {
@@ -36,6 +36,9 @@ ul.top-menu-wrapper li {
     margin-right: 20px;
     margin-top: 30px;
     margin-bottom: 30px;
+/*    padding-top: 30px;
+    padding-bottom: 30px;*/
+
 }
 
 .post-delimiter {
@@ -43,6 +46,7 @@ ul.top-menu-wrapper li {
     height: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 30px;
 }
 
 .post-content {
