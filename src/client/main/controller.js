@@ -22,7 +22,7 @@ controller.prototype.loadFromLocalChannel = function(channel, postId) {
 }
 
 controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEnvironment, postId) {
-    if(!postId) {
+    if(!postId && invocationEnvironment.hasMore) {
         // TODO: deprecate window.__sharedData__.lastPostId -> use _.last(window.__sharedData__.postsIds)
         this.lastPostId = this.getLastStoredChannelPostId(invocationEnvironment.channel) || window.__sharedData__.lastPostId;
         $(window).scroll(() => {
@@ -63,6 +63,7 @@ controller.prototype.storeToLocalChannel = function(channel, loadedBlock, ids) {
 controller.prototype.getLastStoredChannelPostId = function(channel) {
     let channelKey = getChannelKey(channel.id);
     let channelValue = JSON.parse(sessionStorage.getItem(channelKey));
+
     if(channelValue) {
         return _.last(channelValue.ids);
     } else {
