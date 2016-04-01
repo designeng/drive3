@@ -4,18 +4,17 @@ import controller from './controller';
 import postsSpec from '../../blocks/posts/spec';
 
 // TODO: es6
-const {channels, channel, postId, hasMore} = window.__sharedData__;
+const {channels, channel, postId} = window.__sharedData__;
 
 export default {
     $plugins: [
-        wireDebugPlugin
+        // wireDebugPlugin
     ],
 
     invocationEnvironment: {
-        channel, 
-        postId, 
-        channels,
-        hasMore,
+        channel: channel, 
+        postId: postId, 
+        channels: channels,
         mode: 'client'
     },
 
@@ -39,7 +38,7 @@ export default {
                 {$ref: 'loadAdditionalPosts'},
                 {$ref: 'invocationEnvironment'},
                 postId
-            ]   
+            ]
         }
     }
 }

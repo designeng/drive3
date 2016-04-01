@@ -7,7 +7,7 @@ import { getEndpoint } from '../../config/api';
 
 export default {
     $plugins: [
-        wireDebugPlugin,
+        // wireDebugPlugin,
         requestPlugin,
     ],
 
@@ -48,8 +48,6 @@ export default {
             endpoint: {$ref: 'postsEndpoint'}
         }
     },
-
-    hasMore: {$ref: 'posts.HasMore'},
 
     transformedPosts: {
         create: {
