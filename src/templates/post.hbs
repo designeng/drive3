@@ -4,11 +4,20 @@
     </div>
 
     <div class="post-title">
-        <a class="post-title-link" href="/posts/{{ Id }}">{{ Title }}</a>
+        <a class=" 
+        {{#if TitleCorrection}}
+            post-title-correction
+        {{/if}}
+        post-title-link
+        " href="/posts/{{ Id }}">{{ Title }}</a>
     </div>
 
     <a href="/posts/{{ Id }}" class="post-content-link">
-        <div class="post-content" id="{{ Id }}-post">{{ Content }}</div>
+        <div class="post-content
+        {{#if TitleCorrection}}
+            post-content-correction
+        {{/if}}
+        " id="{{ Id }}-post">{{ Content }}</div>
     </a>
 
     {{#if VideoUrl}}

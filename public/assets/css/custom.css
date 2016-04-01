@@ -58,7 +58,21 @@ a.post-content-link {
     text-decoration: none;
     font-size: 16px;
     color: #000;
-    font: 16px/1.5 "HelveticaNeue-Regular",Helvetica Neue Light,Helvetica,Arial,sans-serif;
+    font: 16px/1.5 "HelveticaNeue",Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+a.post-title-link {
+    color: #000;
+    text-decoration: none;
+    font: 24px/1.5 "HelveticaNeue",Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+a.post-title-correction {
+    font: 26px/1.5 "HelveticaNeue",Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.post-content-correction {
+    font: 20px/1.5 "HelveticaNeue-Light",Helvetica Neue Light,Helvetica,Arial,sans-serif;
 }
 
 .channel-reference-delimiter {
@@ -70,7 +84,7 @@ a.channel-reference {
     font-size: 12px;
     color: #999;
     text-decoration: none;
-    font: 16px/1.5 "HelveticaNeue-Regular",Helvetica Neue Light,Helvetica,Arial,sans-serif;
+    font: 16px/1.5 "HelveticaNeue",Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 .channels-menu-channel-name-wrapper {
@@ -84,12 +98,6 @@ a.channel-reference {
 .get-free-app-wrapper {
     border-radius: 25px;
     border: 1px solid #fff;
-}
-
-a.post-title-link {
-    color: #000;
-    text-decoration: none;
-    font: 24px/1.5 "HelveticaNeue-Light",Helvetica Neue Light,Helvetica,Arial,sans-serif;
 }
 
 .loader {

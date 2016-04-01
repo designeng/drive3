@@ -38,7 +38,8 @@ export function transformPosts(postsData, channels, postId) {
             VideoUrl                : item.VideoUrl ? item.VideoUrl.replace("watch?v=", "v/") : void 0,
             Images                  : prepareImages(item.Images),
             Voting                  : votingBlock(item.Voting),
-            HasClicableImages       : postId ? false : true
+            HasClicableImages       : postId ? false : true,
+            TitleCorrection         : postId ? true : false,
         });
     });
 }
