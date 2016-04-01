@@ -44,10 +44,8 @@ controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEn
 controller.prototype.storeToLocalChannel = function(channel, loadedBlock, ids) {
     let channelKey = getChannelKey(channel.id);
 
-    // @object
     let channelValue = JSON.parse(sessionStorage.getItem(channelKey));
     if(channelValue) {
-        // @strings
         channelValue.posts += loadedBlock;
         channelValue.ids = _.union(channelValue.ids, ids);
     } else {
