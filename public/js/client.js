@@ -1,6 +1,6 @@
 (function() {
     var channelsMenu = $('.channels-menu');
-    var logo = $('#logo');
+    var logo = $('.logo');
     var channelsMenuToggler = $('.menu-trigger-link');
     var channelsMenuTogglerSign = $('.toggler-sign');
 
