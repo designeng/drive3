@@ -53,6 +53,14 @@ ul.top-menu-wrapper li {
     text-align: justify;
 }
 
+a.post-content-link {
+    text-align: justify;
+    text-decoration: none;
+    font-size: 16px;
+    color: #000;
+    font: 16px/1.5 "HelveticaNeue-Regular",Helvetica Neue Light,Helvetica,Arial,sans-serif;
+}
+
 .channel-reference-delimiter {
     padding: 0 10px 0 10px;
     color: #999;

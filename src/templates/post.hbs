@@ -7,7 +7,9 @@
         <a class="post-title-link" href="/posts/{{ Id }}">{{ Title }}</a>
     </div>
 
-    <div class="post-content post-content-link js-link" id="{{ Id }}-post">{{ Content }}</div>
+    <a href="/posts/{{ Id }}" class="post-content-link">
+        <div class="post-content" id="{{ Id }}-post">{{ Content }}</div>
+    </a>
 
     {{#if VideoUrl}}
         <div class="post-images-video">
