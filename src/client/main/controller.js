@@ -8,6 +8,7 @@ const getChannelKey = (id) => {
 export default function controller() {
     this.lastPostId = null;
     this.postsContainer = $('#scrolling-content-wrapper').find('ul');
+    this.preloader = $('.content-preloader');
 }
 
 controller.prototype.loadFromLocalChannel = function(channel, postId) {
@@ -30,12 +31,18 @@ controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEn
                 _.extend(invocationEnvironment, {
                     fromPostId: this.lastPostId
                 });
-                loadAdditionalPosts.call(null, invocationEnvironment).then(context => {
-                    this.postsContainer.append(context.postsBlock);
 
-                    const { channel, postsBlock, postsIds } = context;
-                    this.storeToLocalChannel(channel, postsBlock, postsIds);
-                })
+                // TODO: check for hasMore - it's like a hack
+                if(this.lastPostId) {
+                    loadAdditionalPosts.call(null, invocationEnvironment).then(context => {
+                        this.postsContainer.append(context.postsBlock);
+
+                        const { channel, postsBlock, postsIds } = context;
+                        this.storeToLocalChannel(channel, postsBlock, postsIds);
+                    })
+                } else {
+                    this.preloader.hide();
+                }
             }
         })
     }
