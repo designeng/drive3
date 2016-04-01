@@ -115,7 +115,7 @@ button:disabled {opacity: 0.5;}
 .user-name:hover {text-decoration: underline;}
 .user-logout-btn {margin: 0 0 0 10px;}
 
-.post {margin: 0 0 40px; outline: 10px solid transparent;}
+.post {outline: 10px solid transparent;}
 .post-controls {float: right; text-align: right;}
 .post-avatar {float: left; margin: 0 0 10px; width: 40px; height: 40px;}
 .post-avatar img {width: 40px; height: 40px; border-radius: 3px;}
