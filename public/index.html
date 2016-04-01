@@ -10,14 +10,60 @@
 
     <title></title>
 
-    <!-- CSS -->
+    <!-- 
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/syntax.css">
     <link rel="stylesheet" href="/assets/css/fonts.css">
     <link rel="stylesheet" href="/assets/css/custom.css">
+    -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<style>
+.toggler-sign, .toggler-text{
+    cursor: pointer;
+}
+
+.toddler-sign {
+    font-family: sans-serif;
+}
+
+.toggler-sign:after {
+    content:"^";
+    display: inline-block;
+    transition: transform .25s ease-out 0s;
+    -webkit-transform: scale(2.0,2.0) rotate(0deg);
+    -moz-transform: scale(2.0,2.0) rotate(0deg);
+    -o-transform: scale(2.0,2.0) rotate(0deg);
+    -ms-transform: scale(2.0,2.0) rotate(0deg);
+    transform: scale(2.0,2.0) rotate(0deg);
+}
+
+.toggler-sign-opened:after{
+    content:"^";
+    display: inline-block;
+    transition: transform .25s ease-out 0s;
+    -webkit-transform: scale(2.0,2.0) rotate(180deg);
+    -moz-transform: scale(2.0,2.0) rotate(180deg);
+    -o-transform: scale(2.0,2.0) rotate(180deg);
+    -ms-transform: scale(2.0,2.0) rotate(180deg);
+    transform: scale(2.0,2.0) rotate(180deg);
+}
+
+</style>
 </head>
 
 <body>
+    <span class="toggler-text">Text</span> <span class="toggler-sign"></span>
+
+    <script>
+    var trigger = $('.toggler-text');
+    var sign = $('.toggler-sign');
+    trigger.on('click', function() {
+        sign.toggleClass('toggler-sign-opened')
+    })
+
+    </script>
+
+    <!--
     <section class="header">
         <div class="top-panel">
             <div class="logo"></div>
@@ -31,5 +77,6 @@
     <section class="content"></section>
 
     <script src="/static/main.js"></script>
+    -->
 </body>
 </html>

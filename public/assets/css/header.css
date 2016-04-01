@@ -58,16 +58,24 @@ a.menu-trigger-link{
 
 .toggler-sign:after {
     content:"^";
-    -webkit-transform:rotate(0deg);
-    -ms-transform:rotate(0deg);
-    transform:rotate(0deg)
+    display: inline-block;
+    transition: transform .25s ease-out 0s;
+    -webkit-transform: scale(1.5,1.0) rotate(0deg);
+    -moz-transform: scale(1.5,1.0) rotate(0deg);
+    -o-transform: scale(1.5,1.0) rotate(0deg);
+    -ms-transform: scale(1.5,1.0) rotate(0deg);
+    transform: scale(1.5,1.0) rotate(0deg);
 }
 
 .toggler-sign-opened:after{
     content:"^";
-    -webkit-transform:rotate(180deg);
-    -ms-transform:rotate(180deg);
-    transform:rotate(180deg);
+    display: inline-block;
+    transition: transform .25s ease-out 0s;
+    -webkit-transform: scale(1.5,1.0) rotate(180deg);
+    -moz-transform: scale(1.5,1.0) rotate(180deg);
+    -o-transform: scale(1.5,1.0) rotate(180deg);
+    -ms-transform: scale(1.5,1.0) rotate(180deg);
+    transform: scale(1.5,1.0) rotate(180deg);
 }
 
 .get-free-app-wrapper{
