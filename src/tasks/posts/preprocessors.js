@@ -1,8 +1,6 @@
 import _ from 'underscore';
-import chalk from 'chalk';
 
 import post from '../../templates/build/post';
-
 import votingBlock from './votingBlock';
 
 function getChannelReferences(ids, channels) {
