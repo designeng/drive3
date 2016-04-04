@@ -1,14 +1,12 @@
 import wire from 'essential-wire';
 import pipeline from 'when/pipeline';
 
+import { createTask }  from '../../utils/tasks';
+
 import clientSpec from './client.spec';
 
-const run = (pageSpec) => {
-    const pageTask = (context) => {
-        return context? context.wire(pageSpec) : wire(pageSpec);
-    }
-
-    const tasks = [pageTask];
+const run = (spec) => {
+    const tasks = [createTask(spec)];
 
     pipeline(tasks).then(
         (context) => {
