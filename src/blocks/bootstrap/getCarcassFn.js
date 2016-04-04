@@ -3,10 +3,9 @@ import body     from '../../templates/build/body';
 
 const postPageWidthCorrection = 'post-page-width-correction';
 
-export default function getCarcassFn(logoBlock, channelsMenu, postId) {
+export default function getCarcassFn(channelsMenu, postId) {
     return (content, channel, sharedData) => {
         const bodyContent = body({
-            logo: logoBlock,
             channelsMenu: channelsMenu,
             channel,
             content,
