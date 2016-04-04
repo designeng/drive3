@@ -14,7 +14,7 @@ function routeMiddleware(resolver, facet, wire) {
     routes.forEach(route => {
 
         target.get(route.url, function (req, res, next) {
-            let tasks   = createTasks(route.specs),
+            let tasks   = createTasks(route.tasks),
                 params  = req.params;
 
             let environment = {

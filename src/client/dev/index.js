@@ -2,8 +2,8 @@ import $ from 'jquery';
 import wire from 'essential-wire';
 import pipeline from 'when/pipeline';
 
-import bootstrapSpec from '../../blocks/bootstrap/spec';
-import postsSpec from '../../blocks/posts/spec';
+import bootstrapSpec from '../../tasks/bootstrap/spec';
+import postsSpec from '../../tasks/posts/spec';
 
 const run = (pageSpec) => {
 
@@ -43,8 +43,8 @@ const run = (pageSpec) => {
 run(postsSpec);
 
 if (module.hot) {
-    module.hot.accept('../../blocks/posts/spec.js', () => {
-        var _routeSpec = require('../../blocks/posts/spec.js');
+    module.hot.accept('../../tasks/posts/spec.js', () => {
+        var _routeSpec = require('../../tasks/posts/spec.js');
         run(_routeSpec.default);
     })
 }

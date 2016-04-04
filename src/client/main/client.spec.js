@@ -1,7 +1,9 @@
 import wireDebugPlugin      from 'essential-wire/source/debug';
 
 import controller from './controller';
-import postsSpec from '../../blocks/posts/spec';
+import postsSpec from '../../tasks/posts/spec';
+
+import deferWire from '../../decorators/deferWire';
 
 // TODO: es6
 const {channels, channel, postId} = window.__sharedData__;
@@ -18,12 +20,8 @@ export default {
         mode: 'client'
     },
 
-    loadAdditionalPosts: {
-        wire: {
-            spec: postsSpec,
-            defer: true
-        }
-    },
+    @deferWire({spec: postsSpec})
+    loadAdditionalPosts: {},
 
     controller: {
         create: {
