@@ -71,6 +71,10 @@ a.post-title-correction {
     font: 26px/1.5 "HelveticaNeue",Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
+a.post-images-item-link {
+    background-color: #808080;
+}
+
 .post-content-correction {
     font: 20px/1.5 "HelveticaNeue-Light",Helvetica Neue Light,Helvetica,Arial,sans-serif;
 }
