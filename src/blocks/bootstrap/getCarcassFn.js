@@ -12,7 +12,8 @@ export default function getCarcassFn(logoBlock, channelsMenu, postId) {
             contentCorrectionClasses: postId ? 'post-page-width-correction' : ''
         })
         return carcass({
-            body: bodyContent
+            body: bodyContent,
+            channel
         })
     }
 }
