@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 
@@ -10,73 +11,398 @@
 
     <title></title>
 
-    <!-- 
+    <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/syntax.css">
     <link rel="stylesheet" href="/assets/css/fonts.css">
+
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
     <link rel="stylesheet" href="/assets/css/custom.css">
-    -->
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/channels-menu.css">
+    <link rel="stylesheet" href="/assets/css/voting.css">
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<style>
-.toggler-sign, .toggler-text{
-    cursor: pointer;
-}
+    <script src="http://dimsemenov-static.s3.amazonaws.com/dist/jquery.magnific-popup.min.js"></script>
+    <script src="//twemoji.maxcdn.com/twemoji.min.js"></script>
+    <script>
+    // TODO: extract to script file
+    var createMagnificPopup = function(selector) {
+        $(selector).magnificPopup({
+            type:'image',
+            midClick: true,
+            closeOnContentClick: true,
+            showCloseBtn: false,
+            zoom: {
+                enabled: true,
+                duration: 400,
+                easing: 'ease-in-out',
+                // TODO: find how to fix it. 
+                // Fisrt time element is clicked it's starting not from openerElement shape.
+                opener: function(openerElement) {
+                    return openerElement;
+                }
+            }
+        });
+    }
 
-.toddler-sign {
-    font-family: sans-serif;
-}
+    var twemojiParse = function(id) {
+        twemoji.parse(document.getElementById(id));
+    }
 
-.toggler-sign:after {
-    content:"^";
-    display: inline-block;
-    transition: transform .25s ease-out 0s;
-    -webkit-transform: scale(2.0,2.0) rotate(0deg);
-    -moz-transform: scale(2.0,2.0) rotate(0deg);
-    -o-transform: scale(2.0,2.0) rotate(0deg);
-    -ms-transform: scale(2.0,2.0) rotate(0deg);
-    transform: scale(2.0,2.0) rotate(0deg);
-}
+    // TODO: it's only a row prototype.
+    var showVotingResultsOnClick = function(id) {
+        var blockRootElement = $('#' + id);
 
-.toggler-sign-opened:after{
-    content:"^";
-    display: inline-block;
-    transition: transform .25s ease-out 0s;
-    -webkit-transform: scale(2.0,2.0) rotate(180deg);
-    -moz-transform: scale(2.0,2.0) rotate(180deg);
-    -o-transform: scale(2.0,2.0) rotate(180deg);
-    -ms-transform: scale(2.0,2.0) rotate(180deg);
-    transform: scale(2.0,2.0) rotate(180deg);
-}
+        var votingBarElements = blockRootElement.find('.post-voting-bar');
+        var percents = [];
+        for (var i = votingBarElements.length - 1; i >= 0; i--) {
+            percents.push(votingBarElements[i].style.width);
+            votingBarElements[i].style.width = "0";
+        };
 
-</style>
+        blockRootElement.one('click', function() {
+            var votingOptionElements = blockRootElement.find('.post-voting-option');
+            var votingCaptionTeaserElements = blockRootElement.find('.post-voting-caption-teaser');
+
+            for (var i = votingOptionElements.length - 1; i >= 0; i--) {
+                $(votingOptionElements[i]).removeClass('post-voting-option-closed');
+                $(votingCaptionTeaserElements[i]).hide();
+                votingBarElements[i].style.width = percents[i];
+            };
+        });
+    }
+    </script>
 </head>
 
 <body>
-    <span class="toggler-text">Text</span> <span class="toggler-sign"></span>
-
-    <script>
-    var trigger = $('.toggler-text');
-    var sign = $('.toggler-sign');
-    trigger.on('click', function() {
-        sign.toggleClass('toggler-sign-opened')
-    })
-
-    </script>
-
-    <!--
     <section class="header">
-        <div class="top-panel">
-            <div class="logo"></div>
-            <div class="top-menu-wrapper">
-                <span class="channels-menu-toggler" id="channels-menu-toggler">^</span>
+    <div class="channels-menu-wrapper "><ul class="channels-menu">
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/0">Featured</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVt5rPHQEw0TO9bcp2GCw">Auto Business</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FOZ4IwhSmzhxaG9g-XSE3w">Car of the Day</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVt6Dkn8rHBdZFN6GDObg">Car Tuning</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVt6lEHQE00TO9bcp2GCw">Celebrities</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVt7Bxn8rLBdZFN6GDObg">Compact Cars</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVt-FknQE80TO9bcp2GCw">Concept Cars</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVt89M3QE40TO9bcp2GCw">DIY</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVt9b5X8rPBdZFN6GDObg">Electric Vehicles</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVt-aT38rTBdZFN6GDObg">Girls and Cars</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVt-4HXQFA0TO9bcp2GCw">Hybrid Cars</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVuBNHnQFM0TO9bcp2GCw">Insiders</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVt_Uh38rbBdZFN6GDObg">LOL</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVt_vI3QFE0TO9bcp2GCw">Luxury Vehicles</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVuAGSH8rfBdZFN6GDObg">Mid-Size Cars</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVt5Ptn8rDBdZFN6GDObg">Motorsport</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVt4hn3QEs0TO9bcp2GCw">Multimedia</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVuAeKHQFI0TO9bcp2GCw">Offroad</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVuA2GX8rjBdZFN6GDObg">Old School</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FPZjes9eoFlsJQsj_nqoYA">Quiz of the Day</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVuByLX8rnBdZFN6GDObg">Safety</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVuCH5XQFQ0TO9bcp2GCw">Self-Driving Cars</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVuCuZXQFU0TO9bcp2GCw">Sports Cars</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FOIFE4_nEofCtdpCSNcRQg">Spy Shots</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVuDMJXQFY0TO9bcp2GCw">Styling</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVuDg138rvBdZFN6GDObg">SUVs and Crossovers</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVuDyinQFc0TO9bcp2GCw">Technology</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVuEHBH8rzBdZFN6GDObg">Trucks</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FOtkyyx4Ez-siqzw4-7MgQ">Video of the Day</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVuEdbHQFg0TO9bcp2GCw">Wagons</a>
+        </li>
+        <li class="channels-menu-item">
+            <a class="channels-menu-item__link" href="/channels/FNVuExeXQFo0TO9bcp2GCw">Wheels and Tires</a>
+        </li>
+</ul></div>
+</section>
+
+<header class='header'>
+    <ul class='top-panel '>
+        <li class='top-menu-item top-menu-item-left'><img src="/assets/images/logo.png" class="logo"/></li>
+        <li class='top-menu-item top-menu-item-center'>
+            <div class='menu-trigger'><a href="/" class="menu-trigger-link">Featured <img class="toggler-sign" src="/assets/images/selector.svg"/></a></div>
+        </li>
+        <li class='top-menu-item top-menu-item-right'>
+            <div class="app-button"><a class="get-free-app-button" href="http://www.getdrivenow.com/?ref=header">Get Free App</a></div></li>
+    </ul>
+</header>
+
+<section class="content " id="posts-wrapper">
+    <div id="scrolling-content-wrapper">
+        <ul>
+            <li class="post row">
+    <div class="channels-references">
+    <span><a class="channel-reference" href="/channels/FNVt5rPHQEw0TO9bcp2GCw">Auto Business</a></span>
+    </div>
+
+    <div class="post-title">
+        <a class=" 
+        post-title-link
+        " href="/posts/FT0fRCJz-QfKtCE5pTPWdQ">No internal combustion?</a>
+    </div>
+
+    <a href="/posts/FT0fRCJz-QfKtCE5pTPWdQ" class="post-content-link">
+        <div class="post-content
+        " id="FT0fRCJz-QfKtCE5pTPWdQ-post">This is what the lower house of Dutch parliament proposes and they do have some support. However, the ban on sales would affect all cars but zero emission ones, so this does seem pretty unrealistic in the next 9 years, with most experts suggesting that by 2025 in the best-case scenario about 15% of cars could be zero emission 📊</div>
+    </a>
+
+
+        <div class="post-images-container">
+            <div class="post-images post-images-num1">
+                <div class="post-images-item">
+                    <img src="https://images.d3-x.net/ZHShEnTtMfz1-5q3WUVbjf3k71g&#x3D;/1280x720/post/FT0fNWsKAXLrLvF6cJTasoAK0AUB.jpg" style='display:none'/>
+                    <span>
+                        <a data-id='zoom' 
+                            href="https://images.d3-x.net/ZHShEnTtMfz1-5q3WUVbjf3k71g&#x3D;/1280x720/post/FT0fNWsKAXLrLvF6cJTasoAK0AUB.jpg" 
+                        id="FT0fNWsKAXLrLvF6cJTasoAK0AUB-link" 
+                        style="background-image:url(https://images.d3-x.net/TMK8z_yDtRuZMjp3T7grMH3-B7g&#x3D;/700x394/post/FT0fNWsKAXLrLvF6cJTasoAK0AUB.jpg)">
+                            <img src="https://images.d3-x.net/TMK8z_yDtRuZMjp3T7grMH3-B7g&#x3D;/700x394/post/FT0fNWsKAXLrLvF6cJTasoAK0AUB.jpg">
+                        </a>
+                    </span>
+                        <script>
+                            createMagnificPopup('#FT0fNWsKAXLrLvF6cJTasoAK0AUB-link');
+                        </script>
+                </div>
             </div>
         </div>
-    </section>
 
-    <section class="channels-menu-wrapper"></section>
-    <section class="content"></section>
+    
 
-    <script src="/static/main.js"></script>
-    -->
+    <script>
+        twemojiParse('FT0fRCJz-QfKtCE5pTPWdQ-post');
+    </script>
+
+    <hr class="post-delimiter" />
+</li><li class="post row">
+    <div class="channels-references">
+    <span><a class="channel-reference" href="/channels/FOZ4IwhSmzhxaG9g-XSE3w">Car of the Day</a></span>
+    </div>
+
+    <div class="post-title">
+        <a class=" 
+        post-title-link
+        " href="/posts/FT0e6s8D-QbKtCE5pTPWdQ">BMW X3</a>
+    </div>
+
+    <a href="/posts/FT0e6s8D-QbKtCE5pTPWdQ" class="post-content-link">
+        <div class="post-content
+        " id="FT0e6s8D-QbKtCE5pTPWdQ-post">Here we have your run of the mill, soccer mom SUVs and most probably the last choice for tuning potential. To change that drop in a triple turbo X5 M50d diesel with a pinch of tuning and the result is 550 hp and 0-62 in 3.6s. Drivetrain has been built, brakes upgraded and interior has a thumping sound system. Camo wrap means performance like a renown RS6 wagon 🔫</div>
+    </a>
+
+
+        <div class="post-images-container">
+            <div class="post-images post-images-num4">
+                <div class="post-images-item">
+                    <img src="https://images.d3-x.net/6NS420W5YftdXFFYvCCumJwJMgM&#x3D;/960x540/post/FT0eu_HKAXHrLvF6cJTassAHnAQB.jpg" style='display:none'/>
+                    <span>
+                        <a data-id='zoom' 
+                            href="https://images.d3-x.net/6NS420W5YftdXFFYvCCumJwJMgM&#x3D;/960x540/post/FT0eu_HKAXHrLvF6cJTassAHnAQB.jpg" 
+                        id="FT0eu_HKAXHrLvF6cJTassAHnAQB-link" 
+                        style="background-image:url(https://images.d3-x.net/PBL__wzAitAVAB4aXSabUjGZ4Bw&#x3D;/700x394/post/FT0eu_HKAXHrLvF6cJTassAHnAQB.jpg)">
+                            <img src="https://images.d3-x.net/PBL__wzAitAVAB4aXSabUjGZ4Bw&#x3D;/700x394/post/FT0eu_HKAXHrLvF6cJTassAHnAQB.jpg">
+                        </a>
+                    </span>
+                        <script>
+                            createMagnificPopup('#FT0eu_HKAXHrLvF6cJTassAHnAQB-link');
+                        </script>
+                </div>
+                <div class="post-images-item">
+                    <img src="https://images.d3-x.net/P14GKErqPbJnIoIAhnTa3XQzomg&#x3D;/960x540/post/FT0eyaNz-QPKtCE5pTPWdcAHnAQB.jpg" style='display:none'/>
+                    <span>
+                        <a data-id='zoom' 
+                            href="https://images.d3-x.net/P14GKErqPbJnIoIAhnTa3XQzomg&#x3D;/960x540/post/FT0eyaNz-QPKtCE5pTPWdcAHnAQB.jpg" 
+                        id="FT0eyaNz-QPKtCE5pTPWdcAHnAQB-link" 
+                        style="background-image:url(https://images.d3-x.net/pF613TtJTkMuRuPePiFPRs7rcXA&#x3D;/700x394/post/FT0eyaNz-QPKtCE5pTPWdcAHnAQB.jpg)">
+                            <img src="https://images.d3-x.net/pF613TtJTkMuRuPePiFPRs7rcXA&#x3D;/700x394/post/FT0eyaNz-QPKtCE5pTPWdcAHnAQB.jpg">
+                        </a>
+                    </span>
+                        <script>
+                            createMagnificPopup('#FT0eyaNz-QPKtCE5pTPWdcAHnAQB-link');
+                        </script>
+                </div>
+                <div class="post-images-item">
+                    <img src="https://images.d3-x.net/jv5tbZNlhWLYlb2VFWeX7W7cjsU&#x3D;/1280x720/post/FT0e0eyj-QTKtCE5pTPWdYAK0AUB.jpg" style='display:none'/>
+                    <span>
+                        <a data-id='zoom' 
+                            href="https://images.d3-x.net/jv5tbZNlhWLYlb2VFWeX7W7cjsU&#x3D;/1280x720/post/FT0e0eyj-QTKtCE5pTPWdYAK0AUB.jpg" 
+                        id="FT0e0eyj-QTKtCE5pTPWdYAK0AUB-link" 
+                        style="background-image:url(https://images.d3-x.net/KyW11T_Ou1Qp2LJVJOqQD7dXokg&#x3D;/700x394/post/FT0e0eyj-QTKtCE5pTPWdYAK0AUB.jpg)">
+                            <img src="https://images.d3-x.net/KyW11T_Ou1Qp2LJVJOqQD7dXokg&#x3D;/700x394/post/FT0e0eyj-QTKtCE5pTPWdYAK0AUB.jpg">
+                        </a>
+                    </span>
+                        <script>
+                            createMagnificPopup('#FT0e0eyj-QTKtCE5pTPWdYAK0AUB-link');
+                        </script>
+                </div>
+                <div class="post-images-item">
+                    <img src="https://images.d3-x.net/KdH6K4dPRHR-zE7Bc2KkMgMr42E&#x3D;/1280x720/post/FT0e1-Oz-QXKtCE5pTPWdYAK0AUB.jpg" style='display:none'/>
+                    <span>
+                        <a data-id='zoom' 
+                            href="https://images.d3-x.net/KdH6K4dPRHR-zE7Bc2KkMgMr42E&#x3D;/1280x720/post/FT0e1-Oz-QXKtCE5pTPWdYAK0AUB.jpg" 
+                        id="FT0e1-Oz-QXKtCE5pTPWdYAK0AUB-link" 
+                        style="background-image:url(https://images.d3-x.net/AEZj1B7j28e8YWbV1hp2Z3FW9oA&#x3D;/700x394/post/FT0e1-Oz-QXKtCE5pTPWdYAK0AUB.jpg)">
+                            <img src="https://images.d3-x.net/AEZj1B7j28e8YWbV1hp2Z3FW9oA&#x3D;/700x394/post/FT0e1-Oz-QXKtCE5pTPWdYAK0AUB.jpg">
+                        </a>
+                    </span>
+                        <script>
+                            createMagnificPopup('#FT0e1-Oz-QXKtCE5pTPWdYAK0AUB-link');
+                        </script>
+                </div>
+            </div>
+        </div>
+
+    
+
+    <script>
+        twemojiParse('FT0e6s8D-QbKtCE5pTPWdQ-post');
+    </script>
+
+    <hr class="post-delimiter" />
+</li><li class="post row">
+    <div class="channels-references">
+    <span><a class="channel-reference" href="/channels/FNVuA2GX8rjBdZFN6GDObg">Old School</a></span><span class="channel-reference-delimiter">·</span><span><a class="channel-reference" href="/channels/FNVuCuZXQFU0TO9bcp2GCw">Sports Cars</a></span>
+    </div>
+
+    <div class="post-title">
+        <a class=" 
+        post-title-link
+        " href="/posts/FTxysDNfWPcbTJHFks65oA">Pricey '91 M3</a>
+    </div>
+
+    <a href="/posts/FTxysDNfWPcbTJHFks65oA" class="post-content-link">
+        <div class="post-content
+        " id="FTxysDNfWPcbTJHFks65oA-post">A tad optimistic? A dealer is asking $200K for a pristine E30 M3, with only 6K mi on the clock. To make it more special it's the last VIN for a North American produced M3 and was used initially as the BMW Promotional Pace Car at Lime Rock Park. $200K can buy you a lot of car and sceptics are doubtful on the price but the website has been updated to "sale pending". Must be a BMW purist 🤘</div>
+    </a>
+
+
+        <div class="post-images-container">
+            <div class="post-images post-images-num4">
+                <div class="post-images-item">
+                    <img src="https://images.d3-x.net/ABIRLnFLQpKbfxuGNzs0qnTZSRI=/960x540/post/FTxyLY2E37jOgZV07byWaMAHnAQB.jpg" style="display:none">
+                    <span>
+                        <a data-id="zoom" href="https://images.d3-x.net/ABIRLnFLQpKbfxuGNzs0qnTZSRI=/960x540/post/FTxyLY2E37jOgZV07byWaMAHnAQB.jpg" id="FTxyLY2E37jOgZV07byWaMAHnAQB-link" style="background-image:url(https://images.d3-x.net/zTrfNRiisujC50Ngck7-mBniwhw=/700x394/post/FTxyLY2E37jOgZV07byWaMAHnAQB.jpg)">
+                            <img src="https://images.d3-x.net/zTrfNRiisujC50Ngck7-mBniwhw=/700x394/post/FTxyLY2E37jOgZV07byWaMAHnAQB.jpg">
+                        </a>
+                    </span>
+                        <script>
+                            createMagnificPopup('#FTxyLY2E37jOgZV07byWaMAHnAQB-link');
+                        </script>
+                </div>
+                <div class="post-images-item">
+                    <img src="https://images.d3-x.net/1NdUU9QN66QH5XVgOl2vlQU0fOo=/960x540/post/FTxyN-c037nOgZV07byWaMAHnAQB.jpg" style="display:none">
+                    <span>
+                        <a data-id="zoom" href="https://images.d3-x.net/1NdUU9QN66QH5XVgOl2vlQU0fOo=/960x540/post/FTxyN-c037nOgZV07byWaMAHnAQB.jpg" id="FTxyN-c037nOgZV07byWaMAHnAQB-link" style="background-image:url(https://images.d3-x.net/gS-NQgw5DcsWnLhFSEA_hccyVz4=/700x394/post/FTxyN-c037nOgZV07byWaMAHnAQB.jpg)">
+                            <img src="https://images.d3-x.net/gS-NQgw5DcsWnLhFSEA_hccyVz4=/700x394/post/FTxyN-c037nOgZV07byWaMAHnAQB.jpg">
+                        </a>
+                    </span>
+                        <script>
+                            createMagnificPopup('#FTxyN-c037nOgZV07byWaMAHnAQB-link');
+                        </script>
+                </div>
+                <div class="post-images-item">
+                    <img src="https://images.d3-x.net/ilKMaAACEb06frMsw2ho0FgubOo=/960x540/post/FTxySGik37rOgZV07byWaMAHnAQB.jpg" style="display:none">
+                    <span>
+                        <a data-id="zoom" href="https://images.d3-x.net/ilKMaAACEb06frMsw2ho0FgubOo=/960x540/post/FTxySGik37rOgZV07byWaMAHnAQB.jpg" id="FTxySGik37rOgZV07byWaMAHnAQB-link" style="background-image:url(https://images.d3-x.net/tCUIW7FzZzsE1NSVk1eEQ3AG6zQ=/700x394/post/FTxySGik37rOgZV07byWaMAHnAQB.jpg)">
+                            <img src="https://images.d3-x.net/tCUIW7FzZzsE1NSVk1eEQ3AG6zQ=/700x394/post/FTxySGik37rOgZV07byWaMAHnAQB.jpg">
+                        </a>
+                    </span>
+                        <script>
+                            createMagnificPopup('#FTxySGik37rOgZV07byWaMAHnAQB-link');
+                        </script>
+                </div>
+                <div class="post-images-item">
+                    <img src="https://images.d3-x.net/hMtSW-qot1Yhv_GQmxlyY5dFbLs=/960x540/post/FTxyXuJ037vOgZV07byWaMAHnAQB.jpg" style="display:none">
+                    <span>
+                        <a data-id="zoom" href="https://images.d3-x.net/hMtSW-qot1Yhv_GQmxlyY5dFbLs=/960x540/post/FTxyXuJ037vOgZV07byWaMAHnAQB.jpg" id="FTxyXuJ037vOgZV07byWaMAHnAQB-link" style="background-image:url(https://images.d3-x.net/NloisjqAN82T2bFpt-FxY-YHa9c=/700x394/post/FTxyXuJ037vOgZV07byWaMAHnAQB.jpg)">
+                            <img src="https://images.d3-x.net/NloisjqAN82T2bFpt-FxY-YHa9c=/700x394/post/FTxyXuJ037vOgZV07byWaMAHnAQB.jpg">
+                        </a>
+                    </span>
+                        <script>
+                            createMagnificPopup('#FTxyXuJ037vOgZV07byWaMAHnAQB-link');
+                        </script>
+                </div>
+            </div>
+        </div>
+
+    
+
+    <script>
+        twemojiParse('FTxysDNfWPcbTJHFks65oA-post');
+    </script>
+
+    <hr class="post-delimiter">
+</li>
+        </ul>
+        <div class='content-preloader'><img src='/assets/images/preloader.gif' class='loader'/></div>
+    </div>
+</section>
+
+
+<script type="text/javascript" id='sharedData'>
+    window.__sharedData__ = {"lastPostId":"FT0d0nHD-QLKtCE5pTPWdQ","channels":[{"Id":0,"Caption":"Featured"},{"Id":"FNVt5rPHQEw0TO9bcp2GCw","Caption":"Auto Business"},{"Id":"FOZ4IwhSmzhxaG9g-XSE3w","Caption":"Car of the Day"},{"Id":"FNVt6Dkn8rHBdZFN6GDObg","Caption":"Car Tuning"},{"Id":"FNVt6lEHQE00TO9bcp2GCw","Caption":"Celebrities"},{"Id":"FNVt7Bxn8rLBdZFN6GDObg","Caption":"Compact Cars"},{"Id":"FNVt-FknQE80TO9bcp2GCw","Caption":"Concept Cars"},{"Id":"FNVt89M3QE40TO9bcp2GCw","Caption":"DIY"},{"Id":"FNVt9b5X8rPBdZFN6GDObg","Caption":"Electric Vehicles"},{"Id":"FNVt-aT38rTBdZFN6GDObg","Caption":"Girls and Cars"},{"Id":"FNVt-4HXQFA0TO9bcp2GCw","Caption":"Hybrid Cars"},{"Id":"FNVuBNHnQFM0TO9bcp2GCw","Caption":"Insiders"},{"Id":"FNVt_Uh38rbBdZFN6GDObg","Caption":"LOL"},{"Id":"FNVt_vI3QFE0TO9bcp2GCw","Caption":"Luxury Vehicles"},{"Id":"FNVuAGSH8rfBdZFN6GDObg","Caption":"Mid-Size Cars"},{"Id":"FNVt5Ptn8rDBdZFN6GDObg","Caption":"Motorsport"},{"Id":"FNVt4hn3QEs0TO9bcp2GCw","Caption":"Multimedia"},{"Id":"FNVuAeKHQFI0TO9bcp2GCw","Caption":"Offroad"},{"Id":"FNVuA2GX8rjBdZFN6GDObg","Caption":"Old School"},{"Id":"FPZjes9eoFlsJQsj_nqoYA","Caption":"Quiz of the Day"},{"Id":"FNVuByLX8rnBdZFN6GDObg","Caption":"Safety"},{"Id":"FNVuCH5XQFQ0TO9bcp2GCw","Caption":"Self-Driving Cars"},{"Id":"FNVuCuZXQFU0TO9bcp2GCw","Caption":"Sports Cars"},{"Id":"FOIFE4_nEofCtdpCSNcRQg","Caption":"Spy Shots"},{"Id":"FNVuDMJXQFY0TO9bcp2GCw","Caption":"Styling"},{"Id":"FNVuDg138rvBdZFN6GDObg","Caption":"SUVs and Crossovers"},{"Id":"FNVuDyinQFc0TO9bcp2GCw","Caption":"Technology"},{"Id":"FNVuEHBH8rzBdZFN6GDObg","Caption":"Trucks"},{"Id":"FOtkyyx4Ez-siqzw4-7MgQ","Caption":"Video of the Day"},{"Id":"FNVuEdbHQFg0TO9bcp2GCw","Caption":"Wagons"},{"Id":"FNVuExeXQFo0TO9bcp2GCw","Caption":"Wheels and Tires"}],"channel":{"name":"Featured","id":0},"postId":0};
+    // TODO: use handlebars instead
+    if(window.__sharedData__.postId) {
+        $('.content-preloader').hide();
+    }
+</script>
+<script src="/js/client.js"></script>
+
 </body>
 </html>
