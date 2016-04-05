@@ -27,6 +27,18 @@ function prepareImages(images) {
     })
 }
 
+function prepareComments(comments, profiles) {
+    console.log("comments::::::", comments);
+    return _.map(comments, (comment) => {
+        const authorProfile = _.find(profiles, {Id: comment.AuthorId});
+        return {
+            AuthorNickname: authorProfile.Nickname,
+            AuthorAvatar: authorProfile.Avatar[0].Url,
+            Content
+        }
+    })
+}
+
 export function transformPosts(postsData, channels, postId) {
     const items = postsData.Posts;
     return _.map(items, (item) => {
@@ -38,6 +50,7 @@ export function transformPosts(postsData, channels, postId) {
             Voting                  : votingBlock(item.Voting),
             HasClicableImages       : postId ? false : true,
             TitleCorrection         : postId ? true : false,
+            Comments                : prepareComments(item.Comments, postsData.Profiles)
         });
     });
 }
