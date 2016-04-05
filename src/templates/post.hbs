@@ -55,18 +55,6 @@
 
     {{{ Voting }}}
 
-    <div class="post-comments-wrapper">
-        <ul class="post-comments">
-        {{#each Comments}}
-            <li class="post-comments-item">
-                <img class="post-comment-avatar" src={{ AuthorAvatar }} />
-                <!-- <span class="post-comment-nickname">{{ AuthorNickname }}</span> -->
-                <span class="post-comment-content">{{ Content }}</span>
-            </li>
-        {{/each}}
-        </ul>
-    </div>
-
     <script>
         twemojiParse('{{ Id }}-post');
     </script>
