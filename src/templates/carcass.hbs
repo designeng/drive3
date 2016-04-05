@@ -45,8 +45,12 @@
         });
     }
 
-    var twemojiParse = function(id) {
-        twemoji.parse(document.getElementById(id));
+    var twemojiParse = function() {
+        var args = (arguments.length === 1 ? [arguments[0]] : Array.apply(null, arguments));
+        for (var i = args.length - 1; i >= 0; i--) {
+            var id = args[i];
+            twemoji.parse(document.getElementById(id));
+        };
     }
 
     // TODO: it's only a row prototype.
