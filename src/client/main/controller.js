@@ -7,7 +7,7 @@ const getChannelKey = (id) => {
 
 export default function controller() {
     this.lastPostId = null;
-    this.postsContainer = $('#scrolling-content-wrapper').find('ul');
+    this.postsContainer = $('#posts-container');
 }
 
 controller.prototype.loadFromLocalChannel = function(channel, postId) {

@@ -47,6 +47,7 @@ ul.top-menu-wrapper li {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     margin-top: 30px;
+
 }
 
 .post-content {
@@ -89,6 +90,15 @@ a.post-images-item-link {
     background-color: #808080;
     float: left;
     margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.post-comment-avatar-preview, .post-comment-content-preview {
+    font: 16px/1.5 "HelveticaNeue",Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.post-comment-content-preview {
+    /*padding-top: 15px;*/
 }
 
 .post-comment-details {
@@ -136,4 +146,8 @@ a.channel-reference {
 
 .loader {
     padding-bottom: 20px;
+}
+
+.clearfix {
+    clear: both;
 }
