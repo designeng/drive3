@@ -23,14 +23,16 @@ function correctChannel(channels, channel, postId, lastPost) {
     return channel;
 }
 
-export default function getBodyHtml(postsBlock, getCarcassFn, posts, channels, channel, postId) {
+export default function getBodyHtml(postsBlock, getCarcassFn, posts, channels, channel, postId, commentsBlock) {
     let lastPost = posts[posts.length - 1];
     channel = correctChannel(channels, channel, postId, lastPost);
 
     let lastPostId = lastPost.Id;
     let sharedData = { lastPostId, channels, channel, postId };
+
+    let content = postsBlock + commentsBlock;
     
-    const pageHtml = getCarcassFn(postsBlock, channel, sharedData);
+    const pageHtml = getCarcassFn(content, channel, sharedData);
 
     return {
         html: pageHtml

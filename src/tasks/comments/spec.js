@@ -1,7 +1,7 @@
 import wireDebugPlugin   from 'essential-wire/source/debug';
 import requestPlugin     from '../../plugins/api/request';
 
-import { commentsBlockHtml  } from './preprocessors';
+import { prepareComments, commentsBlockHtml  } from './preprocessors';
 
 import { getEndpoint } from '../../config/api';
 
@@ -28,15 +28,20 @@ export default {
         }
     },
 
-    transformedComments: {
-
+    preparedComments: {
+        create: {
+            module: prepareComments,
+            args: [
+                {$ref: 'comments'},
+            ]
+        }
     },
 
     commentsBlock: {
         create: {
             module: commentsBlockHtml,
             args: [
-                {$ref: 'transformedComments'},
+                {$ref: 'preparedComments'},
             ]
         }
     }

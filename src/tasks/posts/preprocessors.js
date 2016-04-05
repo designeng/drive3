@@ -28,7 +28,6 @@ function prepareImages(images) {
 }
 
 function prepareComments(comments, profiles) {
-    console.log("comments::::::", comments);
     return _.map(comments, (comment) => {
         const authorProfile = _.find(profiles, {Id: comment.AuthorId});
         return {
