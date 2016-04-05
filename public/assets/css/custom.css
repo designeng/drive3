@@ -75,11 +75,26 @@ a.post-images-item-link {
     background-color: #808080;
 }
 
+.post-comments-item {
+    font: 20px/1.5 "HelveticaNeue-Light",Helvetica Neue Light,Helvetica,Arial,sans-serif;
+}
+
 .post-comment-avatar {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     background-color: #808080;
     float: left;
+    margin-right: 20px;
+}
+
+.post-comment-details {
+    padding-left: 10px;
+    font-size: 13px;
+    color: #999;
+}
+
+.post-comment-content {
+    padding-left: 10px;
 }
 
 .post-content-correction {
