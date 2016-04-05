@@ -17,7 +17,7 @@ const routes = [
     },
     {
         url: '/posts/:postId',
-        tasks: [bootstrapSpec, postsSpec, commentsSpec, bodySpec]
+        tasks: [bootstrapSpec, commentsSpec, postsSpec, bodySpec]
     }
 ]
 
