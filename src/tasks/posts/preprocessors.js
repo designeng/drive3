@@ -40,6 +40,7 @@ function prepareComments(comments, profiles) {
 
 export function transformPosts(postsData, channels, postId) {
     const items = postsData.Posts;
+    const profiles = postsData.Profiles;
     return _.map(items, (item) => {
         return _.extend({}, item, {
             ImagesCount             : item.Images.length,
@@ -49,7 +50,7 @@ export function transformPosts(postsData, channels, postId) {
             Voting                  : votingBlock(item.Voting),
             HasClicableImages       : postId ? false : true,
             TitleCorrection         : postId ? true : false,
-            Comments                : prepareComments(item.Comments, postsData.Profiles)
+            Comments                : prepareComments(item.Comments, profiles)
         });
     });
 }
