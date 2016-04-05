@@ -43,7 +43,7 @@ export default {
         }
     },
 
-    posts: {
+    postsData: {
         request: {
             endpoint: {$ref: 'postsEndpoint'}
         }
@@ -53,7 +53,7 @@ export default {
         create: {
             module: transformPosts,
             args: [
-                {$ref: 'posts'},
+                {$ref: 'postsData'},
                 {$ref: 'comments'},
                 {$ref: 'channels'},
                 {$ref: 'postId'}

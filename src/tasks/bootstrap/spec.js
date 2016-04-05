@@ -13,10 +13,9 @@ export default {
         requestPlugin,
     ],
 
-    // TODO: revert to 'channels' endpoint later
-    channelsRequest: {
+    channelsData: {
         request: {
-            endpoint: getEndpoint('mockChannels'),
+            endpoint: getEndpoint('channels'),
         }
     },
 
@@ -24,7 +23,7 @@ export default {
         create: {
             module: getChannels,
             args: [
-                {$ref: 'channelsRequest.Channels'},
+                {$ref: 'channelsData.Channels'},
                 {$ref: 'channel'}
             ]
         }
