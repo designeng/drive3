@@ -1,7 +1,7 @@
 import wireDebugPlugin   from 'essential-wire/source/debug';
 import requestPlugin     from '../../plugins/api/request';
 
-import { postsBlockHtml, transformPosts, getItemsIds } from './preprocessors';
+import { postsBlockHtml, preparePosts, getItemsIds } from './preprocessors';
 
 import { getEndpoint } from '../../config/api';
 
@@ -49,9 +49,9 @@ export default {
         }
     },
 
-    transformedPosts: {
+    posts: {
         create: {
-            module: transformPosts,
+            module: preparePosts,
             args: [
                 {$ref: 'postsData'},
                 {$ref: 'comments'},
@@ -65,7 +65,7 @@ export default {
         create: {
             module: getItemsIds,
             args: [
-                {$ref: 'transformedPosts'}
+                {$ref: 'posts'}
             ]
         }
     },
@@ -74,7 +74,7 @@ export default {
         create: {
             module: postsBlockHtml,
             args: [
-                {$ref: 'transformedPosts'},
+                {$ref: 'posts'},
             ]
         }
     }

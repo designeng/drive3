@@ -50,7 +50,7 @@ function commentsBlockHtml(commentsData) {
     return comments({ Comments });
 }
 
-export function transformPosts(postsData, comments, channels, postId) {
+export function preparePosts(postsData, comments, channels, postId) {
     const items = postsData.Posts;
     const profiles = postsData.Profiles;
     return _.map(items, (item) => {

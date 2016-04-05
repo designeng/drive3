@@ -12,7 +12,7 @@ export default {
             args: [
                 {$ref: 'postsBlock'},
                 {$ref: 'getCarcassFn'},
-                {$ref: 'transformedPosts'},
+                {$ref: 'posts'},
                 {$ref: 'channels'},
                 {$ref: 'channel'},
                 {$ref: 'postId'}
