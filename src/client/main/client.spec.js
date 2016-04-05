@@ -17,6 +17,7 @@ export default {
         channel: channel, 
         postId: postId, 
         channels: channels,
+        comments: null,
         mode: 'client'
     },
 

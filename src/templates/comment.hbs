@@ -1,8 +1,10 @@
 <li class="post-comments-item">
-    <img class="post-comment-avatar" src={{ AuthorAvatar }} />
+    <img class="post-comment-avatar{{#if Preview}} post-comment-avatar-preview{{/if}}" src={{ AuthorAvatar }} />
+    {{#unless Preview}}
     <div class="post-comment-details">
         <span class="post-comment-nickname">{{ AuthorNickname }}</span>
         <span class="post-comment-CreatedOn">{{ CreatedOn }}</span>
     </div>
-    <div class="post-comment-content">{{ Content }}</div>
+    {{/unless}}
+    <div class="post-comment-content{{#if Preview}} post-comment-content-preview{{/if}}">{{ Content }}</div>
 </li>

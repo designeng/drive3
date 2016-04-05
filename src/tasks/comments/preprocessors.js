@@ -1,9 +1,6 @@
 import _ from 'underscore';
 import moment from 'moment';
 
-import comment from '../../templates/build/comment';
-import comments from '../../templates/build/comments';
-
 export function prepareComments(commentsData) {
     const comments = commentsData.Comments;
     const profiles = commentsData.Profiles;
@@ -16,12 +13,4 @@ export function prepareComments(commentsData) {
             Content: comment.Content
         }
     });
-}
-
-export function commentsBlockHtml(commentsData) {
-    let Comments =  _.reduce(commentsData, (result, item, index) => {
-        return result += comment(item);
-    }, '');
-
-    return comments({ Comments });
 }

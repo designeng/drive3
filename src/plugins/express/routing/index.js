@@ -23,8 +23,8 @@ function routeMiddleware(resolver, facet, wire) {
                     name: 'Featured'
                 },
                 postId: 0,
-                commentsBlock: '',
                 fromPostId: 0,
+                comments: null,
                 mode: 'server'
             };
 

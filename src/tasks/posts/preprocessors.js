@@ -3,6 +3,9 @@ import _ from 'underscore';
 import post from '../../templates/build/post';
 import votingBlock from './votingBlock';
 
+import comment from '../../templates/build/comment';
+import comments from '../../templates/build/comments';
+
 function getChannelReferences(ids, channels) {
     let dot = '<span class="channel-reference-delimiter">&middot;</span>';
     let refs = _.map(ids, (Id) => {
@@ -27,18 +30,27 @@ function prepareImages(images) {
     })
 }
 
-function prepareComments(comments, profiles) {
+function preparePreviewComments(comments, profiles) {
     return _.map(comments, (comment) => {
         const authorProfile = _.find(profiles, {Id: comment.AuthorId});
         return {
             AuthorNickname: authorProfile.Nickname,
             AuthorAvatar: authorProfile.Avatar[0].Url,
-            Content: comment.Content
+            Content: comment.Content,
+            Preview: true
         }
     })
 }
 
-export function transformPosts(postsData, channels, postId) {
+function commentsBlockHtml(commentsData) {
+    let Comments =  _.reduce(commentsData, (result, item, index) => {
+        return result += comment(item);
+    }, '');
+
+    return comments({ Comments });
+}
+
+export function transformPosts(postsData, comments, channels, postId) {
     const items = postsData.Posts;
     const profiles = postsData.Profiles;
     return _.map(items, (item) => {
@@ -50,7 +62,7 @@ export function transformPosts(postsData, channels, postId) {
             Voting                  : votingBlock(item.Voting),
             HasClicableImages       : postId ? false : true,
             TitleCorrection         : postId ? true : false,
-            Comments                : prepareComments(item.Comments, profiles)
+            Comments                : commentsBlockHtml(comments ? comments : preparePreviewComments(item.Comments, profiles))
         });
     });
 }

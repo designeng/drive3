@@ -54,19 +54,8 @@
     {{/if}}
 
     {{{ Voting }}}
-
-    {{#if Comments}}
-    <div class="post-comments-wrapper">
-        <ul class="post-comments">
-            {{#each Comments}}
-            <li class="post-comments-item">
-                <img class="post-comment-avatar post-comment-avatar-preview" src={{ AuthorAvatar }} />
-                <div class="post-comment-content post-comment-content-preview">{{ Content }}</div>
-            </li>
-            {{/each}}
-        </ul>
-    </div>
-    {{/if}}
+    
+    {{{ Comments }}}
 
     <script>
         twemojiParse('{{ Id }}-post');
