@@ -8,6 +8,7 @@ const endpoints = {
     posts           : "/posts",
     postsByChannels : "/posts/channels",
     postById        : "/posts/byIds",
+    postComments    : "/comments/post",
 }
 
 const localEndpoints = {

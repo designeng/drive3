@@ -59,8 +59,8 @@
         <ul class="post-comments">
         {{#each Comments}}
             <li class="post-comments-item">
-                <span class="post-comment-avatar">{{ AuthorAvatar }}</span>
-                <span class="post-comment-nickname">{{ AuthorNickname }}</span>
+                <img class="post-comment-avatar" src={{ AuthorAvatar }} />
+                <!-- <span class="post-comment-nickname">{{ AuthorNickname }}</span> -->
                 <span class="post-comment-content">{{ Content }}</span>
             </li>
         {{/each}}

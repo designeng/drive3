@@ -34,7 +34,7 @@ function prepareComments(comments, profiles) {
         return {
             AuthorNickname: authorProfile.Nickname,
             AuthorAvatar: authorProfile.Avatar[0].Url,
-            Content
+            Content: comment.Content
         }
     })
 }

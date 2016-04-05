@@ -75,6 +75,13 @@ a.post-images-item-link {
     background-color: #808080;
 }
 
+.post-comment-avatar {
+    width: 30px;
+    height: 30px;
+    background-color: #808080;
+/*    float: left;*/
+}
+
 .post-content-correction {
     font: 20px/1.5 "HelveticaNeue-Light",Helvetica Neue Light,Helvetica,Arial,sans-serif;
 }
