@@ -1,6 +1,7 @@
 import wireDebugPlugin      from 'essential-wire/source/debug';
 
 import controller from './controller';
+import extraPost from './extraPost';
 import postsSpec from '../../tasks/posts/spec';
 
 import deferWire from '../../decorators/deferWire';
@@ -29,6 +30,9 @@ export default {
             module: controller
         },
         ready: {
+            prependExtraPost: [
+                {$ref: 'extraPost'},
+            ],
             loadFromLocalChannel: [
                 {$ref: 'invocationEnvironment.channel'},
                 {$ref: 'invocationEnvironment.postId'}
@@ -38,6 +42,12 @@ export default {
                 {$ref: 'invocationEnvironment'},
                 postId
             ]
+        }
+    },
+
+    extraPost: {
+        create: {
+            module: extraPost
         }
     }
 }

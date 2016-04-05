@@ -10,6 +10,10 @@ export default function controller() {
     this.postsContainer = $('#posts-container');
 }
 
+controller.prototype.prependExtraPost = function(extraPost) {
+    this.postsContainer.prepend(extraPost);
+}
+
 controller.prototype.loadFromLocalChannel = function(channel, postId) {
     if(!postId) {
         let channelKey = getChannelKey(channel.id);
