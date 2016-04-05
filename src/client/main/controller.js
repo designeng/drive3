@@ -11,6 +11,12 @@ export default function controller() {
 }
 
 controller.prototype.prependExtraPost = function(extraPost) {
+    // TODO: uncomment after debugging
+    // if(!localStorage.getItem('extra')) {
+    //     this.postsContainer.prepend(extraPost);
+    //     localStorage.setItem('extra', true);
+    // }
+
     this.postsContainer.prepend(extraPost);
 }
 
