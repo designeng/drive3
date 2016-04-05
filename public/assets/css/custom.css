@@ -93,12 +93,15 @@ a.post-images-item-link {
     margin-bottom: 20px;
 }
 
-.post-comment-avatar-preview, .post-comment-content-preview {
-    font: 16px/1.5 "HelveticaNeue",Helvetica Neue,Helvetica,Arial,sans-serif;
+.post-comment-avatar-preview {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-.post-comment-content-preview {
-    padding-top: 15px;
+.post-comment-avatar-preview, .post-comment-content-preview {
+    font: 14px/1.5 "HelveticaNeue",Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 .post-comment-details {
