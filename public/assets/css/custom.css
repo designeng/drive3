@@ -92,11 +92,13 @@ a.post-images-item-link {
 
 .post-comment-details {
     font-size: 12px;
+    line-height: 8px;
     color: #999;
 }
 
 .post-comment-content {
     font: 16px/1.5 "HelveticaNeue",Helvetica Neue,Helvetica,Arial,sans-serif;
+    line-height: 30px;
 }
 
 .post-content-correction {
