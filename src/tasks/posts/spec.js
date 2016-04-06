@@ -1,7 +1,7 @@
 import wireDebugPlugin   from 'essential-wire/source/debug';
 import requestPlugin     from '../../plugins/api/request';
 
-import { postsBlockHtml, preparePosts, getItemsIds } from './preprocessors';
+import { postsBlockHtml, preparePosts, getItemsIds, hasMore } from './preprocessors';
 
 import { getEndpoint } from '../../config/api';
 
@@ -49,7 +49,14 @@ export default {
         }
     },
 
-    hasMore: {$ref: 'postsData.HasMore'},
+    hasMore: {
+        create: {
+            module: hasMore,
+            args: [
+                {$ref: 'postsData'}
+            ]
+        }
+    },
 
     posts: {
         create: {

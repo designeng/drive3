@@ -74,6 +74,10 @@ export function getItemsIds(items) {
     });
 }
 
+export function hasMore(postData) {
+    return postData.HasMore || false;
+}
+
 export function postsBlockHtml(postsData) {
     return _.reduce(postsData, (result, item, index) => {
         return result += post(item);
