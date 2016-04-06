@@ -43,9 +43,7 @@
                         </a>
                     </span>
                     {{#unless ../IsSinglePost}}
-                        <script>
-                            createMagnificPopup('#{{ this.[0].Id }}-link');
-                        </script>
+                    <script type="text/javascript">createMagnificPopup('#{{ this.[0].Id }}-link');</script>
                     {{/unless}}
                 </div>
                 {{/each}}
@@ -57,7 +55,7 @@
     
     {{{ Comments }}}
 
-    <script>
+    <script type="text/javascript">
         twemojiParse('{{ Id }}-post', '{{ Id }}-post-comments');
     </script>
 
