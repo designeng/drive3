@@ -2,6 +2,7 @@ import _ from 'underscore';
 
 import post from '../../templates/build/post';
 import votingBlock from './votingBlock';
+import socialButtons from '../../templates/build/socialButtons';
 
 import comment from '../../templates/build/comment';
 import comments from '../../templates/build/comments';
@@ -60,9 +61,9 @@ export function preparePosts(postsData, comments, channels, postId) {
             VideoUrl                : item.VideoUrl ? item.VideoUrl.replace("watch?v=", "v/") : void 0,
             Images                  : prepareImages(item.Images),
             Voting                  : votingBlock(item.Voting),
-            HasClicableImages       : postId ? false : true,
-            TitleCorrection         : postId ? true : false,
-            Comments                : commentsBlockHtml(comments ? comments : preparePreviewComments(item.Comments, profiles))
+            Comments                : commentsBlockHtml(comments ? comments : preparePreviewComments(item.Comments, profiles)),
+            IsSinglePost            : postId ? true : false,
+            SocialButtons           : postId ? socialButtons() : void 0
         });
     });
 }

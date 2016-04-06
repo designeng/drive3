@@ -26,7 +26,7 @@ export default function extraPost() {
     return post({
         Title: 'Looking for old DRIVE.NET?',
         Content: extraPostContent(),
-        HasClicableImages: false,
+        IsSinglePost: true,
         ImagesCount: 1,
         Images
     })

@@ -1,0 +1,39 @@
+.likely,.likely__widget{display:inline-block;padding:0;word-spacing:0!important;text-indent:0!important;list-style:none!important;font-weight:400;font-family:sans-serif;font-size:inherit}
+
+.likely__widget{margin:0}
+.likely{opacity:0}
+.likely_visible{opacity:1;-webkit-transition:opacity .1s ease-in;transition:opacity .1s ease-in}
+
+.likely>*{display:inline-block;visibility:hidden}
+.likely_visible>*{visibility:inherit}
+.likely__widget{display:inline-block;position:relative;white-space:nowrap}
+
+.likely__button,.likely__counter{
+    text-decoration:none;
+    text-rendering:optimizeLegibility;
+    display:inline-block;
+    margin:15px;
+    outline:0
+}
+.likely__button{position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.likely__counter{display:none;position:relative;font-weight:400}
+.likely_ready .likely__counter{display:inline-block}
+.likely_ready .likely__counter_empty{display:none}
+.likely__button,.likely__counter,.likely__icon,.likely__widget{vertical-align:top}
+.likely__widget{-webkit-transition:background .33s ease-out,color .33s ease-out,fill .33s ease-out;transition:background .33s ease-out,color .33s ease-out,fill .33s ease-out;line-height:inherit}
+
+.likely__widget:active,.likely__widget:focus,.likely__widget:hover{-webkit-transition:none;transition:none;cursor:pointer}
+.likely__icon{position:relative;text-align:left;display:inline-block}
+.likely svg{position:absolute}
+.likely__button,.likely__counter{line-height:inherit;cursor:inherit}
+.likely__button:empty{display:none}.likely__counter{text-align:center}
+.likely .likely__widget{color:#000;background:#ececec;background:hsla(0,0%,91%,.8)}
+.likely .likely__counter{background-size:1px 1px;background-repeat:repeat-y;background-image:-webkit-linear-gradient(left,rgba(0,0,0,.2) 0,transparent .5px,transparent 100%);background-image:linear-gradient(to right,rgba(0,0,0,.2) 0,transparent .5px,transparent 100%)}
+.likely__widget_facebook{fill:#425497}
+.likely__widget_facebook:active,.likely__widget_facebook:focus,.likely__widget_facebook:hover{background:rgba(207,212,229,.8)}
+.likely__widget_twitter{fill:#00b7ec}.likely__widget_twitter:active,.likely__widget_twitter:focus,.likely__widget_twitter:hover{background:rgba(191,237,250,.8)}.likely__widget_gplus{fill:#dd4241}.likely__widget_gplus:active,.likely__widget_gplus:focus,.likely__widget_gplus:hover{background:hsla(0,68%,89%,.8)}.likely__widget:first-child{margin-left:0}.likely__widget:last-child{margin-right:0}
+
+.social-buttons {
+    text-align: center;
+    line-height: 0;
+}

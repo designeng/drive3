@@ -5,7 +5,7 @@
 
     <div class="post-title">
         <a class=" 
-        {{#if TitleCorrection}}
+        {{#if IsSinglePost}}
             post-title-correction
         {{/if}}
         post-title-link
@@ -14,7 +14,7 @@
 
     <a href="/posts/{{ Id }}" class="post-content-link">
         <div class="post-content
-        {{#if TitleCorrection}}
+        {{#if IsSinglePost}}
             post-content-correction
         {{/if}}
         " id="{{ Id }}-post">{{{ Content }}}</div>
@@ -34,19 +34,19 @@
                     <img src="{{ this.[2].Url }}" style='display:none'/>
                     <span>
                         <a data-id='zoom' class="post-images-item-link"
-                        {{#if ../HasClicableImages}}
+                        {{#unless ../IsSinglePost}}
                             href="{{ this.[2].Url }}" 
-                        {{/if}}
+                        {{/unless}}
                         id="{{ this.[0].Id }}-link" 
                         style="background-image:url({{ this.[1].Url }})">
                             <img src="{{ this.[1].Url }}">
                         </a>
                     </span>
-                    {{#if ../HasClicableImages}}
+                    {{#unless ../IsSinglePost}}
                         <script>
                             createMagnificPopup('#{{ this.[0].Id }}-link');
                         </script>
-                    {{/if}}
+                    {{/unless}}
                 </div>
                 {{/each}}
             </div>
@@ -62,4 +62,5 @@
     </script>
 
     <hr class="post-delimiter clearfix" />
+    {{{ SocialButtons }}}
 </li>
