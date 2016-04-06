@@ -141,3 +141,8 @@ a.channel-reference {
 .clearfix {
     clear: both;
 }
+
+.social-buttons {
+    text-align: center;
+    line-height: 0;
+}

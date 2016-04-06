@@ -2,7 +2,6 @@ import _ from 'underscore';
 
 import post from '../../templates/build/post';
 import votingBlock from './votingBlock';
-import socialButtons from '../../templates/build/socialButtons';
 
 import comment from '../../templates/build/comment';
 import comments from '../../templates/build/comments';
@@ -62,8 +61,7 @@ export function preparePosts(postsData, comments, channels, postId) {
             Images                  : prepareImages(item.Images),
             Voting                  : votingBlock(item.Voting),
             Comments                : commentsBlockHtml(comments ? comments : preparePreviewComments(item.Comments, profiles), item.Id),
-            IsSinglePost            : postId ? true : false,
-            SocialButtons           : postId ? socialButtons() : void 0
+            IsSinglePost            : postId ? true : false
         });
     });
 }

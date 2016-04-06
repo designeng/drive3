@@ -62,5 +62,14 @@
     </script>
 
     <hr class="post-delimiter clearfix" />
-    {{{ SocialButtons }}}
+    
+    {{#if IsSinglePost}}
+    <div class="social-buttons">
+        <div class="likely">
+            <div class="twitter">Tweet</div>
+            <div class="facebook">Share</div>
+            <div class="gplus">+1</div>
+        </div>
+    </div>
+    {{/if}}
 </li>
