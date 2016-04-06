@@ -43,12 +43,12 @@ function preparePreviewComments(comments, profiles) {
     })
 }
 
-function commentsBlockHtml(commentsData) {
+function commentsBlockHtml(commentsData, postId) {
     let Comments =  _.reduce(commentsData, (result, item, index) => {
         return result += comment(item);
     }, '');
 
-    return comments({ Comments });
+    return comments({ Comments, PostId: postId });
 }
 
 export function preparePosts(postsData, comments, channels, postId) {
@@ -61,7 +61,7 @@ export function preparePosts(postsData, comments, channels, postId) {
             VideoUrl                : item.VideoUrl ? item.VideoUrl.replace("watch?v=", "v/") : void 0,
             Images                  : prepareImages(item.Images),
             Voting                  : votingBlock(item.Voting),
-            Comments                : commentsBlockHtml(comments ? comments : preparePreviewComments(item.Comments, profiles)),
+            Comments                : commentsBlockHtml(comments ? comments : preparePreviewComments(item.Comments, profiles), item.Id),
             IsSinglePost            : postId ? true : false,
             SocialButtons           : postId ? socialButtons() : void 0
         });
