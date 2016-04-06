@@ -20,7 +20,14 @@ export default function votingBlock (voting) {
         percentOveral += v;
         return v;
     });
+    
     countsPercent[0] = Math.round((100 - percentOveral) * 100) / 100;
+
+    // TODO: fix mismatch countsPercent as '.post-voting-bar' width and countsPercent as number
+    // because rendered result is reversed.
+    // Raw workaround:
+    let votingWidth = _.clone(countsPercent);
+    votingWidth.reverse();
 
     var max = Math.max.apply(null, countsPercent);
 
@@ -28,6 +35,7 @@ export default function votingBlock (voting) {
         _.extend(option, {
             isOptionMax: max == countsPercent[index],
             votingNum: index + 1,
+            votingWidth: votingWidth[index],
             votingPercent: countsPercent[index],
             votingCaption: option['Option']
         });
