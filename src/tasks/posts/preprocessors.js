@@ -36,7 +36,7 @@ function preparePreviewComments(comments, profiles) {
         const authorProfile = _.find(profiles, {Id: comment.AuthorId});
         return {
             AuthorNickname: authorProfile.Nickname,
-            AuthorAvatar: authorProfile.Avatar[0].Url,
+            AuthorAvatar: authorProfile.Avatar ? authorProfile.Avatar[0].Url : void 0,
             Content: comment.Content,
             Preview: true
         }

@@ -7,7 +7,7 @@ import postsSpec from '../../tasks/posts/spec';
 import deferWire from '../../decorators/deferWire';
 
 // TODO: es6
-const {channels, channel, postId} = window.__sharedData__;
+const {channels, channel, postId, hasMore} = window.__sharedData__;
 
 export default {
     $plugins: [
@@ -40,7 +40,8 @@ export default {
             listenToScroll: [
                 {$ref: 'loadAdditionalPosts'},
                 {$ref: 'invocationEnvironment'},
-                postId
+                postId,
+                hasMore
             ]
         }
     },

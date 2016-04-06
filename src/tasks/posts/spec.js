@@ -49,6 +49,8 @@ export default {
         }
     },
 
+    hasMore: {$ref: 'postsData.HasMore'},
+
     posts: {
         create: {
             module: preparePosts,

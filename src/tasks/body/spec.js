@@ -15,7 +15,8 @@ export default {
                 {$ref: 'posts'},
                 {$ref: 'channels'},
                 {$ref: 'channel'},
-                {$ref: 'postId'}
+                {$ref: 'postId'},
+                {$ref: 'hasMore'}
             ]
         }
     }

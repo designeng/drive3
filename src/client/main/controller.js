@@ -31,11 +31,12 @@ controller.prototype.loadFromLocalChannel = function(channel, postId) {
     }
 }
 
-controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEnvironment, postId) {
+controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEnvironment, postId, hasMore) {
     if(!postId) {
         // TODO: deprecate window.__sharedData__.lastPostId -> use _.last(window.__sharedData__.postsIds)
         this.lastPostId = this.getLastStoredChannelPostId(invocationEnvironment.channel) || window.__sharedData__.lastPostId;
-        $(window).scroll(() => {
+        let globalObject = $(window);
+        globalObject.on('scroll', () => {
             if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
                 _.extend(invocationEnvironment, {
                     fromPostId: this.lastPostId
@@ -45,6 +46,10 @@ controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEn
 
                     const { channel, postsBlock, postsIds } = context;
                     this.storeToLocalChannel(channel, postsBlock, postsIds);
+
+                    if(!context.hasMore) {
+                        globalObject.unbind('scroll');
+                    }
                 })
             }
         })
