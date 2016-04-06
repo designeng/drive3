@@ -8,6 +8,7 @@ const getChannelKey = (id) => {
 export default function controller() {
     this.lastPostId = null;
     this.postsContainer = $('#posts-container');
+    this.contentPreloader = $('.content-preloader');
 }
 
 controller.prototype.prependExtraPost = function(extraPost) {
@@ -49,6 +50,7 @@ controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEn
 
                     if(!context.hasMore) {
                         globalObject.unbind('scroll');
+                        this.contentPreloader.hide();
                     }
                 })
             }
