@@ -63,7 +63,7 @@ function routeNotFoundMiddleware(resolver, facet, wire) {
 
     target.get("/*", function (req, res) {
         console.log(chalk.red("NOT FOUND:::", req.url));
-        // res.redirect('/404error?url=' + req.url);
+        res.redirect('/');
     });
 
     resolver.resolve(target);
