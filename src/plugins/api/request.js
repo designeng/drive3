@@ -30,8 +30,7 @@ function request(resolver, compDef, wire) {
     wire(compDef.options).then(({
         endpoint,
         what,
-        params,
-        // errorCallback = () => {return console.log}
+        params
     }) => {
 
         if (!endpoint) {
@@ -56,7 +55,6 @@ function request(resolver, compDef, wire) {
             resolver.resolve(result);
         })
         .catch(error => resolver.reject(
-            // errorCallback(error)
             error
         ));
     });
