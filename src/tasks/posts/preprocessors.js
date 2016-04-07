@@ -50,6 +50,18 @@ function commentsBlockHtml(commentsData, postId) {
     return comments({ Comments, PostId: postId });
 }
 
+function getVideoUrl(url) {
+    const youtubePrefix = 'https://www.youtube.com/embed/';
+    if(url.indexOf('watch?v=') != -1) {
+        return url.replace("watch?v=", "v/") ;
+    } else if(url.indexOf('v=') != -1) {
+        let videoId = url.split('v=')[1];
+        return youtubePrefix + videoId;
+    } else {
+        return url;
+    }
+}
+
 export function preparePosts(postsData, comments, channels, postId) {
     const items = postsData.Posts;
     const profiles = postsData.Profiles;
@@ -57,7 +69,7 @@ export function preparePosts(postsData, comments, channels, postId) {
         return _.extend({}, item, {
             ImagesCount             : item.Images.length,
             ChannelReferences       : getChannelReferences(item.ChannelIds, channels),
-            VideoUrl                : item.VideoUrl ? item.VideoUrl.replace("watch?v=", "v/") : void 0,
+            VideoUrl                : item.VideoUrl ? getVideoUrl(item.VideoUrl) : void 0,
             Images                  : prepareImages(item.Images),
             Voting                  : votingBlock(item.Voting),
             Comments                : commentsBlockHtml(comments ? comments : preparePreviewComments(item.Comments, profiles), item.Id),

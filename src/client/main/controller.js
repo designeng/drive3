@@ -54,7 +54,7 @@ controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEn
                     }
 
                     // test, if here's duplicated posts in channel
-                    // this.testForDuplicatedPosts()
+                    this.testForDuplicatedPosts()
                 })
             }
         })
@@ -100,6 +100,6 @@ controller.prototype.testForDuplicatedPosts = function() {
         }
     }
     if(duplicates.length) {
-        console.info("Duplicated post ids!");
+        console.info("Duplicated post ids!", duplicates);
     }
 }
