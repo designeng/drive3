@@ -15,18 +15,8 @@ function routeMiddleware(resolver, facet, wire) {
 
         target.get(route.url, function (req, res, next) {
             let tasks   = createTasks(route.tasks),
+                environment = route.environment,
                 params  = req.params;
-
-            let environment = {
-                channel: {
-                    id: 0,
-                    name: 'Featured'
-                },
-                postId: 0,
-                fromPostId: 0,
-                comments: null,
-                mode: 'server'
-            };
 
             if(params) {
                 if(params.channelId) {
@@ -41,7 +31,6 @@ function routeMiddleware(resolver, facet, wire) {
 
             pipeline(tasks).then(
                 (context) => {
-                    // console.log(chalk.green("context:::::channel", context.channel));
                     res.status(200).end(context.body.html);
                 },
                 (error) => {
