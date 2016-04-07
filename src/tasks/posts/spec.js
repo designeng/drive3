@@ -9,7 +9,7 @@ const loadingCount = 7;
 
 export default {
     $plugins: [
-        wireDebugPlugin, 
+        // wireDebugPlugin, 
         requestPlugin,
     ],
 
