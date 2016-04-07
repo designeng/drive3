@@ -101,6 +101,12 @@ a.post-images-item-link {
     line-height: 30px;
 }
 
+a.post-comments-link {
+    text-decoration: none;
+    font: 16px/1.5 "HelveticaNeue",Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #000;
+}
+
 .post-content-correction {
     font: 20px/1.5 "HelveticaNeue-Light",Helvetica Neue Light,Helvetica,Arial,sans-serif;
 }

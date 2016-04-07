@@ -44,7 +44,13 @@
 
     {{{ Voting }}}
     
+    {{#unless IsSinglePost}}
+    <a class="post-comments-link" href="/posts/{{ Id }}">
+    {{/unless}}
     {{{ Comments }}}
+    {{#unless IsSinglePost}}
+    </a>
+    {{/unless}}
 
     <script type="text/javascript">
         twemojiParse('{{ Id }}-post', '{{ Id }}-post-comments');
