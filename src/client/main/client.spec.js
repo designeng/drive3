@@ -1,8 +1,8 @@
 import wireDebugPlugin      from 'essential-wire/source/debug';
 
 import controller from './controller';
-import extraPost from './extraPost';
 import postsSpec from '../../tasks/posts/spec';
+import extraPost from '../../templates/build/extraPost';
 
 import deferWire from '../../decorators/deferWire';
 
@@ -47,8 +47,6 @@ export default {
     },
 
     extraPost: {
-        create: {
-            module: extraPost
-        }
+        create: extraPost
     }
 }
