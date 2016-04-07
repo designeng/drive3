@@ -15,7 +15,7 @@ function routeMiddleware(resolver, facet, wire) {
 
         target.get(route.url, function (req, res, next) {
             let tasks   = createTasks(route.tasks),
-                environment = route.environment,
+                environment = _.clone(route.environment),
                 params  = req.params;
 
             if(params) {
