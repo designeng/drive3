@@ -53,9 +53,10 @@ function commentsBlockHtml(commentsData, postId) {
 // workaround for error `Refused to display in a frame because it set 'X-Frame-Options' to 'SAMEORIGIN'`
 // http://stackoverflow.com/questions/20498831/refused-to-display-in-a-frame-because-it-set-x-frame-options-to-sameorigin
 function getVideoUrl(url) {
+    url = url.replace("http://", "https://");
     const youtubePrefix = 'https://www.youtube.com/embed/';
     if(url.indexOf('watch?v=') != -1) {
-        return url.replace("watch?v=", "v/") ;
+        return url.replace("watch?v=", "v/");
     } else if(url.indexOf('v=') != -1) {
         let videoId = url.split('v=')[1];
         return youtubePrefix + videoId;
