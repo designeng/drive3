@@ -52,6 +52,9 @@ controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEn
                         globalObject.unbind('scroll');
                         this.contentPreloader.hide();
                     }
+
+                    // test, if here's duplicated posts in channel
+                    // this.testForDuplicatedPosts()
                 })
             }
         })
@@ -84,5 +87,19 @@ controller.prototype.getLastStoredChannelPostId = function(channel) {
         return _.last(channelValue.ids);
     } else {
         return null;
+    }
+}
+
+controller.prototype.testForDuplicatedPosts = function() {
+    let postItems = this.postsContainer.find('[data-post-id]');
+    let sorted = postItems.slice().sort(); 
+    let duplicates = [];
+    for (let i = 0; i < postItems.length - 1; i++) {
+        if (sorted[i + 1] == sorted[i]) {
+            results.push(sorted[i]);
+        }
+    }
+    if(duplicates.length) {
+        console.info("Duplicated post ids!");
     }
 }

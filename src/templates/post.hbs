@@ -1,23 +1,14 @@
-<li class="post row">
+<li class="post row" data-post-id="{{ Id }}">
     <div class="channels-references">
     {{{ ChannelReferences }}}
     </div>
 
     <div class="post-title">
-        <a class=" 
-        {{#if IsSinglePost}}
-            post-title-correction
-        {{/if}}
-        post-title-link
-        " href="/posts/{{ Id }}">{{ Title }}</a>
+        <a class=" {{#if IsSinglePost}}post-title-correction {{/if}}post-title-link" href="/posts/{{ Id }}">{{ Title }}</a>
     </div>
 
     <a href="/posts/{{ Id }}" class="post-content-link">
-        <div class="post-content
-        {{#if IsSinglePost}}
-            post-content-correction
-        {{/if}}
-        " id="{{ Id }}-post">{{{ Content }}}</div>
+        <div class="post-content{{#if IsSinglePost}} post-content-correction{{/if}}" id="{{ Id }}-post">{{{ Content }}}</div>
     </a>
 
     {{#if VideoUrl}}
