@@ -99,7 +99,9 @@ controller.prototype.testForDuplicatedPosts = function() {
             results.push(sorted[i]);
         }
     }
-    if(duplicates.length) {
-        console.info("Duplicated post ids!", duplicates);
-    }
+
+    console.info("duplicates", duplicates);
+    // if(duplicates.length) {
+    //     console.info("Duplicated post ids!", duplicates);
+    // }
 }

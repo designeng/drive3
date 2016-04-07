@@ -5,6 +5,8 @@ import { postsBlockHtml, preparePosts, getItemsIds, hasMore } from './preprocess
 
 import { getEndpoint } from '../../config/api';
 
+const loadingCount = 7;
+
 export default {
     $plugins: [
         wireDebugPlugin, 
@@ -19,18 +21,18 @@ export default {
                     if(postId) {
                         return [getEndpoint('postById'), postId, {comments: true}];
                     } else if(channel.id) {
-                        return [getEndpoint('postsByChannels'), channel.id, {limit: 3, comments: true}];
+                        return [getEndpoint('postsByChannels'), channel.id, {limit: loadingCount, comments: true}];
                     } else {
-                        return [getEndpoint('posts'), {limit: 3}];
+                        return [getEndpoint('posts'), {limit: loadingCount}];
                     }
                 } else {
                     // client mode
                     if(postId) {
                         return [getEndpoint('postById'), postId, {comments: true}];
                     } else if(channel.id) {
-                        return [getEndpoint('postsByChannels', null, 'local'), channel.id, {limit: 3, fromPostId, comments: true}];
+                        return [getEndpoint('postsByChannels', null, 'local'), channel.id, {limit: loadingCount, fromPostId, comments: true}];
                     } else {
-                        return [getEndpoint('posts', null, 'local'), {limit: 3, fromPostId, comments: true}];
+                        return [getEndpoint('posts', null, 'local'), {limit: loadingCount, fromPostId, comments: true}];
                     }
                 }
             },
