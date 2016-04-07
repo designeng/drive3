@@ -31,6 +31,7 @@ module.exports = {
     plugins: [
         // new webpack.EnvironmentPlugin('NODE_ENV'),
         new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.UglifyJsPlugin()
     ],
     // devtool: 'source-map',
     node: {
