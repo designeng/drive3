@@ -32,7 +32,7 @@ module.exports = {
         // new webpack.EnvironmentPlugin('NODE_ENV'),
         new webpack.HotModuleReplacementPlugin(),
     ],
-    devtool: 'source-map',
+    // devtool: 'source-map',
     node: {
         fs: "empty" // avoids error messages
     }
