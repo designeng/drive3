@@ -20,19 +20,4 @@ let routes = [
     }
 ];
 
-const environment = {
-    channel: {
-        id: 0,
-        name: 'Featured'
-    },
-    postId: 0,
-    fromPostId: 0,
-    comments: null,
-    mode: 'server'
-};
-
-routes = _.map(routes, (route) => {
-    return _.extend(route, { environment });
-});
-
 export default routes;

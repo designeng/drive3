@@ -15,8 +15,18 @@ function routeMiddleware(resolver, facet, wire) {
 
         target.get(route.url, function (req, res, next) {
             let tasks   = createTasks(route.tasks),
-                environment = _.clone(route.environment),
                 params  = req.params;
+
+            let environment = {
+                channel: {
+                    id: 0,
+                    name: 'Featured'
+                },
+                postId: 0,
+                fromPostId: 0,
+                comments: null,
+                mode: 'server'
+            };
 
             if(params) {
                 if(params.channelId) {
