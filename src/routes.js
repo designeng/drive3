@@ -1,5 +1,3 @@
-import _ from 'underscore';
-
 import bootstrapSpec    from './tasks/bootstrap/spec';
 import postsSpec        from './tasks/posts/spec';
 import commentsSpec     from './tasks/comments/spec';
