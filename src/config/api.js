@@ -20,21 +20,8 @@ function getBaseUrl() {
     return config.protocol + '://' + config.host
 }
 
-function getMockBaseUrl() {
-    return 'http://localhost:3001';
-}
-
 // TODO: extra params arg?
 export function getEndpoint(item, params, mode) {
-    const mock = {
-        mockChannels            : "/mock/channels",
-        mockChannelsShortList   : "/mock/channelsShortList",
-        mockPosts               : "/mock/posts",
-    }
-
-    if(mock[item]) {
-        return getMockBaseUrl() + mock[item];
-    }
 
     if(mode === 'local') {
         return localEndpoints[item];
