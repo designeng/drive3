@@ -22,6 +22,7 @@
 }
 
 .opened {
+    top: 0px;
     -webkit-transform: translate(0, 471px);
     -moz-transition: translate(0, 471px);
     -o-transition: translate(0, 471px);
