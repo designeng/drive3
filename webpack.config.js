@@ -31,9 +31,9 @@ module.exports = {
     plugins: [
         // new webpack.EnvironmentPlugin('NODE_ENV'),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.optimize.UglifyJsPlugin()
+        // new webpack.optimize.UglifyJsPlugin()
     ],
-    // devtool: 'source-map',
+    devtool: 'source-map',
     node: {
         fs: "empty" // avoids error messages
     }
