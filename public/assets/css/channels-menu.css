@@ -39,3 +39,12 @@
     text-decoration: none;
     font: 20px "HelveticaNeue-Light",Helvetica Neue Light,Helvetica,Arial,sans-serif;
 }
+
+@media screen and (max-width: 800px) {
+    .channels-menu-wrapper {
+        width: 100%;
+    }
+    .channels-menu {
+        margin: 0;
+    }
+}

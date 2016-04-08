@@ -160,3 +160,9 @@ a.channel-reference {
 
 
 .social-buttons{text-align:center;line-height:0}
+
+@media screen and (max-width: 800px) {
+    .content {
+        width: 100%;
+    }
+}
