@@ -50,19 +50,24 @@ function commentsBlockHtml(commentsData, postId) {
     return comments({ Comments, PostId: postId });
 }
 
-// workaround for error `Refused to display in a frame because it set 'X-Frame-Options' to 'SAMEORIGIN'`
-// http://stackoverflow.com/questions/20498831/refused-to-display-in-a-frame-because-it-set-x-frame-options-to-sameorigin
-function getVideoUrl(url) {
-    url = url.replace("http://", "https://");
-    const youtubePrefix = 'https://www.youtube.com/embed/';
-    if(url.indexOf('watch?v=') != -1) {
-        return url.replace("watch?v=", "v/");
-    } else if(url.indexOf('v=') != -1) {
-        let videoId = url.split('v=')[1];
-        return youtubePrefix + videoId;
-    } else {
-        return url;
+function getVideoEmbedUrl(videoUrl) {
+    let extract;
+
+    let vimeoMatcher_ =
+        /https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)/
+    extract = vimeoMatcher_.exec(videoUrl);
+    if (extract) {
+        return 'https://player.vimeo.com/video/' + encodeURIComponent(extract[3]) + '?wmode=opaque';
     }
+
+    let youtubeMatcher_ =
+        /(?:youtube\.com\/\S*(?:(?:\/e(?:mbed))?\/|watch\?(?:\S*?&?v\=))|youtu\.be\/)([a-zA-Z0-9_-]{6,11})/i;
+    extract = youtubeMatcher_.exec(videoUrl);
+    if (extract) {
+        return 'https://www.youtube.com/embed/' + encodeURIComponent(extract[1]) + '?wmode=opaque&rel=0';
+    }
+
+    return null;
 }
 
 export function preparePosts(postsData, comments, channels, postId) {
@@ -72,7 +77,7 @@ export function preparePosts(postsData, comments, channels, postId) {
         return _.extend({}, item, {
             ImagesCount             : item.Images.length,
             ChannelReferences       : getChannelReferences(item.ChannelIds, channels),
-            VideoUrl                : item.VideoUrl ? getVideoUrl(item.VideoUrl) : void 0,
+            VideoUrl                : item.VideoUrl ? getVideoEmbedUrl(item.VideoUrl) : void 0,
             Images                  : prepareImages(item.Images),
             Voting                  : votingBlock(item.Voting),
             Comments                : commentsBlockHtml(comments ? comments : preparePreviewComments(item.Comments, profiles), item.Id),
