@@ -59,7 +59,7 @@ controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEn
                     // this.testForDuplicatedPosts()
                 })
             }
-        }, 300);
+        }, 100);
 
         globalObject.on('scroll', onScrollCallback);
     }
