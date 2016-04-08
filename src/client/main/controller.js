@@ -37,12 +37,16 @@ controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEn
         // TODO: deprecate window.__sharedData__.lastPostId -> use _.last(window.__sharedData__.postsIds)
         this.lastPostId = this.getLastStoredChannelPostId(invocationEnvironment.channel) || window.__sharedData__.lastPostId;
         let globalObject = $(window);
-        globalObject.on('scroll', () => {
-            if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+        let documentObject = $(document);
+
+        var onScrollCallback = _.debounce(() => {
+            if (globalObject.scrollTop() + globalObject.height() >= documentObject.height()) {
                 _.extend(invocationEnvironment, {
                     fromPostId: this.lastPostId
                 });
                 loadAdditionalPosts.call(null, invocationEnvironment).then(context => {
+                    console.log("context.posts", context.posts.length);
+
                     this.postsContainer.append(context.postsBlock);
 
                     const { channel, postsBlock, postsIds } = context;
@@ -54,10 +58,12 @@ controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEn
                     }
 
                     // test, if here's duplicated posts in channel
-                    this.testForDuplicatedPosts()
+                    // this.testForDuplicatedPosts()
                 })
             }
-        })
+        }, 300);
+
+        globalObject.on('scroll', onScrollCallback);
     }
 }
 
