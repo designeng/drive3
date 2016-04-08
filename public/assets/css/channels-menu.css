@@ -49,3 +49,21 @@
         margin: 0;
     }
 }
+
+@media screen and (max-width: 640px) {
+    .channels-menu li a {
+        font-size: 1pc;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .channels-menu li a {
+        font-size: 9pt;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .channels-menu li a {
+        font-size: 1pc;
+    }
+}

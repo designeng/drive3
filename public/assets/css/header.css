@@ -1,4 +1,4 @@
-.header{
+.header {
     width: 100%;
     height: 72px;
     position: fixed;
@@ -6,61 +6,66 @@
     background-color: #cd002e;
 }
 
-.top-panel{
+.top-panel {
     margin: 0 auto;
     background-color: #cd002e;
-    width: 600px;
-    height: 72px;
+    max-width: 600px;
+    min-height: 72px;
     list-style: none;
+    padding: 0 0.8rem;
 }
 
-.top-menu-item{
+.top-menu-item {
     height: 72px;
     display: inline-block;
 }
 
-.top-menu-item-left{
-    width:25%;
+.top-menu-item-left {
+    width: 25%;
     background-color: #cd002e;
     float: left;
 }
 
-.top-menu-item-center{
+.top-menu-item-center {
     position: relative;
-    width:50%;
+    width: 50%;
     background-color: #cd002e;
 }
 
-.top-menu-item-right{
-    width:25%;
+.top-menu-item-right {
+    width: 25%;
     background-color: #cd002e;
     float: right;
 }
 
-.menu-trigger{
+.menu-trigger {
     width: 100%;
     text-align: center;
     margin-top: 22px;
 }
 
-a.menu-trigger-link{
+a.menu-trigger-link {
     color: #fff;
     text-decoration: none;
-    font: 20px "HelveticaNeue-Light",Helvetica Neue Light,Helvetica,Arial,sans-serif;
+    font: 20px "HelveticaNeue-Light", Helvetica Neue Light, Helvetica, Arial, sans-serif;
 }
 
-.logo{
+.logo {
+    cursor: pointer;
+    margin-top: 18px;
     width: 152px;
     height: 35px;
-    margin-top: 18px;
+}
+    .logo__image {
+        width: 100%;
+        height: 100%;
+    }
+
+#logo {
     cursor: pointer;
 }
 
-#logo{
-    cursor: pointer;
-}
-
-.toggler-sign{
+.toggler-sign {
     display: inline-block;
     width: 14px;
     transition: transform .25s ease-out 0s;
@@ -71,7 +76,7 @@ a.menu-trigger-link{
     transform: rotate(0deg);
 }
 
-.toggler-sign-opened{
+.toggler-sign-opened {
     display: inline-block;
     width: 14px;
     transition: transform .25s ease-out 0s;
@@ -82,7 +87,7 @@ a.menu-trigger-link{
     transform: rotate(-180deg);
 }
 
-.get-free-app-wrapper{
+.get-free-app-wrapper {
     width: 100%;
     border-radius: 25px;
     border: 1px solid #fff;
@@ -90,17 +95,17 @@ a.menu-trigger-link{
     margin-top: 30px;
 }
 
-.get-free-app{
+.get-free-app {
     margin: 0 auto;
     color: #fff;
     text-decoration: none;
 }
 
-.get-free-app:hover{
+.get-free-app:hover {
     text-decoration: none;
 }
 
-.app-button{
+.app-button {
     float: right;
     padding-top: 2px;
 }
@@ -112,14 +117,12 @@ a.menu-trigger-link{
     margin-top: 16px;
     font-size: 16px;
     line-height: 2pc;
-    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     border: 2px solid #fff;
     border-radius: 20px;
     background: transparent;
     color: #fff;
 }
-
-
 
 /* TODO: not in header css? */
 /* TODO: phone screen width? */
@@ -127,25 +130,113 @@ a.menu-trigger-link{
     width: 800px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 640px) {
+    .post-page-width-correction {
+        width: auto;
+    }
+
+    .top-panel {
+        display: flex;
+        align-items: center;
+    }
+
+    .top-menu-item {
+        flex: 1;
+        width: auto;
+        height: auto;
+    }
+
+    .menu-trigger {
+        margin: 0;
+    }
+
     .header {
         width: 100%;
     }
-    .top-panel {
-        width: auto;
-        display: flex;
+
+    .logo {
+        margin: 0;
+        height: 32px;
+        width: 137px;
     }
-    .top-menu-item {
-        flex: 1;
-    }
-    .top-menu-item-left {
-        display: none;
-    }
-    .post-page-width-correction {
-        width: 100%;
-    }
+
     .app-button {
-        float: none;
-        white-space: nowrap;
+        padding: 0;
+    }
+
+    .get-free-app-button {
+        margin: 0;
+        line-height: 26px;
+        font-size: 1pc;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    a.menu-trigger-link {
+        font-size: 1pc;
+        line-height: 26px;
+    }
+
+    .toggler-sign {
+        width: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo {
+        height: 22px;
+        width: 94px;
+    }
+
+    .get-free-app-button {
+        border: 1px solid #fff;
+        line-height: 18px;
+        font-size: 9pt;
+        padding-right: 1pc;
+        padding-left: 1pc;
+    }
+
+    a.menu-trigger-link {
+        font-size: 9pt;
+        line-height: 18px;
+    }
+
+    .toggler-sign {
+        width: 10px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .logo {
+        height: 32px;
+        width: 137px;
+    }
+
+    a.menu-trigger-link {
+        font-size: 1pc;
+        line-height: 26px;
+    }
+
+    .top-panel {
+        flex-wrap: wrap;
+    }
+
+    .top-menu-item-left {
+        order: 1;
+        flex-basis: 50%;
+    }
+
+    .top-menu-item-center {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .top-menu-item-right {
+        order: 2;
+        flex-basis: 50%;
+    }
+
+    .toggler-sign {
+        width: 12px;
     }
 }
