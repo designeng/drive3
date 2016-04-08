@@ -29,8 +29,9 @@ export default function getBodyHtml(postsBlock, getCarcassFn, posts, channels, c
 
     let lastPostId = lastPost.Id;
     let sharedData = { lastPostId, channels, channel, postId, hasMore };
+    let postData = postId ? lastPost : null;
     
-    const pageHtml = getCarcassFn(postsBlock, channel, sharedData);
+    const pageHtml = getCarcassFn(postsBlock, channel, sharedData, postData);
 
     return {
         html: pageHtml

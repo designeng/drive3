@@ -48,3 +48,10 @@
             };
         });
     }
+
+// var setSocialNetworkMeta = function(title, description, image) {
+//     <meta name="twitter:card" content="summary">
+//     <meta name="twitter:title" content="Page Title">
+//     <meta name="twitter:description" content="Page description less than 200 characters">
+//     <meta name="twitter:image" content="">
+// }
