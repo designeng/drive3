@@ -23,6 +23,9 @@
 
 .opened {
     -webkit-transform: translate(0, 471px);
+    -moz-transition: translate(0, 471px);
+    -o-transition: translate(0, 471px);
+    transition: translate(0, 471px);
 }
 
 .channels-menu li {
