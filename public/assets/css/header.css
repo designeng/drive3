@@ -126,3 +126,26 @@ a.menu-trigger-link{
 .post-page-width-correction {
     width: 800px;
 }
+
+@media screen and (max-width: 800px) {
+    .header {
+        width: 100%;
+    }
+    .top-panel {
+        width: auto;
+        display: flex;
+    }
+    .top-menu-item {
+        flex: 1;
+    }
+    .top-menu-item-left {
+        display: none;
+    }
+    .post-page-width-correction {
+        width: 100%;
+    }
+    .app-button {
+        float: none;
+        white-space: nowrap;
+    }
+}
