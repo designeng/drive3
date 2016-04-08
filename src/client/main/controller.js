@@ -45,8 +45,6 @@ controller.prototype.listenToScroll = function(loadAdditionalPosts, invocationEn
                     fromPostId: this.lastPostId
                 });
                 loadAdditionalPosts.call(null, invocationEnvironment).then(context => {
-                    console.log("context.posts", context.posts.length);
-
                     this.postsContainer.append(context.postsBlock);
 
                     const { channel, postsBlock, postsIds } = context;
