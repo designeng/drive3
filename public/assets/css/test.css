@@ -1,0 +1,38 @@
+.header {
+    width: 100%;
+    height: 72px;
+    position: fixed;
+    z-index: 100;
+    background-color: #cd002e;
+}
+
+.channels-menu-wrapper {
+    position: fixed;
+    top: -423px;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    width: 600px;
+}
+
+.channels-menu {
+    margin: 0 auto;
+    background-color: #cd002e;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: scroll;
+    height: 430px;
+    -webkit-transition: 300ms ease-in-out;
+    -moz-transition: 300ms ease-in-out;
+    -o-transition: 300ms ease-in-out;
+    transition: 300ms ease-in-out;
+}
+
+.opened {
+    top: 0px;
+    -webkit-transform: translate(0, 471px);
+    -moz-transition: translate(0, 471px);
+    -o-transition: translate(0, 471px);
+    transition: translate(0, 471px);
+}
