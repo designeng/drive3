@@ -1,8 +1,8 @@
 import $ from 'jquery';
-import detectBrowser from '../../../utils/detectBrowser';
 
 export default function controller() {
     this.channelsMenu = $('.channels-menu');
+    this.channelsMenuWrapper = $('.channels-menu-wrapper');
     this.channelsMenuToggler = $('.menu-trigger-link');
     this.channelsMenuTogglerSign = $('.toggler-sign');
 
@@ -35,17 +35,13 @@ export default function controller() {
 
     $('body').on('click', (e) => {
         if(this.channelsMenu.hasClass('opened')) {
-            toggleMenu();
+            this.toggleMenu();
         }
     });
 }
 
-controller.prototype.activateMenu = function() {
-    let browser = detectBrowser();
-}
-
 controller.prototype.toggleMenu = function() {
-    this.channelsMenu.toggleClass('opened');
     this.channelsMenuToggler.toggleClass('toggler-opened');
     this.channelsMenuTogglerSign.toggleClass('toggler-sign-opened');
+    this.channelsMenu.toggleClass('opened');
 }

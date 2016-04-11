@@ -3,15 +3,12 @@ import menuController  from './controller';
 
 export default {
     $plugins: [
-        wireDebugPlugin
+        // wireDebugPlugin
     ],
 
     menuController: {
         create: {
             module: menuController
-        },
-        ready: {
-            activateMenu: {}
         }
     },
 }
