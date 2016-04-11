@@ -1,17 +1,13 @@
-import wire         from 'essential-wire';
-import pipeline     from 'when/pipeline';
-import chalk        from 'chalk';
+import pipeline         from 'when/pipeline';
 
-import expressSpec  from './express.spec';
+import expressSpec      from './express.spec';
+import { createTask }   from './utils/tasks';
 
-import Timer    from './utils/timer';
+import Timer            from './utils/timer';
+import chalk            from 'chalk';
 
 let timer = new Timer();
 
-const expressTask = (context) => {
-    return wire(expressSpec);
-}
-
-pipeline([expressTask]).then(context => {
+pipeline([createTask(expressSpec)]).then(context => {
     console.log(chalk.blue("Wiring time: " + timer.end()));
 }).otherwise(error => console.error("ERROR:::", error));
