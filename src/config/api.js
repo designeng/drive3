@@ -1,6 +1,6 @@
 const config = {
     protocol: 'http',
-    host: 'api-test.d3-x.net'
+    host: 'api.d3-x.net'
 }
 
 const endpoints = {
