@@ -63,5 +63,67 @@
         </li>
 </ul></div>
 </section>
+
+<header class='header'>
+    <ul class='top-panel '>
+        <li class='top-menu-item top-menu-item-left'>
+            <a class="logo" href="/">
+                <img src="/assets/images/logo.png" class="logo__image"/>
+            </a>
+        </li>
+        <li class='top-menu-item top-menu-item-center'>
+            <div class='menu-trigger'><a href="/" class="menu-trigger-link">Compact Cars <img class="toggler-sign" src="/assets/images/selector.svg"/></a></div>
+        </li>
+        <li class='top-menu-item top-menu-item-right'>
+            <div class="app-button"><a class="get-free-app-button" href="http://www.getdrivenow.com/?ref=header">Get Free App</a></div></li>
+    </ul>
+</header>
+
+<script>
+(function() {
+    var channelsMenu = $('.channels-menu');
+    var channelsMenuToggler = $('.menu-trigger-link');
+    var channelsMenuTogglerSign = $('.toggler-sign');
+
+    function toggleMenu() {
+        channelsMenu.toggleClass('opened');
+        channelsMenuToggler.toggleClass('toggler-opened');
+        channelsMenuTogglerSign.toggleClass('toggler-sign-opened');
+    }
+
+    channelsMenuToggler.on('click', function(e){
+        toggleMenu();
+        e.preventDefault();
+        e.stopPropagation();
+    });
+
+    channelsMenu.on('click', function(e){
+        toggleMenu();
+        e.stopPropagation();
+    });
+
+    channelsMenu.on('mousewheel DOMMouseScroll', function(e) {
+        var scrollTo = null;
+
+        if(e.type === 'mousewheel') {
+            scrollTo = (e.originalEvent.wheelDelta * -1);
+        }
+        else if(e.type === 'DOMMouseScroll') {
+            scrollTo = 40 * e.originalEvent.detail;
+        }
+
+        if(scrollTo) {
+            e.preventDefault();
+            $(this).scrollTop(scrollTo + $(this).scrollTop());
+        }
+    });
+
+    $('body').on('click', function(e){
+        if(channelsMenu.hasClass('opened')) {
+            toggleMenu();
+        }
+    });
+})();
+</script>
 </body>
 </html>
