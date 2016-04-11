@@ -50,20 +50,14 @@ a.menu-trigger-link {
     font: 20px "HelveticaNeue-Light", Helvetica Neue Light, Helvetica, Arial, sans-serif;
 }
 
-.logo {
-    cursor: pointer;
+a.logo {
+}
+
+.logo__image {
     margin-top: 18px;
     margin-left: -3px;
     width: 152px;
     height: 35px;
-}
-    .logo__image {
-        width: 100%;
-        height: 100%;
-    }
-
-#logo {
-    cursor: pointer;
 }
 
 .toggler-sign {

@@ -1,12 +1,13 @@
 import wire from 'essential-wire';
 import pipeline from 'when/pipeline';
 
-import { createTask }  from '../../utils/tasks';
+import { createTasks }  from '../../utils/tasks';
 
+import channelMenuSpec from './menu/channel.menu.spec';
 import clientSpec from './client.spec';
 
-const run = (spec) => {
-    const tasks = [createTask(spec)];
+const run = (specs) => {
+    const tasks = createTasks(specs)
 
     pipeline(tasks).then(
         (context) => {
@@ -17,4 +18,4 @@ const run = (spec) => {
     );
 }
 
-run(clientSpec);
+run([channelMenuSpec, clientSpec]);
