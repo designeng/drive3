@@ -42,7 +42,8 @@ export default {
                 {$ref: 'invocationEnvironment'},
                 postId,
                 hasMore
-            ]
+            ],
+            activateMenu: {}
         }
     },
 

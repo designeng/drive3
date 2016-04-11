@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import _ from 'underscore';
+import detectBrowser from '../../utils/detectBrowser';
 
 const getChannelKey = (id) => {
     return 'channel-' + id;
@@ -92,6 +93,11 @@ controller.prototype.getLastStoredChannelPostId = function(channel) {
     } else {
         return null;
     }
+}
+
+controller.prototype.activateMenu = function() {
+    let browser = detectBrowser();
+    console.log("browser:::", browser);
 }
 
 controller.prototype.testForDuplicatedPosts = function() {
