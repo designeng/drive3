@@ -17,6 +17,7 @@ export default function controller() {
         e.stopPropagation();
     });
 
+    // prevent backend div scrolling
     this.channelsMenu.on('mousewheel DOMMouseScroll', function(e) {
         var scrollTo = null;
 
@@ -33,6 +34,7 @@ export default function controller() {
         }
     });
 
+    // close menu on click outside
     $('body').on('click', (e) => {
         if(this.channelsMenu.hasClass('opened')) {
             this.toggleMenu();
