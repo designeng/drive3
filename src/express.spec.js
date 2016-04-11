@@ -4,8 +4,10 @@ import expressRoutingMiddlewarePlugin from './plugins/express/routing';
 import webpackMiddlewarePlugin        from './plugins/express/webpack/middleware';
 
 import routes from './routes';
-
 import webpackConfig from '../webpack.config';
+
+const apiHost       = 'http://api.d3-x.net';
+const apiHostTest   = 'http://api-test.d3-x.net';
 
 export default {
     $plugins: [
@@ -29,8 +31,8 @@ export default {
         },
         proxyMiddleware: {
             routes: [
-                {url: '/api/posts', originUrl: 'http://api-test.d3-x.net/posts'},
-                {url: '/api/posts/channels/:channelIds', originUrl: 'http://api-test.d3-x.net/posts/channels'},
+                {url: '/api/posts', originUrl: apiHost + '/posts'},
+                {url: '/api/posts/channels/:channelIds', originUrl: apiHost + '/posts/channels'},
             ]
         },
         routeMiddleware: {
