@@ -24,9 +24,9 @@
 .opened {
     top: 0px;
     -webkit-transform: translate(0, 471px);
-    -moz-transition: translate(0, 471px);
-    -o-transition: translate(0, 471px);
-    transition: translate(0, 471px);
+    -moz-transform: translate(0, 471px);
+    -o-transform: translate(0, 471px);
+    transform: translate(0, 471px);
 }
 
 .channels-menu li {
