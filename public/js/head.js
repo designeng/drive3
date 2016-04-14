@@ -1,5 +1,7 @@
 var createMagnificPopup = function(selector) {
-    $(selector).magnificPopup({
+    var element = $(selector),
+        elementBg;
+    element.magnificPopup({
         type:'image',
         midClick: true,
         closeOnContentClick: true,
@@ -10,6 +12,15 @@ var createMagnificPopup = function(selector) {
             easing: 'ease-in-out',
             opener: function(openerElement) {
                 return openerElement;
+            }
+        },
+        callbacks: {
+            beforeOpen: function() {
+                elementBg = element.css('background-image');
+                element.css('background-image', 'none');
+            },
+            close: function() {
+                element.css('background-image', elementBg);
             }
         }
     });
