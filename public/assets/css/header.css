@@ -138,10 +138,16 @@ a.logo {
     position: fixed;
     z-index: 4;
     background-color: #e8e8e8;
-    text-align: center;
-    font: 16px/1.5 "HelveticaNeue",Helvetica Neue,Helvetica,Arial,sans-serif;
+    text-align: left;
+    font: 14px/1.5 "HelveticaNeue",Helvetica Neue,Helvetica,Arial,sans-serif;
     margin-left:auto;
     margin-right:auto;
+    display: none;
+}
+
+.notification-message {
+    margin: 0 auto;
+    max-width: 600px;
 }
 
 .notification p {
@@ -154,14 +160,11 @@ a.notification-link {
 
 .notification-close-button {
     position: absolute;
-    right: 0;
+    right: 20px;
+    top: 8px;
     width: 20px;
     height: 20px;
     cursor: pointer;
-}
-
-.notification-close-button:after {
-    content: "X";
 }
 
 @media screen and (max-width: 640px) {
