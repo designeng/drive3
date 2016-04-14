@@ -7,6 +7,13 @@ import getChannels       from './getChannels';
 
 import { getEndpoint }   from '../../config/api';
 
+import socialButtons    from '../../templates/build/partials/socialButtons';
+import registerPartials from '../../utils/handlebars/registerPartials';
+
+registerPartials({
+    socialButtons,
+});
+
 export default {
     $plugins: [
         // wireDebugPlugin,

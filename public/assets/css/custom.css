@@ -143,6 +143,18 @@ a.channel-reference {
 .likely--drive .likely__counter{padding:2px 3px}
 .likely--drive svg{height:18pt;width:18pt;top:3px;left:3px}
 
+.likely--feed .likely__widget {
+    font-size: 14px;
+    border-radius: 18px;
+    height: 22px;
+    width: 22px;
+    margin: 0 5px 10px;
+}
+
+.likely--feed .likely__counter_pinterest {
+    display: none;
+}
+
 
 .social-buttons{text-align:center;line-height:0}
 
