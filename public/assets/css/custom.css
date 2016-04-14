@@ -39,11 +39,9 @@ ul.top-menu-wrapper li {
 }
 
 .post-content {
-    text-align: justify;
 }
 
 a.post-content-link {
-    text-align: justify;
     text-decoration: none;
     font-size: 16px;
     color: #000;
