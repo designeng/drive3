@@ -9,6 +9,8 @@
 
 .channels-menu {
     margin: 0 auto;
+    margin-left: 160px;
+    margin-right: 160px;
     background-color: #cd002e;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -17,16 +19,6 @@
     -moz-transition: 300ms ease-in-out;
     -o-transition: 300ms ease-in-out;
     transition: 300ms ease-in-out;
-}
-
-.channels-menu-feed {
-    margin-left: 160px;
-    margin-right: 160px;
-}
-
-.channels-menu-post {
-    margin-left: 100px;
-    margin-right: 100px;
 }
 
 .opened {
