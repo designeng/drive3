@@ -3,7 +3,7 @@ import pipeline from 'when/pipeline';
 
 import { createTasks }  from '../../utils/tasks';
 
-import channelMenuSpec from './menu/channel.menu.spec';
+import headerSpec from './header/spec';
 import clientSpec from './client.spec';
 
 const run = (specs) => {
@@ -18,4 +18,4 @@ const run = (specs) => {
     );
 }
 
-run([channelMenuSpec, clientSpec]);
+run([headerSpec, clientSpec]);

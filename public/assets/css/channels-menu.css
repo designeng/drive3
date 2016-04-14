@@ -1,5 +1,6 @@
 .channels-menu-wrapper {
     position: fixed;
+    z-index: 5;
     top: -407px;
     left:0;
     right:0;

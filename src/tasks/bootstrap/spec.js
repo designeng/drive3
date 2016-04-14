@@ -8,10 +8,12 @@ import getChannels       from './getChannels';
 import { getEndpoint }   from '../../config/api';
 
 import socialButtons    from '../../templates/build/partials/socialButtons';
+import notification     from '../../templates/build/partials/notification';
 import registerPartials from '../../utils/handlebars/registerPartials';
 
 registerPartials({
     socialButtons,
+    notification
 });
 
 export default {

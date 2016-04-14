@@ -131,6 +131,39 @@ a.logo {
     max-width: 600px;
 }
 
+.notification {
+    width: 100%;
+    height: 36px;
+    top: 72px;
+    position: fixed;
+    z-index: 4;
+    background-color: #e8e8e8;
+    text-align: center;
+    font: 16px/1.5 "HelveticaNeue",Helvetica Neue,Helvetica,Arial,sans-serif;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.notification p {
+    margin-top: 5px;
+}
+
+a.notification-link {
+    color: #000;
+}
+
+.notification-close-button {
+    position: absolute;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.notification-close-button:after {
+    content: "X";
+}
+
 @media screen and (max-width: 640px) {
     .post-page-width-correction {
         width: auto;
