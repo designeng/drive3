@@ -5,14 +5,14 @@
     right:0;
     margin-left:auto;
     margin-right:auto;
-    width: 600px;
 }
 
 .channels-menu {
     margin: 0 auto;
     background-color: #cd002e;
-    overflow: scroll;
-    height: 430px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 418px;
     -webkit-transition: 300ms ease-in-out;
     -moz-transition: 300ms ease-in-out;
     -o-transition: 300ms ease-in-out;

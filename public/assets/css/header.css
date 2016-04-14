@@ -123,8 +123,12 @@ a.logo {
 
 /* TODO: not in header css? */
 /* TODO: phone screen width? */
-.post-page-width-correction {
+.post-page-wide-correction {
     max-width: 800px;
+}
+
+.post-page-narrow-correction {
+    max-width: 600px;
 }
 
 @media screen and (max-width: 640px) {

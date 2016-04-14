@@ -2,7 +2,8 @@ import carcass  from '../../templates/build/carcass';
 import body     from '../../templates/build/body';
 import getSocialMeta from './getSocialMeta';
 
-const postPageWidthCorrection = 'post-page-width-correction';
+const postPageWideCorrection    = 'post-page-wide-correction';
+const postPageNarrowCorrection  = 'post-page-narrow-correction';
 
 export default function getCarcassFn(channelsMenu, postId) {
     return (content, channel, sharedData, postData) => {
@@ -11,7 +12,7 @@ export default function getCarcassFn(channelsMenu, postId) {
             channel,
             content,
             sharedData: JSON.stringify(sharedData),
-            contentCorrectionClasses: postId ? postPageWidthCorrection : ''
+            contentCorrectionClasses: postId ? postPageWideCorrection : postPageNarrowCorrection
         })
         return carcass({
             socialMeta: postData ? getSocialMeta(postData) : void 0,
