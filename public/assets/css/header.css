@@ -26,11 +26,12 @@
     width: 25%;
     background-color: #cd002e;
     float: left;
+    margin-left: 20px;
 }
 
 .top-menu-item-center {
     position: relative;
-    width: 50%;
+    width: 43%;
     background-color: #cd002e;
 }
 
@@ -38,6 +39,7 @@
     width: 25%;
     background-color: #cd002e;
     float: right;
+    margin-right: 20px;
 }
 
 .menu-trigger {
@@ -57,7 +59,7 @@ a.logo {
 
 .logo__image {
     margin-top: 18px;
-    margin-left: -6px;
+    margin-left: -5px;
     width: 152px;
     height: 35px;
 }
@@ -152,6 +154,7 @@ a.logo {
 
 .notification p {
     margin-top: 8px;
+    margin-left: 20px;
 }
 
 a.notification-link {
