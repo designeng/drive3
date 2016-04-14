@@ -18,6 +18,7 @@ var createMagnificPopup = function(selector) {
             beforeOpen: function() {
                 elementBg = element.css('background-image');
                 element.css('background-image', 'none');
+                element.css('background-color', '#fff');
             },
             close: function() {
                 element.css('background-image', elementBg);
