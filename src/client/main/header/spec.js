@@ -15,7 +15,8 @@ export default {
 
     notification: {
         create: {
-            module: notification
+            module: notification,
+            isConstructor: true
         }
     }
 

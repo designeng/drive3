@@ -8,7 +8,3 @@ export default function notification() {
         this.notification.hide();
     });
 }
-
-notification.prototype.doSmth = function() {
-    
-}
