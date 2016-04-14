@@ -6,7 +6,7 @@ import notificationTemplate from '../../../templates/build/notification';
 
 export default {
     $plugins: [
-        wireDebugPlugin
+        // wireDebugPlugin
     ],
 
     menuController: {
