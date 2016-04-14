@@ -30,9 +30,9 @@ export default {
             module: controller
         },
         ready: {
-            prependExtraPost: [
-                {$ref: 'extraPost'},
-            ],
+            // prependExtraPost: [
+            //     {$ref: 'extraPost'},
+            // ],
             loadFromLocalChannel: [
                 {$ref: 'invocationEnvironment.channel'},
                 {$ref: 'invocationEnvironment.postId'}
