@@ -1,6 +1,6 @@
 .channels-menu-wrapper {
     position: fixed;
-    top: -423px;
+    top: -407px;
     left:0;
     right:0;
     margin-left:auto;
@@ -11,14 +11,22 @@
 .channels-menu {
     margin: 0 auto;
     background-color: #cd002e;
-    margin-left: 160px;
-    margin-right: 160px;
     overflow: scroll;
     height: 430px;
     -webkit-transition: 300ms ease-in-out;
     -moz-transition: 300ms ease-in-out;
     -o-transition: 300ms ease-in-out;
     transition: 300ms ease-in-out;
+}
+
+.channels-menu-feed {
+    margin-left: 160px;
+    margin-right: 160px;
+}
+
+.channels-menu-post {
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .opened {
@@ -32,13 +40,19 @@
 .channels-menu li {
     list-style-type: none;
     text-align: center;
-    margin: 20px 0 20px 0;
+}
+
+.channels-menu li:hover {
+    background-color: #CC3366;
 }
 
 .channels-menu li a {
     color: #fff;
     text-decoration: none;
     font: 20px "HelveticaNeue-Light",Helvetica Neue Light,Helvetica,Arial,sans-serif;
+    display:block;
+    height: 100%;
+    padding: 10px 0 10px 0;
 }
 
 @media screen and (max-width: 800px) {

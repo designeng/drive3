@@ -4,6 +4,8 @@
     position: fixed;
     z-index: 100;
     background-color: #cd002e;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .top-panel {
