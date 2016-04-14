@@ -11,8 +11,8 @@
 .channels-menu {
     margin: 0 auto;
     background-color: #cd002e;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 160px;
+    margin-right: 160px;
     overflow: scroll;
     height: 430px;
     -webkit-transition: 300ms ease-in-out;
