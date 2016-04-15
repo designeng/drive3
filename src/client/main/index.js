@@ -1,7 +1,7 @@
 import wire from 'essential-wire';
 import pipeline from 'when/pipeline';
 
-import { createTasks }  from '../../utils/tasks';
+import { createTasks, createTask }  from '../../utils/tasks';
 
 import headerSpec from './header/spec';
 import clientSpec from './client.spec';
@@ -18,4 +18,17 @@ const run = (specs) => {
     );
 }
 
-run([headerSpec, clientSpec]);
+const {channels, channel, postId, hasMore} = window.__sharedData__;
+
+const zeroSpec = {
+    invocationEnvironment: {
+        channel, 
+        postId, 
+        channels,
+        hasMore,
+        comments: null,
+        mode: 'client'
+    }
+}
+
+run([zeroSpec, headerSpec, clientSpec]);
