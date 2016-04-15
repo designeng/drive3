@@ -4,6 +4,8 @@ import notification    from './notification';
 
 import notificationTemplate from '../../../templates/build/notification';
 
+let postId = window.__sharedData__.postId;
+
 export default {
     $plugins: [
         // wireDebugPlugin
@@ -26,7 +28,8 @@ export default {
         },
         ready: {
             displayNotificationBlock: [
-                {$ref: 'notificationBlock'}
+                {$ref: 'notificationBlock'},
+                postId
             ]
         }
     }
