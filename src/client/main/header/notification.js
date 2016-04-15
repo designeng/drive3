@@ -5,12 +5,12 @@ export default function notification() {
     this.postsWrapper = $('#posts-wrapper');
 }
 
-notification.prototype.displayNotificationBlock = function(notificationBlock, invocationEnvironment) {
+notification.prototype.displayNotificationBlock = function(notificationBlock) {
     let displayCountLimit = 3;
     let count = parseInt(localStorage.getItem('extra-notification-count'));
     if(isNaN(count)) count = 0;
 
-    if(!count || count < displayCountLimit && !invocationEnvironment.postId) {
+    if(!count || count < displayCountLimit) {
         let topCorrectionClass = 'content-top-correction';
         this.postsWrapper.addClass(topCorrectionClass);
 

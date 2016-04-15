@@ -11,6 +11,16 @@ export default function controller() {
     this.contentPreloader = $('.content-preloader');
 }
 
+controller.prototype.prependExtraPost = function(extraPost) {
+    // TODO: uncomment after debugging
+    if(!localStorage.getItem('extra')) {
+        this.postsContainer.prepend(extraPost);
+        localStorage.setItem('extra', true);
+    }
+
+    // this.postsContainer.prepend(extraPost);
+}
+
 controller.prototype.loadFromLocalChannel = function(channel, postId) {
     if(!postId) {
         let channelKey = getChannelKey(channel.id);

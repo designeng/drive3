@@ -26,8 +26,7 @@ export default {
         },
         ready: {
             displayNotificationBlock: [
-                {$ref: 'notificationBlock'},
-                {$ref: 'invocationEnvironment'}
+                {$ref: 'notificationBlock'}
             ]
         }
     }
