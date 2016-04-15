@@ -148,6 +148,17 @@ function cssAssets(resolver, facet, wire) {
     resolver.resolve(target);
 }
 
+function rssMiddleware(resolver, facet, wire) {
+    const target = facet.target;
+
+    target.get("/dev.rss", function (req, res) {
+        let result = fs.readFileSync(main);
+        res.status(200).end(result);
+    });
+
+    resolver.resolve(target);
+}
+
 export default function routeMiddlewarePlugin(options) {
     return {
         facets: {
@@ -171,7 +182,7 @@ export default function routeMiddlewarePlugin(options) {
             },
             cssAssets: {
                 'initialize:after': cssAssets
-            }
+            },
         }
     }
 }

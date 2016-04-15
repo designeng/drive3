@@ -2,6 +2,7 @@ import wireDebugPlugin      from 'essential-wire/source/debug';
 import expressAppPlugin     from './plugins/express/application';
 import expressRoutingMiddlewarePlugin from './plugins/express/routing';
 import webpackMiddlewarePlugin        from './plugins/express/webpack/middleware';
+import rssMiddlewarePlugin  from './plugins/express/rss';
 
 import routes from './routes';
 import webpackConfig from '../webpack.config';
@@ -14,7 +15,8 @@ export default {
         // wireDebugPlugin,
         expressAppPlugin,
         expressRoutingMiddlewarePlugin,
-        webpackMiddlewarePlugin
+        webpackMiddlewarePlugin,
+        rssMiddlewarePlugin
     ],
 
     app: {
@@ -37,6 +39,9 @@ export default {
         },
         routeMiddleware: {
             routes: routes
+        },
+        rssMiddleware: {
+            route: '/dev.rss'
         },
         clientTestMiddleware: {
             routes: [
