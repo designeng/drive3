@@ -249,6 +249,18 @@ a.notification-link {
     .toggler-sign {
         width: 10px;
     }
+
+    .notification {
+        height: 60px;
+    }
+
+    .notification-message {
+        margin-right: 40px;
+    }
+
+    .content-top-correction {
+        padding-top: 110px;
+    }
 }
 
 @media screen and (max-width: 350px) {
@@ -283,5 +295,17 @@ a.notification-link {
 
     .toggler-sign {
         width: 12px;
+    }
+
+    .notification {
+        height: 60px;
+    }
+
+    .notification-message {
+        margin-right: 40px;
+    }
+
+    .content-top-correction {
+        padding-top: 110px;
     }
 }
