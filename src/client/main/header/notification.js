@@ -6,19 +6,25 @@ export default function notification() {
 }
 
 notification.prototype.displayNotificationBlock = function(notificationBlock) {
-    if(!localStorage.getItem('extra-notification')) {
+    let displayCountLimit = 3;
+    let count = parseInt(localStorage.getItem('extra-notification-count'));
+    if(isNaN(count)) count = 0;
+
+    if(!count || count < displayCountLimit) {
         let topCorrectionClass = 'content-top-correction';
         this.postsWrapper.addClass(topCorrectionClass);
 
         this.notification.append(notificationBlock);
         this.notification.show();
+        count++;
+        localStorage.setItem('extra-notification-count', count);
 
         this.notificationCloseButton = $('.notification-close-button');
 
         this.notificationCloseButton.on('click', (e) => {
             this.notification.hide();
             this.postsWrapper.removeClass(topCorrectionClass);
-            localStorage.setItem('extra-notification', true);
+            localStorage.setItem('extra-notification-count', displayCountLimit);
         });
     }
 }
