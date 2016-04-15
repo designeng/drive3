@@ -60,9 +60,16 @@ function routeMiddleware(resolver, facet, wire) {
 function routeNotFoundMiddleware(resolver, facet, wire) {
     const target = facet.target;
 
+    const drive2comHost = 'https://www.drive2.com';
+    const drive2comRegex = /^\/[aorlcpb]\/|\/users\/?|\/communities\/?|\/cars\/?|\/election\/?|\/help\/?|\/popular\/?|\/top\/?|\/experience\/?|\/my\//;
+
     target.get("/*", function (req, res) {
-        console.log(chalk.red("NOT FOUND:::", req.url));
-        res.redirect('/');
+        if(req.url.match(drive2comRegex)) {
+            res.redirect(drive2comHost + req.url);
+        } else {
+            console.log(chalk.red("NOT FOUND:::", req.url));
+            res.redirect('/');
+        }
     });
 
     resolver.resolve(target);
