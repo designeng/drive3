@@ -3,9 +3,7 @@ import requestPlugin     from '../../plugins/api/request';
 
 import { postsBlockHtml, preparePosts, getItemsIds, hasMore } from './preprocessors';
 
-import { getEndpoint } from '../../config/api';
-
-const loadingCount = 7;
+import postsEndpoint from './postsEndpoint';
 
 export default {
     $plugins: [
@@ -16,26 +14,7 @@ export default {
     // mockPosts for development, use 'posts' / 'mockPosts'
     postsEndpoint: {
         create: {
-            module: (channel, postId, fromPostId, mode) => {
-                if(mode === 'server') {
-                    if(postId) {
-                        return [getEndpoint('postById'), postId, {comments: true}];
-                    } else if(channel.id) {
-                        return [getEndpoint('postsByChannels'), channel.id, {limit: loadingCount, comments: true}];
-                    } else {
-                        return [getEndpoint('posts'), {limit: loadingCount}];
-                    }
-                } else {
-                    // client mode
-                    if(postId) {
-                        return [getEndpoint('postById'), postId, {comments: true}];
-                    } else if(channel.id) {
-                        return [getEndpoint('postsByChannels', null, 'local'), channel.id, {limit: loadingCount, fromPostId, comments: true}];
-                    } else {
-                        return [getEndpoint('posts', null, 'local'), {limit: loadingCount, fromPostId, comments: true}];
-                    }
-                }
-            },
+            module: postsEndpoint,
             args: [
                 {$ref: 'channel'},
                 {$ref: 'postId'},
