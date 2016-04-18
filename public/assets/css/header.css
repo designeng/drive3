@@ -228,6 +228,14 @@ a.notification-link {
 }
 
 @media screen and (max-width: 480px) {
+    .top-menu-item-left {
+        margin-left: 0px;
+    }
+
+    .top-menu-item-right {
+        margin-right: 0px;
+    }
+
     .logo {
         height: 22px;
         width: 94px;
@@ -281,6 +289,7 @@ a.notification-link {
     .top-menu-item-left {
         order: 1;
         flex-basis: 50%;
+        margin-left: 0px;
     }
 
     .top-menu-item-center {
@@ -291,6 +300,7 @@ a.notification-link {
     .top-menu-item-right {
         order: 2;
         flex-basis: 50%;
+        margin-right: 0px;
     }
 
     .toggler-sign {
